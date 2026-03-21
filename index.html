@@ -1,0 +1,723 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>B.M.Dharaneesh | Chemical Engineer</title>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;0,700;1,400;1,600&family=IBM+Plex+Sans:wght@300;400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet"/>
+  <style>
+    :root {
+      --bg:        #ffffff;
+      --bg2:       #fdf8f2;
+      --bg3:       #f5ece0;
+      --accent:    #e07b0a;
+      --accent-d:  #b85f00;
+      --accent-l:  #fff3e0;
+      --text:      #1c1c2e;
+      --text2:     #3d3d52;
+      --muted:     #7a7a96;
+      --border:    #e8d5be;
+      --border-s:  rgba(224,123,10,0.25);
+      --shadow:    0 4px 24px rgba(224,123,10,0.10);
+      --shadow-l:  0 12px 40px rgba(224,123,10,0.18);
+    }
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; }
+    body { font-family: 'IBM Plex Sans', sans-serif; background: var(--bg); color: var(--text); overflow-x: hidden; }
+
+    /* SCROLLBAR */
+    ::-webkit-scrollbar { width: 5px; }
+    ::-webkit-scrollbar-track { background: var(--bg2); }
+    ::-webkit-scrollbar-thumb { background: var(--accent); border-radius: 3px; }
+
+    /* NAV */
+    nav {
+      position: fixed; top: 0; left: 0; right: 0; z-index: 200;
+      display: flex; align-items: center; justify-content: space-between;
+      padding: 0 4rem; height: 64px;
+      background: rgba(255,255,255,0.93);
+      backdrop-filter: blur(16px);
+      border-bottom: 1.5px solid var(--border);
+    }
+    .nav-logo {
+      display: flex; align-items: center; gap: 0.6rem;
+      font-family: 'IBM Plex Mono', monospace;
+      font-size: 0.88rem; font-weight: 500; color: var(--text);
+    }
+    .nav-dot { width: 9px; height: 9px; border-radius: 50%; background: var(--accent); }
+    .nav-links { display: flex; gap: 2.5rem; list-style: none; }
+    .nav-links a {
+      text-decoration: none; color: var(--muted);
+      font-size: 0.8rem; font-weight: 500;
+      letter-spacing: 0.08em; text-transform: uppercase;
+      transition: color 0.2s; position: relative;
+    }
+    .nav-links a::after {
+      content: ''; position: absolute; bottom: -4px; left: 0;
+      width: 0; height: 2px; background: var(--accent); transition: width 0.25s;
+    }
+    .nav-links a:hover { color: var(--accent); }
+    .nav-links a:hover::after { width: 100%; }
+    .nav-cta {
+      padding: 0.48rem 1.3rem; background: var(--accent); color: #fff;
+      font-size: 0.78rem; font-weight: 600; letter-spacing: 0.06em;
+      text-transform: uppercase; border: none; cursor: pointer;
+      text-decoration: none; border-radius: 2px;
+      transition: background 0.2s, transform 0.2s;
+    }
+    .nav-cta:hover { background: var(--accent-d); transform: translateY(-1px); }
+
+    /* HERO */
+    #home {
+      position: relative; min-height: 100vh;
+      display: grid; grid-template-columns: 1fr 1fr;
+      align-items: center; padding: 6rem 4rem 0;
+      background: var(--bg2); overflow: hidden;
+    }
+    .mol-bg-hero {
+      position: absolute; inset: 0; pointer-events: none;
+      opacity: 0.06; z-index: 0;
+    }
+    .float-formula {
+      position: absolute; font-family: 'IBM Plex Mono', monospace;
+      font-size: 0.78rem; color: var(--accent); opacity: 0.45;
+      white-space: nowrap; z-index: 0;
+      animation: floatY 4s ease-in-out infinite;
+    }
+    .ff1 { top: 14%; right: 6%; animation-delay: 0s; }
+    .ff2 { top: 38%; left: 3%; animation-delay: 1.5s; font-size: 0.68rem; }
+    .ff3 { bottom: 20%; right: 7%; animation-delay: 2.8s; }
+    @keyframes floatY { 0%,100%{transform:translateY(0)}50%{transform:translateY(-8px)} }
+
+    .hero-left { position: relative; z-index: 1; }
+    .element-badge {
+      display: inline-flex; flex-direction: column;
+      border: 2px solid var(--accent); padding: 0.28rem 0.65rem;
+      margin-bottom: 1.8rem; font-family: 'IBM Plex Mono', monospace;
+    }
+    .el-num  { font-size: 0.6rem; color: var(--accent); line-height: 1; }
+    .el-sym  { font-size: 1.55rem; font-weight: 500; color: var(--accent); line-height: 1.1; }
+    .el-name { font-size: 0.52rem; color: var(--muted); letter-spacing: 0.1em; text-transform: uppercase; }
+    .hero-handle {
+      font-family: 'IBM Plex Mono', monospace; font-size: 0.78rem;
+      color: var(--muted); letter-spacing: 0.18em; text-transform: uppercase; margin-bottom: 0.5rem;
+    }
+    h1.hero-title {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: clamp(2.6rem, 5vw, 4.8rem);
+      font-weight: 700; line-height: 1.08; color: var(--text); margin-bottom: 1rem;
+    }
+    h1.hero-title span { color: var(--accent); font-style: italic; }
+    .hero-sub {
+      font-size: 0.97rem; color: var(--text2); line-height: 1.85;
+      max-width: 510px; margin-bottom: 2.4rem; font-weight: 300;
+    }
+    .hero-sub strong { font-weight: 600; color: var(--text); }
+    .hero-btns { display: flex; gap: 1rem; flex-wrap: wrap; margin-bottom: 2.8rem; }
+    .btn-fill {
+      padding: 0.78rem 1.9rem; background: var(--accent); color: #fff;
+      font-family: 'IBM Plex Sans', sans-serif; font-weight: 600;
+      font-size: 0.83rem; letter-spacing: 0.06em; text-transform: uppercase;
+      border: 2px solid var(--accent); text-decoration: none; border-radius: 2px;
+      transition: background 0.2s, transform 0.2s; display: inline-block;
+    }
+    .btn-fill:hover { background: var(--accent-d); border-color: var(--accent-d); transform: translateY(-2px); }
+    .btn-ghost {
+      padding: 0.78rem 1.9rem; background: transparent; color: var(--accent);
+      font-family: 'IBM Plex Sans', sans-serif; font-weight: 600;
+      font-size: 0.83rem; letter-spacing: 0.06em; text-transform: uppercase;
+      border: 2px solid var(--accent); text-decoration: none; border-radius: 2px;
+      transition: all 0.2s; display: inline-block;
+    }
+    .btn-ghost:hover { background: var(--accent); color: #fff; transform: translateY(-2px); }
+    .hero-chips { display: flex; gap: 0.55rem; flex-wrap: wrap; }
+    .chip {
+      font-family: 'IBM Plex Mono', monospace; font-size: 0.68rem;
+      padding: 0.28rem 0.75rem; background: var(--bg);
+      border: 1px solid var(--border); color: var(--muted); border-radius: 100px;
+    }
+
+    /* Hero right — molecule card */
+    .hero-right {
+      position: relative; z-index: 1;
+      display: flex; align-items: center; justify-content: center;
+    }
+    .mol-card {
+      background: var(--bg); border: 1.5px solid var(--border);
+      border-radius: 4px; padding: 2.2rem; box-shadow: var(--shadow-l);
+      max-width: 360px; width: 100%;
+    }
+    .mol-card-label {
+      font-family: 'IBM Plex Mono', monospace; font-size: 0.66rem;
+      color: var(--accent); letter-spacing: 0.14em; text-transform: uppercase;
+      margin-bottom: 1.2rem;
+    }
+    .mol-card svg { width: 100%; height: auto; display: block; }
+    .mol-card-footer {
+      margin-top: 1rem; font-family: 'IBM Plex Mono', monospace;
+      font-size: 0.67rem; color: var(--muted);
+      display: flex; justify-content: space-between;
+    }
+    .mol-card-footer span { color: var(--accent); }
+
+    /* Stats strip */
+    .stats-strip {
+      grid-column: 1 / -1; display: flex;
+      border-top: 1.5px solid var(--border); position: relative; z-index: 1;
+      margin-top: 2rem;
+    }
+    .stat-item {
+      flex: 1; padding: 1.3rem 1.5rem;
+      border-right: 1.5px solid var(--border); text-align: center;
+    }
+    .stat-item:last-child { border-right: none; }
+    .stat-n {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 2.1rem; font-weight: 700; color: var(--accent); line-height: 1;
+    }
+    .stat-l { font-size: 0.7rem; color: var(--muted); letter-spacing: 0.09em; text-transform: uppercase; margin-top: 0.22rem; }
+
+    /* SECTIONS */
+    .section-wrap { max-width: 1100px; margin: 0 auto; padding: 5.5rem 2rem; }
+    .section-header { margin-bottom: 3.5rem; }
+    .s-eyebrow {
+      font-family: 'IBM Plex Mono', monospace; font-size: 0.68rem;
+      color: var(--accent); letter-spacing: 0.2em; text-transform: uppercase;
+      margin-bottom: 0.65rem; display: flex; align-items: center; gap: 0.65rem;
+    }
+    .s-eyebrow::before { content:''; display:inline-block; width:22px; height:2px; background:var(--accent); }
+    .s-title {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: clamp(1.9rem, 3.4vw, 2.7rem);
+      font-weight: 700; line-height: 1.15; color: var(--text);
+    }
+    .s-title em { color: var(--accent); font-style: italic; }
+    .s-rule { width: 44px; height: 3px; background: var(--accent); margin-top: 0.9rem; border-radius: 2px; }
+
+    /* ABOUT */
+    #about { background: var(--bg); border-top: 1.5px solid var(--border); }
+    .about-grid { display: grid; grid-template-columns: 320px 1fr; gap: 4rem; align-items: start; }
+    .about-card { background: var(--bg2); border: 1.5px solid var(--border); border-radius: 4px; overflow: hidden; }
+    .about-card-top {
+      background: var(--accent); padding: 2.2rem 1.8rem 1.4rem; position: relative;
+    }
+    .about-card-top::after {
+      content: 'ChE'; position: absolute; right: 1rem; bottom: 0.3rem;
+      font-family: 'Cormorant Garamond', serif; font-size: 5rem; font-weight: 700;
+      color: rgba(255,255,255,0.12); line-height: 1; pointer-events: none;
+    }
+    .avatar-icon {
+      width: 64px; height: 64px; border-radius: 50%;
+      background: rgba(255,255,255,0.2);
+      display: flex; align-items: center; justify-content: center;
+      font-size: 1.8rem; margin-bottom: 0.9rem;
+    }
+    .card-name { font-family: 'Cormorant Garamond', serif; font-size: 1.35rem; font-weight: 700; color: #fff; }
+    .card-sub { font-size: 0.76rem; color: rgba(255,255,255,0.75); margin-top: 0.18rem; }
+    .about-card-body { padding: 1.3rem 1.8rem; }
+    .info-row {
+      display: flex; gap: 0.55rem; align-items: flex-start;
+      padding: 0.55rem 0; border-bottom: 1px solid var(--border); font-size: 0.8rem;
+    }
+    .info-row:last-child { border-bottom: none; }
+    .info-icon { color: var(--accent); width: 15px; flex-shrink: 0; margin-top: 1px; }
+    .info-label { color: var(--muted); min-width: 75px; }
+    .info-val { color: var(--text); font-weight: 500; }
+
+    .about-text p { font-size: 0.93rem; color: var(--text2); line-height: 1.9; margin-bottom: 1.1rem; font-weight: 300; }
+    .about-text p strong { font-weight: 600; color: var(--text); }
+    .skills-section { margin-top: 1.8rem; }
+    .skills-title { font-family: 'IBM Plex Mono', monospace; font-size: 0.68rem; color: var(--muted); letter-spacing: 0.13em; text-transform: uppercase; margin-bottom: 0.8rem; }
+    .skills-wrap { display: flex; flex-wrap: wrap; gap: 0.48rem; }
+    .skill-tag { font-size: 0.76rem; font-weight: 500; padding: 0.35rem 0.85rem; background: var(--accent-l); border: 1px solid var(--border-s); color: var(--accent-d); border-radius: 2px; }
+
+    /* ARTICLES */
+    #articles { background: var(--bg2); border-top: 1.5px solid var(--border); }
+    .filter-row { display: flex; gap: 0.48rem; flex-wrap: wrap; margin-bottom: 2.2rem; }
+    .filter-btn {
+      font-family: 'IBM Plex Mono', monospace; font-size: 0.7rem; font-weight: 500;
+      letter-spacing: 0.07em; text-transform: uppercase; padding: 0.42rem 0.95rem;
+      background: var(--bg); border: 1.5px solid var(--border); color: var(--muted);
+      cursor: pointer; border-radius: 2px; transition: all 0.2s;
+    }
+    .filter-btn.active, .filter-btn:hover { background: var(--accent); border-color: var(--accent); color: #fff; }
+    .articles-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(305px, 1fr)); gap: 1.4rem; }
+    .article-card {
+      background: var(--bg); border: 1.5px solid var(--border);
+      border-radius: 4px; overflow: hidden; cursor: pointer;
+      transition: border-color 0.25s, transform 0.25s, box-shadow 0.25s;
+    }
+    .article-card:hover { border-color: var(--accent); transform: translateY(-4px); box-shadow: var(--shadow-l); }
+    .a-top { height: 5px; }
+    .a-top.process { background: linear-gradient(90deg,#e07b0a,#f5a623); }
+    .a-top.reaction { background: linear-gradient(90deg,#0a7be0,#23a6f5); }
+    .a-top.sustain  { background: linear-gradient(90deg,#0ab84e,#23f591); }
+    .a-top.news     { background: linear-gradient(90deg,#e00a3d,#f55c23); }
+    .a-body { padding: 1.5rem; }
+    .a-cat {
+      font-family: 'IBM Plex Mono', monospace; font-size: 0.64rem;
+      letter-spacing: 0.13em; text-transform: uppercase; margin-bottom: 0.7rem;
+    }
+    .cat-process { color: #e07b0a; } .cat-reaction { color: #0a7be0; }
+    .cat-sustain  { color: #0ab84e; } .cat-news     { color: #e00a3d; }
+    .a-title {
+      font-family: 'Cormorant Garamond', serif; font-size: 1.15rem;
+      font-weight: 700; line-height: 1.35; color: var(--text); margin-bottom: 0.7rem;
+    }
+    .a-excerpt { font-size: 0.8rem; color: var(--muted); line-height: 1.75; margin-bottom: 1.2rem; font-weight: 300; }
+    .a-footer {
+      display: flex; align-items: center; justify-content: space-between;
+      font-family: 'IBM Plex Mono', monospace; font-size: 0.64rem; color: var(--muted);
+      padding-top: 0.9rem; border-top: 1px solid var(--border);
+    }
+    .a-link { color: var(--accent); font-weight: 500; display: flex; align-items: center; gap: 0.3rem; transition: gap 0.2s; }
+    .article-card:hover .a-link { gap: 0.6rem; }
+
+    /* CONTACT */
+    #contact { background: var(--bg); border-top: 1.5px solid var(--border); }
+    .contact-grid { display: grid; grid-template-columns: 1fr 1.1fr; gap: 4rem; }
+    .contact-intro p { font-size: 0.93rem; color: var(--text2); line-height: 1.9; margin-bottom: 2rem; font-weight: 300; }
+    .contact-cards { display: flex; flex-direction: column; gap: 0.7rem; }
+    .contact-card {
+      display: flex; align-items: center; gap: 1rem;
+      padding: 0.95rem 1.15rem; border: 1.5px solid var(--border);
+      border-radius: 4px; text-decoration: none; background: var(--bg2);
+      transition: border-color 0.2s, box-shadow 0.2s;
+    }
+    .contact-card:hover { border-color: var(--accent); box-shadow: var(--shadow); }
+    .c-icon {
+      width: 36px; height: 36px; border-radius: 50%;
+      background: var(--accent-l); border: 1.5px solid var(--border-s);
+      display: flex; align-items: center; justify-content: center; font-size: 0.95rem; flex-shrink: 0;
+    }
+    .c-label { font-size: 0.65rem; color: var(--muted); text-transform: uppercase; letter-spacing: 0.09em; }
+    .c-val { font-family: 'IBM Plex Mono', monospace; font-size: 0.78rem; color: var(--text); font-weight: 500; margin-top: 0.08rem; }
+    .c-arrow { color: var(--accent); font-size: 0.88rem; margin-left: auto; }
+
+    .contact-form { display: flex; flex-direction: column; gap: 1rem; }
+    .form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; }
+    .form-group { display: flex; flex-direction: column; gap: 0.35rem; }
+    .form-group label { font-family: 'IBM Plex Mono', monospace; font-size: 0.66rem; color: var(--muted); letter-spacing: 0.1em; text-transform: uppercase; }
+    .form-group input, .form-group textarea, .form-group select {
+      background: var(--bg2); border: 1.5px solid var(--border); border-radius: 2px;
+      color: var(--text); font-family: 'IBM Plex Sans', sans-serif;
+      font-size: 0.86rem; padding: 0.72rem 0.95rem; outline: none;
+      transition: border-color 0.2s; resize: vertical;
+    }
+    .form-group input:focus, .form-group textarea:focus, .form-group select:focus { border-color: var(--accent); }
+    .form-group textarea { min-height: 118px; }
+
+    /* FOOTER */
+    footer {
+      background: var(--text); padding: 2.3rem 4rem;
+      display: flex; align-items: center; justify-content: space-between;
+    }
+    .footer-logo { font-family: 'Cormorant Garamond', serif; font-size: 1.18rem; font-weight: 700; color: #fff; }
+    .footer-logo span { color: var(--accent); }
+    footer p { font-family: 'IBM Plex Mono', monospace; font-size: 0.68rem; color: rgba(255,255,255,0.38); }
+
+    /* ANIMATIONS */
+    .fade-up { opacity: 0; transform: translateY(26px); transition: opacity 0.6s ease, transform 0.6s ease; }
+    .fade-up.visible { opacity: 1; transform: none; }
+
+    /* RESPONSIVE */
+    @media(max-width:960px){
+      nav { padding: 0 1.5rem; }
+      .nav-links { gap: 1.5rem; }
+      #home { grid-template-columns: 1fr; padding: 7rem 1.5rem 0; }
+      .hero-right { display: none; }
+      .stats-strip { flex-wrap: wrap; }
+      .stat-item { min-width: 45%; }
+      .about-grid,.contact-grid { grid-template-columns: 1fr; gap: 2.5rem; }
+      .form-row { grid-template-columns: 1fr; }
+      footer { flex-direction: column; gap: 0.7rem; padding: 2rem; text-align: center; }
+      .section-wrap { padding: 4rem 1.5rem; }
+    }
+    @media(max-width:560px){
+      .nav-links,.nav-cta { display: none; }
+      .hero-chips { display: none; }
+    }
+  </style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav>
+  <div class="nav-logo"><span class="nav-dot"></span>B.M.Dharaneesh</div>
+  <ul class="nav-links">
+    <li><a href="#home">Home</a></li>
+    <li><a href="#about">About</a></li>
+    <li><a href="#articles">Articles</a></li>
+    <li><a href="#contact">Contact</a></li>
+  </ul>
+  <a href="#contact" class="nav-cta">Let's Connect</a>
+</nav>
+
+<!-- HERO -->
+<section id="home">
+  <!-- BG engineering drawing -->
+  <div class="mol-bg-hero">
+    <svg viewBox="0 0 1200 680" xmlns="http://www.w3.org/2000/svg" width="100%" height="100%" preserveAspectRatio="xMidYMid slice">
+      <!-- Benzene ring top right -->
+      <g transform="translate(960,160)" stroke="#e07b0a" fill="none" stroke-width="2">
+        <polygon points="0,-72 62,-36 62,36 0,72 -62,36 -62,-36"/>
+        <polygon points="0,-43 37,-21 37,21 0,43 -37,21 -37,-21"/>
+        <line x1="0" y1="-72" x2="0" y2="-43"/><line x1="62" y1="-36" x2="37" y2="-21"/>
+        <line x1="62" y1="36" x2="37" y2="21"/><line x1="0" y1="72" x2="0" y2="43"/>
+        <line x1="-62" y1="36" x2="-37" y2="21"/><line x1="-62" y1="-36" x2="-37" y2="-21"/>
+        <circle cx="0" cy="-72" r="5" fill="#e07b0a"/><circle cx="62" cy="-36" r="5" fill="#e07b0a"/>
+        <circle cx="62" cy="36" r="5" fill="#e07b0a"/><circle cx="0" cy="72" r="5" fill="#e07b0a"/>
+        <circle cx="-62" cy="36" r="5" fill="#e07b0a"/><circle cx="-62" cy="-36" r="5" fill="#e07b0a"/>
+      </g>
+      <!-- Molecule chain bottom left -->
+      <g transform="translate(60,530)" stroke="#e07b0a" fill="none" stroke-width="1.5">
+        <circle cx="0" cy="0" r="18"/><text x="0" y="5" text-anchor="middle" fill="#e07b0a" font-family="serif" font-size="14">C</text>
+        <line x1="18" y1="0" x2="52" y2="0"/>
+        <circle cx="70" cy="0" r="18"/><text x="70" y="5" text-anchor="middle" fill="#e07b0a" font-family="serif" font-size="14">H</text>
+        <line x1="88" y1="0" x2="122" y2="0"/>
+        <circle cx="140" cy="0" r="18"/><text x="140" y="5" text-anchor="middle" fill="#e07b0a" font-family="serif" font-size="12">O</text>
+        <line x1="158" y1="0" x2="192" y2="0"/>
+        <circle cx="210" cy="0" r="18"/><text x="210" y="5" text-anchor="middle" fill="#e07b0a" font-family="serif" font-size="14">N</text>
+      </g>
+      <!-- Distillation tower right -->
+      <g transform="translate(1100,400)" stroke="#e07b0a" fill="none" stroke-width="1.5">
+        <rect x="-22" y="-110" width="44" height="220" rx="4"/>
+        <line x1="-22" y1="-70" x2="-44" y2="-70"/><line x1="22" y1="-70" x2="44" y2="-70"/>
+        <line x1="-22" y1="-30" x2="-44" y2="-30"/><line x1="22" y1="-30" x2="44" y2="-30"/>
+        <line x1="-22" y1="10" x2="-44" y2="10"/><line x1="22" y1="10" x2="44" y2="10"/>
+        <line x1="-22" y1="50" x2="-44" y2="50"/><line x1="22" y1="50" x2="44" y2="50"/>
+        <line x1="-22" y1="90" x2="-44" y2="90"/><line x1="22" y1="90" x2="44" y2="90"/>
+      </g>
+      <!-- Reactor vessel -->
+      <g transform="translate(180,120)" stroke="#e07b0a" fill="none" stroke-width="1.5">
+        <ellipse cx="0" cy="-52" rx="42" ry="13"/>
+        <line x1="-42" y1="-52" x2="-42" y2="52"/>
+        <line x1="42" y1="-52" x2="42" y2="52"/>
+        <ellipse cx="0" cy="52" rx="42" ry="13"/>
+        <line x1="0" y1="-65" x2="0" y2="-90"/>
+        <line x1="0" y1="65" x2="0" y2="90"/>
+        <line x1="-42" y1="-10" x2="-62" y2="-10"/>
+        <line x1="42" y1="10" x2="62" y2="10"/>
+      </g>
+      <!-- Heat exchanger bottom right -->
+      <g transform="translate(800,580)" stroke="#e07b0a" fill="none" stroke-width="1.5">
+        <rect x="-70" y="-25" width="140" height="50" rx="4"/>
+        <line x1="-40" y1="-25" x2="-40" y2="25"/><line x1="-10" y1="-25" x2="-10" y2="25"/>
+        <line x1="20" y1="-25" x2="20" y2="25"/><line x1="50" y1="-25" x2="50" y2="25"/>
+        <line x1="-70" y1="0" x2="-90" y2="0"/><line x1="70" y1="0" x2="90" y2="0"/>
+        <line x1="0" y1="-25" x2="0" y2="-45"/><line x1="0" y1="25" x2="0" y2="45"/>
+      </g>
+    </svg>
+  </div>
+
+  <div class="float-formula ff1">PV = nRT</div>
+  <div class="float-formula ff2">ΔH = Σ ΔHf(products) − Σ ΔHf(reactants)</div>
+  <div class="float-formula ff3">−r<sub>A</sub> = k · C<sub>A</sub><sup>n</sup></div>
+
+  <!-- LEFT -->
+  <div class="hero-left fade-up">
+    <div class="element-badge">
+      <span class="el-num">6</span>
+      <span class="el-sym">ChE</span>
+      <span class="el-name">Chemical Engineering</span>
+    </div>
+    <div class="hero-handle">// B.M.Dharaneesh</div>
+    <h1 class="hero-title">
+      Where <span>Chemistry</span><br>meets Engineering
+    </h1>
+    <p class="hero-sub">
+      A <strong>Chemical Engineering student</strong> at Annamalai University, sharing in-depth technical articles
+      on process design, reaction mechanisms, sustainability, and the latest innovations reshaping our industry.
+    </p>
+    <div class="hero-btns">
+      <a href="#articles" class="btn-fill">Read Articles</a>
+      <a href="#about" class="btn-ghost">About Me</a>
+    </div>
+    <div class="hero-chips">
+      <span class="chip">Process Design</span>
+      <span class="chip">Reaction Engineering</span>
+      <span class="chip">Green Chemistry</span>
+      <span class="chip">Industry 4.0</span>
+    </div>
+  </div>
+
+  <!-- RIGHT — Benzene molecule card -->
+  <div class="hero-right fade-up">
+    <div class="mol-card">
+      <div class="mol-card-label">// Benzene — C₆H₆ &nbsp;|&nbsp; Aromatic Hydrocarbon</div>
+      <svg viewBox="0 0 260 240" xmlns="http://www.w3.org/2000/svg">
+        <g transform="translate(130,120)">
+          <polygon points="0,-80 69,-40 69,40 0,80 -69,40 -69,-40" fill="none" stroke="#e07b0a" stroke-width="2.5"/>
+          <circle cx="0" cy="0" r="44" fill="none" stroke="#e07b0a" stroke-width="1.5" stroke-dasharray="8,4" opacity="0.45"/>
+          <line x1="0" y1="-80" x2="0" y2="-58" stroke="#b85f00" stroke-width="1.5"/>
+          <line x1="69" y1="-40" x2="50" y2="-29" stroke="#b85f00" stroke-width="1.5"/>
+          <line x1="69" y1="40" x2="50" y2="29" stroke="#b85f00" stroke-width="1.5"/>
+          <line x1="0" y1="80" x2="0" y2="58" stroke="#b85f00" stroke-width="1.5"/>
+          <line x1="-69" y1="40" x2="-50" y2="29" stroke="#b85f00" stroke-width="1.5"/>
+          <line x1="-69" y1="-40" x2="-50" y2="-29" stroke="#b85f00" stroke-width="1.5"/>
+          <circle cx="0" cy="-80" r="10" fill="#fff3e0" stroke="#e07b0a" stroke-width="2"/>
+          <circle cx="69" cy="-40" r="10" fill="#fff3e0" stroke="#e07b0a" stroke-width="2"/>
+          <circle cx="69" cy="40" r="10" fill="#fff3e0" stroke="#e07b0a" stroke-width="2"/>
+          <circle cx="0" cy="80" r="10" fill="#fff3e0" stroke="#e07b0a" stroke-width="2"/>
+          <circle cx="-69" cy="40" r="10" fill="#fff3e0" stroke="#e07b0a" stroke-width="2"/>
+          <circle cx="-69" cy="-40" r="10" fill="#fff3e0" stroke="#e07b0a" stroke-width="2"/>
+          <text x="0" y="-76" text-anchor="middle" font-family="IBM Plex Mono,monospace" font-size="9" fill="#e07b0a" font-weight="500">C</text>
+          <text x="69" y="-36" text-anchor="middle" font-family="IBM Plex Mono,monospace" font-size="9" fill="#e07b0a" font-weight="500">C</text>
+          <text x="69" y="44" text-anchor="middle" font-family="IBM Plex Mono,monospace" font-size="9" fill="#e07b0a" font-weight="500">C</text>
+          <text x="0" y="84" text-anchor="middle" font-family="IBM Plex Mono,monospace" font-size="9" fill="#e07b0a" font-weight="500">C</text>
+          <text x="-69" y="44" text-anchor="middle" font-family="IBM Plex Mono,monospace" font-size="9" fill="#e07b0a" font-weight="500">C</text>
+          <text x="-69" y="-36" text-anchor="middle" font-family="IBM Plex Mono,monospace" font-size="9" fill="#e07b0a" font-weight="500">C</text>
+          <text x="0" y="-97" text-anchor="middle" font-family="IBM Plex Mono,monospace" font-size="11" fill="#7a7a96">H</text>
+          <text x="84" y="-42" font-family="IBM Plex Mono,monospace" font-size="11" fill="#7a7a96">H</text>
+          <text x="84" y="48" font-family="IBM Plex Mono,monospace" font-size="11" fill="#7a7a96">H</text>
+          <text x="0" y="106" text-anchor="middle" font-family="IBM Plex Mono,monospace" font-size="11" fill="#7a7a96">H</text>
+          <text x="-92" y="48" font-family="IBM Plex Mono,monospace" font-size="11" fill="#7a7a96">H</text>
+          <text x="-92" y="-42" font-family="IBM Plex Mono,monospace" font-size="11" fill="#7a7a96">H</text>
+        </g>
+      </svg>
+      <div class="mol-card-footer">
+        <span>MW: <span>78.11 g/mol</span></span>
+        <span>BP: <span>80.1 °C</span></span>
+        <span>Aromatic Ring</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- STATS -->
+  <div class="stats-strip fade-up">
+    <div class="stat-item"><div class="stat-n">3rd</div><div class="stat-l">Year, B.E. Chem. Eng.</div></div>
+    <div class="stat-item"><div class="stat-n">4</div><div class="stat-l">Core Topic Areas</div></div>
+    <div class="stat-item"><div class="stat-n">12+</div><div class="stat-l">Articles Planned</div></div>
+    <div class="stat-item"><div class="stat-n">∞</div><div class="stat-l">Curiosity for ChE</div></div>
+  </div>
+</section>
+
+<!-- ABOUT -->
+<section id="about">
+  <div class="section-wrap">
+    <div class="section-header fade-up">
+      <div class="s-eyebrow">Who I Am</div>
+      <h2 class="s-title">The Engineer <em>Behind the Articles</em></h2>
+      <div class="s-rule"></div>
+    </div>
+    <div class="about-grid">
+      <div class="about-card fade-up">
+        <div class="about-card-top">
+          <div class="avatar-icon">⚗️</div>
+          <div class="card-name">B.M.Dharaneesh</div>
+          <div class="card-sub">B.E. Chemical Engineering Student</div>
+        </div>
+        <div class="about-card-body">
+          <div class="info-row"><span class="info-icon">🎓</span><span class="info-label">University</span><span class="info-val">Annamalai University</span></div>
+          <div class="info-row"><span class="info-icon">📍</span><span class="info-label">Location</span><span class="info-val">Chidambaram, Tamil Nadu</span></div>
+          <div class="info-row"><span class="info-icon">📅</span><span class="info-label">Year</span><span class="info-val">3rd Year (B.E. ChE)</span></div>
+          <div class="info-row"><span class="info-icon">✉️</span><span class="info-label">Email</span><span class="info-val" style="font-size:0.73rem">dharaneesh1559@gmail.com</span></div>
+        </div>
+      </div>
+      <div class="about-text fade-up">
+        <p>
+          I'm <strong>B.M.Dharaneesh</strong>, a passionate third-year Chemical Engineering student at
+          <strong>Annamalai University, Chidambaram, Tamil Nadu</strong>. My academic journey has given
+          me a deep appreciation for how fundamental science — thermodynamics, transport phenomena,
+          and reaction kinetics — translates into the processes that power our modern world.
+        </p>
+        <p>
+          I created this platform because I believe <strong>knowledge grows when it's shared</strong>.
+          Whether it's a detailed breakdown of catalytic cracking mechanisms, an analysis of green hydrogen
+          technologies, or a look at how AI is transforming plant operations — I write articles that are
+          technically thorough yet accessible to every ChE enthusiast.
+        </p>
+        <p>
+          My mission is to bridge the gap between <strong>classroom theory and industrial practice</strong>,
+          and to contribute to building a stronger, more connected chemical engineering community — across
+          India and beyond.
+        </p>
+        <div class="skills-section">
+          <div class="skills-title">// Areas of Focus</div>
+          <div class="skills-wrap">
+            <span class="skill-tag">Process Design & Simulation</span>
+            <span class="skill-tag">Reaction Engineering</span>
+            <span class="skill-tag">Heat & Mass Transfer</span>
+            <span class="skill-tag">Thermodynamics</span>
+            <span class="skill-tag">Green Chemistry</span>
+            <span class="skill-tag">Unit Operations</span>
+            <span class="skill-tag">Aspen Plus / HYSYS</span>
+            <span class="skill-tag">Industry 4.0 in ChE</span>
+            <span class="skill-tag">Sustainability</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ARTICLES -->
+<section id="articles">
+  <div class="section-wrap">
+    <div class="section-header fade-up">
+      <div class="s-eyebrow">Knowledge Hub</div>
+      <h2 class="s-title">Articles &amp; <em>Technical Insights</em></h2>
+      <div class="s-rule"></div>
+    </div>
+    <div class="filter-row fade-up">
+      <button class="filter-btn active" onclick="filterArticles('all',this)">All Topics</button>
+      <button class="filter-btn" onclick="filterArticles('process',this)">Process Design</button>
+      <button class="filter-btn" onclick="filterArticles('reaction',this)">Reaction Eng.</button>
+      <button class="filter-btn" onclick="filterArticles('sustain',this)">Sustainability</button>
+      <button class="filter-btn" onclick="filterArticles('news',this)">Industry News</button>
+    </div>
+    <div class="articles-grid" id="articles-grid">
+      <div class="article-card fade-up" data-cat="reaction">
+        <div class="a-top reaction"></div>
+        <div class="a-body">
+          <div class="a-cat cat-reaction">⚗ Reaction Engineering</div>
+          <h3 class="a-title">Mechanisms of Catalytic Cracking in FCC Units — A Deep Dive</h3>
+          <p class="a-excerpt">Exploring the carbocation mechanism, zeolite catalyst structure, and product selectivity in Fluid Catalytic Cracking reactors.</p>
+          <div class="a-footer"><span>Coming Soon</span><span class="a-link">~12 min read →</span></div>
+        </div>
+      </div>
+      <div class="article-card fade-up" data-cat="sustain">
+        <div class="a-top sustain"></div>
+        <div class="a-body">
+          <div class="a-cat cat-sustain">🌱 Sustainability</div>
+          <h3 class="a-title">Green Hydrogen: Electrolysis vs. SMR — A Technical Comparison</h3>
+          <p class="a-excerpt">Comparing alkaline electrolysis, PEM electrolysis, and Steam Methane Reforming on efficiency, cost, and carbon footprint.</p>
+          <div class="a-footer"><span>Coming Soon</span><span class="a-link">~10 min read →</span></div>
+        </div>
+      </div>
+      <div class="article-card fade-up" data-cat="process">
+        <div class="a-top process"></div>
+        <div class="a-body">
+          <div class="a-cat cat-process">⚙ Process Design</div>
+          <h3 class="a-title">Pinch Analysis: Minimizing Energy in Heat Exchanger Networks</h3>
+          <p class="a-excerpt">Composite curves, minimum utility targets, and the design rules for energy-efficient HEN configurations using Pinch Technology.</p>
+          <div class="a-footer"><span>Coming Soon</span><span class="a-link">~9 min read →</span></div>
+        </div>
+      </div>
+      <div class="article-card fade-up" data-cat="news">
+        <div class="a-top news"></div>
+        <div class="a-body">
+          <div class="a-cat cat-news">📡 Industry News</div>
+          <h3 class="a-title">Carbon Capture & Storage: Technologies Reshaping Chemical Engineering</h3>
+          <p class="a-excerpt">From post-combustion scrubbing to direct air capture — the engineering behind CCS technologies attracting billions in global investment.</p>
+          <div class="a-footer"><span>Coming Soon</span><span class="a-link">~11 min read →</span></div>
+        </div>
+      </div>
+      <div class="article-card fade-up" data-cat="process">
+        <div class="a-top process"></div>
+        <div class="a-body">
+          <div class="a-cat cat-process">⚙ Process Design</div>
+          <h3 class="a-title">Distillation Column Optimization with Digital Twins</h3>
+          <p class="a-excerpt">How real-time digital twins are deployed to cut energy costs, detect flooding, and optimize reflux ratios in industrial distillation columns.</p>
+          <div class="a-footer"><span>Coming Soon</span><span class="a-link">~8 min read →</span></div>
+        </div>
+      </div>
+      <div class="article-card fade-up" data-cat="reaction">
+        <div class="a-top reaction"></div>
+        <div class="a-body">
+          <div class="a-cat cat-reaction">⚗ Reaction Engineering</div>
+          <h3 class="a-title">Understanding RTD and Its Role in Non-Ideal Reactor Design</h3>
+          <p class="a-excerpt">Residence Time Distribution theory, tracer experiments, and how RTD analysis diagnoses non-ideal flow behaviour in CSTRs and PFRs.</p>
+          <div class="a-footer"><span>Coming Soon</span><span class="a-link">~10 min read →</span></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CONTACT -->
+<section id="contact">
+  <div class="section-wrap">
+    <div class="section-header fade-up">
+      <div class="s-eyebrow">Get In Touch</div>
+      <h2 class="s-title">Let's <em>Connect</em></h2>
+      <div class="s-rule"></div>
+    </div>
+    <div class="contact-grid">
+      <div class="contact-intro fade-up">
+        <p>
+          Whether you're a fellow chemical engineer, a student from Annamalai University, a researcher,
+          or simply someone curious about chemistry and engineering — I'd love to hear from you.
+          Let's collaborate, exchange ideas, or just have a good technical conversation!
+        </p>
+        <div class="contact-cards">
+          <a href="https://www.linkedin.com/in/bm-dharaneesh" target="_blank" class="contact-card">
+            <div class="c-icon">🔗</div>
+            <div><div class="c-label">LinkedIn</div><div class="c-val">B.M. DHARANEESH</div></div>
+            <span class="c-arrow">→</span>
+          </a>
+          <a href="mailto:dharaneesh1559@gmail.com" class="contact-card">
+            <div class="c-icon">✉️</div>
+            <div><div class="c-label">Email</div><div class="c-val">dharaneesh1559@gmail.com</div></div>
+            <span class="c-arrow">→</span>
+          </a>
+          <div class="contact-card" style="cursor:default; pointer-events:none;">
+            <div class="c-icon">🎓</div>
+            <div><div class="c-label">University</div><div class="c-val">Annamalai University, Chidambaram</div></div>
+          </div>
+        </div>
+      </div>
+      <form class="contact-form fade-up" onsubmit="handleForm(event)">
+        <div class="form-row">
+          <div class="form-group"><label>Your Name</label><input type="text" placeholder="Full name" required/></div>
+          <div class="form-group"><label>Email Address</label><input type="email" placeholder="you@example.com" required/></div>
+        </div>
+        <div class="form-group">
+          <label>Subject</label>
+          <select>
+            <option>Article Collaboration</option>
+            <option>General Enquiry</option>
+            <option>Technical Discussion</option>
+            <option>Other</option>
+          </select>
+        </div>
+        <div class="form-group"><label>Message</label><textarea placeholder="Your message here…" required></textarea></div>
+        <button type="submit" class="btn-fill" style="align-self:flex-start;border:none;cursor:pointer;">Send Message</button>
+      </form>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-logo">B.M.<span>Dharaneesh</span></div>
+  <p>© 2025 — B.E. Chemical Engineering, Annamalai University, Chidambaram</p>
+  <p>Built for the ChE Community 🔬</p>
+</footer>
+
+<script>
+  // Scroll reveal
+  const io = new IntersectionObserver(entries => {
+    entries.forEach(e => {
+      if (e.isIntersecting) e.target.classList.add('visible');
+    });
+  }, { threshold: 0.1 });
+  document.querySelectorAll('.fade-up').forEach((el, i) => {
+    el.style.transitionDelay = (i % 5) * 70 + 'ms';
+    io.observe(el);
+  });
+
+  // Article filter
+  function filterArticles(cat, btn) {
+    document.querySelectorAll('.filter-btn').forEach(b => b.classList.remove('active'));
+    btn.classList.add('active');
+    document.querySelectorAll('.article-card').forEach(c => {
+      c.style.display = (cat === 'all' || c.dataset.cat === cat) ? '' : 'none';
+    });
+  }
+
+  // Contact form
+  function handleForm(e) {
+    e.preventDefault();
+    const btn = e.target.querySelector('button[type="submit"]');
+    btn.textContent = 'Message Sent ✓';
+    btn.style.background = '#0ab84e';
+    setTimeout(() => {
+      btn.textContent = 'Send Message';
+      btn.style.background = '';
+      e.target.reset();
+    }, 3000);
+  }
+</script>
+</body>
+</html>
