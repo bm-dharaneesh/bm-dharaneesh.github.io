@@ -1,0 +1,698 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Iran-Israel War & The Urea Crisis | B.M.Dharaneesh</title>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;0,700;1,400;1,600&family=IBM+Plex+Sans:wght@300;400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet"/>
+  <style>
+    :root {
+      --bg:#ffffff; --bg2:#fdf8f2; --bg3:#f5ece0;
+      --accent:#e07b0a; --accent-d:#b85f00; --accent-l:#fff3e0;
+      --text:#1c1c2e; --text2:#3d3d52; --muted:#7a7a96;
+      --border:#e8d5be; --border-s:rgba(224,123,10,0.25);
+      --shadow:0 4px 24px rgba(224,123,10,0.10);
+      --shadow-l:0 12px 40px rgba(224,123,10,0.18);
+      --danger:#e00a3d; --safe:#0ab84e; --info:#0a7be0;
+    }
+    *,*::before,*::after{box-sizing:border-box;margin:0;padding:0;}
+    html{scroll-behavior:smooth;}
+    body{font-family:'IBM Plex Sans',sans-serif;background:var(--bg);color:var(--text);overflow-x:hidden;}
+    ::-webkit-scrollbar{width:5px;}
+    ::-webkit-scrollbar-track{background:var(--bg2);}
+    ::-webkit-scrollbar-thumb{background:var(--accent);border-radius:3px;}
+
+    /* NAV */
+    nav{position:fixed;top:0;left:0;right:0;z-index:200;display:flex;align-items:center;justify-content:space-between;padding:0 4rem;height:64px;background:rgba(255,255,255,0.93);backdrop-filter:blur(16px);border-bottom:1.5px solid var(--border);}
+    .nav-logo{display:flex;align-items:center;gap:0.6rem;font-family:'IBM Plex Mono',monospace;font-size:0.88rem;font-weight:500;color:var(--text);text-decoration:none;}
+    .nav-dot{width:9px;height:9px;border-radius:50%;background:var(--accent);}
+    .nav-back{font-family:'IBM Plex Mono',monospace;font-size:0.78rem;color:var(--muted);text-decoration:none;display:flex;align-items:center;gap:0.4rem;transition:color 0.2s;}
+    .nav-back:hover{color:var(--accent);}
+
+    /* HERO BANNER */
+    .article-hero{
+      margin-top:64px;
+      background:var(--bg2);
+      border-bottom:1.5px solid var(--border);
+      padding:4rem 2rem 3rem;
+      position:relative;overflow:hidden;
+    }
+    .article-hero::before{
+      content:'2NH₃ + CO₂ → NH₂COONH₄ → CO(NH₂)₂ + H₂O';
+      position:absolute;bottom:1rem;right:2rem;
+      font-family:'IBM Plex Mono',monospace;font-size:0.72rem;
+      color:var(--accent);opacity:0.2;white-space:nowrap;
+    }
+    .article-hero-inner{max-width:860px;margin:0 auto;}
+    .article-cat{
+      display:inline-flex;align-items:center;gap:0.5rem;
+      font-family:'IBM Plex Mono',monospace;font-size:0.68rem;
+      color:var(--danger);letter-spacing:0.15em;text-transform:uppercase;
+      border:1px solid rgba(224,10,61,0.25);background:rgba(224,10,61,0.05);
+      padding:0.28rem 0.8rem;border-radius:2px;margin-bottom:1.5rem;
+    }
+    .article-cat::before{content:'●';font-size:0.5rem;animation:blink 1.5s infinite;}
+    @keyframes blink{0%,100%{opacity:1}50%{opacity:0.2}}
+    .article-title{
+      font-family:'Cormorant Garamond',serif;
+      font-size:clamp(2rem,4.5vw,3.4rem);
+      font-weight:700;line-height:1.12;color:var(--text);
+      margin-bottom:1.2rem;
+    }
+    .article-title span{color:var(--accent);font-style:italic;}
+    .article-subtitle{
+      font-size:1.05rem;color:var(--text2);line-height:1.8;
+      font-weight:300;margin-bottom:2rem;max-width:720px;
+    }
+    .article-meta{
+      display:flex;flex-wrap:wrap;gap:1.5rem;align-items:center;
+      padding-top:1.5rem;border-top:1.5px solid var(--border);
+    }
+    .meta-item{display:flex;align-items:center;gap:0.45rem;font-family:'IBM Plex Mono',monospace;font-size:0.72rem;color:var(--muted);}
+    .meta-item strong{color:var(--accent);}
+    .meta-badge{padding:0.25rem 0.7rem;border-radius:100px;font-size:0.66rem;font-family:'IBM Plex Mono',monospace;font-weight:500;}
+    .badge-industry{background:rgba(224,10,61,0.08);color:var(--danger);border:1px solid rgba(224,10,61,0.2);}
+    .badge-sustainability{background:rgba(10,184,78,0.08);color:var(--safe);border:1px solid rgba(10,184,78,0.2);}
+    .badge-process{background:rgba(224,123,10,0.1);color:var(--accent);border:1px solid var(--border-s);}
+
+    /* LAYOUT */
+    .article-layout{max-width:1100px;margin:0 auto;padding:3.5rem 2rem;display:grid;grid-template-columns:1fr 280px;gap:4rem;align-items:start;}
+
+    /* MAIN CONTENT */
+    .article-body h2{
+      font-family:'Cormorant Garamond',serif;
+      font-size:1.85rem;font-weight:700;color:var(--text);
+      margin:3rem 0 1rem;padding-bottom:0.6rem;
+      border-bottom:2px solid var(--accent-l);
+      position:relative;
+    }
+    .article-body h2::after{
+      content:'';position:absolute;bottom:-2px;left:0;
+      width:50px;height:2px;background:var(--accent);
+    }
+    .article-body h3{
+      font-family:'Cormorant Garamond',serif;
+      font-size:1.3rem;font-weight:700;color:var(--text);
+      margin:2rem 0 0.7rem;
+    }
+    .article-body h4{
+      font-family:'IBM Plex Mono',monospace;
+      font-size:0.8rem;font-weight:500;color:var(--accent);
+      letter-spacing:0.1em;text-transform:uppercase;
+      margin:1.5rem 0 0.5rem;
+    }
+    .article-body p{
+      font-size:0.97rem;color:var(--text2);line-height:1.95;
+      margin-bottom:1.2rem;font-weight:300;
+    }
+    .article-body p strong{font-weight:600;color:var(--text);}
+    .article-body p em{color:var(--accent);font-style:italic;}
+
+    /* EQUATION BLOCK */
+    .equation-block{
+      background:var(--bg2);border:1.5px solid var(--border);
+      border-left:4px solid var(--accent);
+      border-radius:0 4px 4px 0;
+      padding:1.2rem 1.5rem;margin:1.5rem 0;
+      font-family:'IBM Plex Mono',monospace;
+    }
+    .eq-label{font-size:0.65rem;color:var(--accent);letter-spacing:0.12em;text-transform:uppercase;margin-bottom:0.5rem;}
+    .eq-formula{font-size:1.05rem;color:var(--text);line-height:1.7;}
+    .eq-formula sub{font-size:0.7em;}
+    .eq-formula sup{font-size:0.7em;}
+    .eq-conditions{font-size:0.78rem;color:var(--muted);margin-top:0.4rem;}
+    .eq-enthalpy{color:var(--danger);font-weight:500;}
+    .eq-enthalpy.exo{color:var(--safe);}
+
+    /* CALLOUT BOX */
+    .callout{
+      padding:1.3rem 1.5rem;border-radius:4px;margin:1.8rem 0;
+      border:1.5px solid;
+    }
+    .callout-title{font-family:'IBM Plex Mono',monospace;font-size:0.7rem;font-weight:500;letter-spacing:0.12em;text-transform:uppercase;margin-bottom:0.5rem;}
+    .callout p{margin:0;font-size:0.88rem;line-height:1.75;}
+    .callout.warning{background:rgba(224,10,61,0.04);border-color:rgba(224,10,61,0.2);}
+    .callout.warning .callout-title{color:var(--danger);}
+    .callout.info{background:rgba(10,123,224,0.04);border-color:rgba(10,123,224,0.2);}
+    .callout.info .callout-title{color:var(--info);}
+    .callout.success{background:rgba(10,184,78,0.04);border-color:rgba(10,184,78,0.2);}
+    .callout.success .callout-title{color:var(--safe);}
+    .callout.accent{background:var(--accent-l);border-color:var(--border-s);}
+    .callout.accent .callout-title{color:var(--accent-d);}
+
+    /* DATA TABLES */
+    .data-table-wrap{overflow-x:auto;margin:1.8rem 0;}
+    .data-table-title{font-family:'IBM Plex Mono',monospace;font-size:0.7rem;color:var(--muted);letter-spacing:0.12em;text-transform:uppercase;margin-bottom:0.7rem;}
+    table{width:100%;border-collapse:collapse;font-size:0.83rem;}
+    thead tr{background:var(--text);color:#fff;}
+    thead th{padding:0.75rem 1rem;text-align:left;font-family:'IBM Plex Mono',monospace;font-size:0.68rem;font-weight:500;letter-spacing:0.08em;text-transform:uppercase;}
+    tbody tr{border-bottom:1px solid var(--border);}
+    tbody tr:nth-child(even){background:var(--bg2);}
+    tbody td{padding:0.7rem 1rem;color:var(--text2);line-height:1.5;}
+    tbody td strong{color:var(--text);font-weight:600;}
+    .td-red{color:var(--danger);font-weight:500;}
+    .td-green{color:var(--safe);font-weight:500;}
+    .td-orange{color:var(--accent);font-weight:500;}
+
+    /* KEY NUMBERS */
+    .key-numbers{display:grid;grid-template-columns:repeat(3,1fr);gap:1rem;margin:2rem 0;}
+    .key-num-card{background:var(--bg2);border:1.5px solid var(--border);border-radius:4px;padding:1.2rem;text-align:center;}
+    .key-num-card:nth-child(1){border-top:3px solid var(--danger);}
+    .key-num-card:nth-child(2){border-top:3px solid var(--accent);}
+    .key-num-card:nth-child(3){border-top:3px solid var(--info);}
+    .kn-val{font-family:'Cormorant Garamond',serif;font-size:2rem;font-weight:700;color:var(--text);line-height:1;}
+    .kn-label{font-family:'IBM Plex Mono',monospace;font-size:0.65rem;color:var(--muted);letter-spacing:0.1em;text-transform:uppercase;margin-top:0.3rem;}
+    .kn-sub{font-size:0.75rem;color:var(--muted);margin-top:0.2rem;}
+
+    /* PROCESS FLOW */
+    .process-flow{margin:2rem 0;display:flex;align-items:center;flex-wrap:wrap;gap:0;}
+    .pf-step{
+      flex:1;min-width:120px;
+      background:var(--bg2);border:1.5px solid var(--border);
+      padding:0.9rem 0.7rem;text-align:center;
+      position:relative;
+    }
+    .pf-step::after{
+      content:'→';position:absolute;right:-14px;top:50%;
+      transform:translateY(-50%);color:var(--accent);font-size:1rem;
+      z-index:1;background:var(--bg);padding:0 2px;
+    }
+    .pf-step:last-child::after{display:none;}
+    .pf-step-num{font-family:'IBM Plex Mono',monospace;font-size:0.6rem;color:var(--accent);letter-spacing:0.1em;text-transform:uppercase;}
+    .pf-step-name{font-family:'Cormorant Garamond',serif;font-size:0.95rem;font-weight:700;color:var(--text);margin:0.2rem 0;}
+    .pf-step-cond{font-family:'IBM Plex Mono',monospace;font-size:0.6rem;color:var(--muted);}
+
+    /* SECTION DIVIDER */
+    .s-divider{border:none;border-top:1.5px solid var(--border);margin:2.5rem 0;}
+
+    /* REFERENCES */
+    .references-section{margin-top:3rem;padding-top:2rem;border-top:1.5px solid var(--border);}
+    .ref-title{font-family:'IBM Plex Mono',monospace;font-size:0.7rem;color:var(--muted);letter-spacing:0.14em;text-transform:uppercase;margin-bottom:1rem;}
+    .ref-list{list-style:none;display:flex;flex-direction:column;gap:0.5rem;}
+    .ref-list li{font-size:0.78rem;color:var(--muted);line-height:1.6;display:flex;gap:0.7rem;}
+    .ref-list li::before{content:attr(data-num);color:var(--accent);font-family:'IBM Plex Mono',monospace;font-size:0.7rem;min-width:20px;flex-shrink:0;margin-top:2px;}
+    .ref-list a{color:var(--accent-d);text-decoration:none;}
+    .ref-list a:hover{text-decoration:underline;}
+
+    /* SIDEBAR */
+    .article-sidebar{position:sticky;top:84px;}
+    .sidebar-card{background:var(--bg2);border:1.5px solid var(--border);border-radius:4px;padding:1.3rem;margin-bottom:1.2rem;}
+    .sidebar-title{font-family:'IBM Plex Mono',monospace;font-size:0.68rem;color:var(--accent);letter-spacing:0.12em;text-transform:uppercase;margin-bottom:1rem;padding-bottom:0.6rem;border-bottom:1px solid var(--border);}
+    .toc-list{list-style:none;display:flex;flex-direction:column;gap:0.35rem;}
+    .toc-list a{font-size:0.8rem;color:var(--muted);text-decoration:none;display:flex;gap:0.5rem;align-items:flex-start;line-height:1.5;transition:color 0.2s;}
+    .toc-list a::before{content:'§';color:var(--accent);font-size:0.7rem;flex-shrink:0;margin-top:2px;}
+    .toc-list a:hover{color:var(--accent);}
+    .price-ticker{display:flex;flex-direction:column;gap:0.6rem;}
+    .ticker-row{display:flex;justify-content:space-between;align-items:center;font-family:'IBM Plex Mono',monospace;font-size:0.72rem;}
+    .ticker-name{color:var(--muted);}
+    .ticker-val{color:var(--text);font-weight:500;}
+    .ticker-chg{font-size:0.65rem;padding:0.15rem 0.4rem;border-radius:100px;}
+    .chg-up{background:rgba(224,10,61,0.1);color:var(--danger);}
+    .chg-dn{background:rgba(10,184,78,0.1);color:var(--safe);}
+    .author-card{display:flex;gap:0.9rem;align-items:center;}
+    .author-avatar{width:44px;height:44px;border-radius:50%;background:var(--accent);display:flex;align-items:center;justify-content:center;font-size:1.1rem;flex-shrink:0;}
+    .author-name{font-family:'Cormorant Garamond',serif;font-size:1rem;font-weight:700;color:var(--text);}
+    .author-sub{font-size:0.72rem;color:var(--muted);}
+
+    /* FOOTER */
+    footer{background:var(--text);padding:2rem 4rem;display:flex;align-items:center;justify-content:space-between;}
+    .footer-logo{font-family:'Cormorant Garamond',serif;font-size:1.1rem;font-weight:700;color:#fff;}
+    .footer-logo span{color:var(--accent);}
+    footer p{font-family:'IBM Plex Mono',monospace;font-size:0.67rem;color:rgba(255,255,255,0.38);}
+
+    /* FADE */
+    .fade-up{opacity:0;transform:translateY(22px);transition:opacity 0.6s ease,transform 0.6s ease;}
+    .fade-up.visible{opacity:1;transform:none;}
+
+    @media(max-width:960px){
+      nav{padding:0 1.5rem;}
+      .article-layout{grid-template-columns:1fr;gap:2.5rem;}
+      .article-sidebar{position:static;}
+      footer{flex-direction:column;gap:0.7rem;padding:1.5rem;text-align:center;}
+      .article-hero{padding:3rem 1.5rem 2.5rem;}
+      .key-numbers{grid-template-columns:1fr 1fr;}
+      .process-flow{flex-direction:column;}
+      .pf-step::after{content:'↓';right:auto;top:auto;bottom:-14px;left:50%;}
+    }
+    @media(max-width:560px){
+      .key-numbers{grid-template-columns:1fr;}
+    }
+  </style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav>
+  <a href="index.html" class="nav-logo"><span class="nav-dot"></span>B.M.Dharaneesh</a>
+  <a href="index.html#articles" class="nav-back">← Back to Articles</a>
+</nav>
+
+<!-- HERO BANNER -->
+<div class="article-hero">
+  <div class="article-hero-inner fade-up">
+    <div class="article-cat">📡 Industry News &nbsp;|&nbsp; Geopolitical Analysis</div>
+    <h1 class="article-title">
+      Iran–Israel War & the <span>Urea Crisis:</span><br>
+      A Chemical Engineering Analysis
+    </h1>
+    <p class="article-subtitle">
+      How geopolitical conflict in the Middle East is dismantling global urea supply chains,
+      disrupting the Haber–Bosch process at scale, and threatening food security for over 3 billion people —
+      through the lens of chemical engineering.
+    </p>
+    <div class="article-meta">
+      <div class="meta-item">📅 <strong>March 23, 2026</strong></div>
+      <div class="meta-item">✍️ <strong>B.M.Dharaneesh</strong></div>
+      <div class="meta-item">⏱ <strong>~18 min read</strong></div>
+      <span class="meta-badge badge-industry">Breaking Situation</span>
+      <span class="meta-badge badge-sustainability">Food Security</span>
+      <span class="meta-badge badge-process">Reaction Engineering</span>
+    </div>
+  </div>
+</div>
+
+<!-- ARTICLE LAYOUT -->
+<div class="article-layout">
+
+  <!-- ── MAIN BODY ── -->
+  <main class="article-body">
+
+    <!-- EXECUTIVE SUMMARY -->
+    <div class="callout accent fade-up">
+      <div class="callout-title">⚗ Executive Summary</div>
+      <p>The U.S.–Israel strikes on Iran beginning <strong>February 28, 2026</strong>, and Iran's subsequent effective closure of the <strong>Strait of Hormuz</strong>, have triggered one of the most severe geopolitical shocks to global urea and fertilizer supply chains in history. Urea export prices have surged <strong>~40% to above $700/metric ton</strong>, QAFCO — the world's largest urea supplier — has halted production, and <strong>one-third of global fertilizer trade</strong> is at immediate risk. This article analyses the crisis through the technical lens of chemical engineering: from Steam Methane Reforming and the Haber–Bosch process to reactor kinetics, supply chain thermodynamics, and mitigation pathways.</p>
+    </div>
+
+    <!-- SECTION 1 -->
+    <h2 id="s1">1. Urea: Its Industrial Significance and Chemistry</h2>
+
+    <p>Urea (CO(NH₂)₂) is the world's most widely used nitrogenous fertilizer, with a nitrogen content of <strong>46% by weight</strong> — the highest among all solid nitrogen fertilizers. Global production exceeds <strong>180 million metric tonnes per year</strong>, and roughly half the world's food supply is grown using urea-derived nitrogen. The Haber-Bosch process that underpins urea production was described by Nobel laureate Fritz Haber as <em>"the most important invention of the 20th century"</em> — and the current conflict has placed this cornerstone of food security at unprecedented risk.</p>
+
+    <p>Natural gas serves a <strong>dual role</strong> in urea manufacturing: it is simultaneously the <em>feedstock</em> (source of carbon and hydrogen atoms) and the <em>fuel</em> (providing the enormous thermal energy required). This dual dependency means that energy costs account for <strong>70–80% of total urea production costs</strong> — making any disruption to gas supply immediately and directly catastrophic for production economics.</p>
+
+    <div class="key-numbers fade-up">
+      <div class="key-num-card">
+        <div class="kn-val">46%</div>
+        <div class="kn-label">Nitrogen content in urea</div>
+        <div class="kn-sub">Highest of all solid N-fertilizers</div>
+      </div>
+      <div class="key-num-card">
+        <div class="kn-val">180 MMT</div>
+        <div class="kn-label">Global annual demand</div>
+        <div class="kn-sub">Pre-war 2025–26 estimate</div>
+      </div>
+      <div class="key-num-card">
+        <div class="kn-val">70–80%</div>
+        <div class="kn-label">Gas share of production cost</div>
+        <div class="kn-sub">Makes it uniquely vulnerable</div>
+      </div>
+    </div>
+
+    <!-- SECTION 2 -->
+    <h2 id="s2">2. The Urea Synthesis Pathway: A Deep Technical Analysis</h2>
+
+    <p>Urea production is a multi-stage chemical process involving three major unit operations: Steam Methane Reforming (SMR), Haber–Bosch ammonia synthesis, and the Basarov urea formation reaction. Each stage is energy-intensive, catalyst-dependent, and critically sensitive to feedstock quality and pressure conditions.</p>
+
+    <h3>2.1 Stage 1 — Primary Reforming: Steam Methane Reforming (SMR)</h3>
+
+    <p>The first step converts methane (the primary component of natural gas, typically &gt;90%) into synthesis gas (syngas) via a <strong>highly endothermic catalytic reaction</strong> over nickel-based catalysts at 800–900°C in multi-tube reformer furnaces:</p>
+
+    <div class="equation-block fade-up">
+      <div class="eq-label">// Primary Reforming — Endothermic</div>
+      <div class="eq-formula">CH₄ + H₂O ⇌ CO + 3H₂</div>
+      <div class="eq-conditions">Catalyst: Ni/Al₂O₃ &nbsp;|&nbsp; T: 800–900°C &nbsp;|&nbsp; P: 15–40 bar
+        <span class="eq-enthalpy">&nbsp;ΔH°= +206 kJ/mol (highly endothermic)</span>
+      </div>
+    </div>
+
+    <p>Secondary reforming then introduces controlled air (providing O₂ and N₂) into the partially reformed gas stream for <strong>autothermal balance</strong>, achieving temperatures up to 1000°C and yielding syngas with an H₂:CO ratio of approximately 3:1. The nitrogen introduced here is essential — it will eventually become one of the reactants in ammonia synthesis.</p>
+
+    <h3>2.2 Stage 2 — Water-Gas Shift (WGS) Conversion</h3>
+
+    <p>The CO content in syngas is converted to CO₂ and additional H₂ through the water-gas shift reaction, carried out in two stages using different catalysts optimized for different temperature ranges:</p>
+
+    <div class="equation-block fade-up">
+      <div class="eq-label">// High-Temp Shift (HTS) — Fe₃O₄/Cr₂O₃ catalyst</div>
+      <div class="eq-formula">CO + H₂O ⇌ CO₂ + H₂</div>
+      <div class="eq-conditions">HTS: T = 320–450°C &nbsp;|&nbsp; LTS: T = 180–250°C, Cu/ZnO/Al₂O₃ catalyst
+        <span class="eq-enthalpy exo">&nbsp;ΔH°= −41 kJ/mol (mildly exothermic)</span>
+      </div>
+    </div>
+
+    <p>The CO₂ recovered here is not waste — it is a crucial reactant in the downstream urea synthesis loop. The purified H₂ and N₂ streams then proceed to ammonia synthesis, while the CO₂ stream is compressed and recycled into the urea reactor.</p>
+
+    <h3>2.3 Stage 3 — Haber–Bosch Ammonia Synthesis</h3>
+
+    <p>The heart of nitrogen fertilizer production, this reaction combines purified hydrogen and nitrogen over a promoted iron catalyst under extreme conditions. The reaction is <strong>exothermic but kinetically limited</strong>, requiring high pressure and elevated temperature to achieve commercially viable conversion rates:</p>
+
+    <div class="equation-block fade-up">
+      <div class="eq-label">// Haber–Bosch Process — Iron Catalyst</div>
+      <div class="eq-formula">N₂ + 3H₂ ⇌ 2NH₃</div>
+      <div class="eq-conditions">Catalyst: Fe/K₂O/Al₂O₃ &nbsp;|&nbsp; T: 400–500°C &nbsp;|&nbsp; P: 150–250 bar &nbsp;|&nbsp; Conversion: 15–25% per pass
+        <span class="eq-enthalpy exo">&nbsp;ΔH°= −92 kJ/mol (exothermic)</span>
+      </div>
+    </div>
+
+    <p>Single-train ammonia plant capacities today exceed <strong>3,000 metric tonnes per day (tpd)</strong>. Because equilibrium conversion per pass is low (~15–25%), the process uses a <strong>recycle loop</strong> with continuous ammonia separation by condensation, achieving overall efficiencies of 95%+. Modern plants achieve an energy intensity of <strong>28–33 GJ/tonne NH₃</strong>, with best-in-class plants approaching 27 GJ/tonne.</p>
+
+    <div class="callout info fade-up">
+      <div class="callout-title">📐 Le Chatelier's Principle — Engineering Tradeoff</div>
+      <p>Thermodynamically, lower temperatures and higher pressures favour NH₃ formation. However, lower temperatures dramatically reduce reaction kinetics. This classic ChE tradeoff — thermodynamic favourability vs. reaction rate — is resolved by operating at 400–500°C (a compromise) with catalyst promoters like K₂O (electronic promoter) and Al₂O₃ (structural promoter) to enhance activity without sacrificing selectivity.</p>
+    </div>
+
+    <h3>2.4 Stage 4 — Basarov Urea Formation Reaction</h3>
+
+    <p>Ammonia and CO₂ react in a high-pressure synthesis loop (the "urea loop") via a two-step mechanism: first forming ammonium carbamate, then dehydrating to urea:</p>
+
+    <div class="equation-block fade-up">
+      <div class="eq-label">// Step 1: Carbamate Formation — Fast, Exothermic</div>
+      <div class="eq-formula">2NH₃ + CO₂ ⇌ NH₂COO⁻ + NH₄⁺ (Ammonium Carbamate)</div>
+      <div class="eq-conditions">T: 180–210°C &nbsp;|&nbsp; P: 140–200 bar
+        <span class="eq-enthalpy exo">&nbsp;ΔH°= −159 kJ/mol (exothermic)</span>
+      </div>
+    </div>
+
+    <div class="equation-block fade-up">
+      <div class="eq-label">// Step 2: Dehydration — Slow, Endothermic (Rate-Limiting)</div>
+      <div class="eq-formula">NH₄⁺ + NH₂COO⁻ → CO(NH₂)₂ + H₂O (Urea)</div>
+      <div class="eq-conditions">Equilibrium conversion: 50–70% &nbsp;|&nbsp; Unreacted carbamate recycled
+        <span class="eq-enthalpy">&nbsp;ΔH°= +15.5 kJ/mol (endothermic)</span>
+      </div>
+    </div>
+
+    <p>The overall process — from raw natural gas to finished prilled or granulated urea — has an energy intensity of <strong>22–28 GJ per tonne of urea</strong> for modern plants. Prilling involves concentrating the urea melt to 99.5% solids via vacuum evaporation, then spraying molten urea from the top of a prilling tower (~55 m tall) through a counter-current air stream to produce 1–2 mm spherical granules.</p>
+
+    <!-- PROCESS FLOW -->
+    <h4>// Full Production Pathway</h4>
+    <div class="process-flow fade-up">
+      <div class="pf-step">
+        <div class="pf-step-num">Step 01</div>
+        <div class="pf-step-name">SMR</div>
+        <div class="pf-step-cond">800–900°C<br>Ni catalyst</div>
+      </div>
+      <div class="pf-step">
+        <div class="pf-step-num">Step 02</div>
+        <div class="pf-step-name">WGS</div>
+        <div class="pf-step-cond">320–450°C<br>Fe/Cu catalyst</div>
+      </div>
+      <div class="pf-step">
+        <div class="pf-step-num">Step 03</div>
+        <div class="pf-step-name">Haber–Bosch</div>
+        <div class="pf-step-cond">400–500°C<br>150–250 bar</div>
+      </div>
+      <div class="pf-step">
+        <div class="pf-step-num">Step 04</div>
+        <div class="pf-step-name">Urea Loop</div>
+        <div class="pf-step-cond">180–210°C<br>140–200 bar</div>
+      </div>
+      <div class="pf-step">
+        <div class="pf-step-num">Step 05</div>
+        <div class="pf-step-name">Prilling</div>
+        <div class="pf-step-cond">99.5% melt<br>2–4 mm granules</div>
+      </div>
+    </div>
+
+    <!-- SECTION 3 -->
+    <h2 id="s3">3. The Conflict: Timeline and Mechanism of Disruption</h2>
+
+    <p>On <strong>February 28, 2026</strong>, the U.S. and Israel launched a coordinated bombing campaign against Iran. Iran retaliated by closing the <strong>Strait of Hormuz</strong> — a 33 km-wide chokepoint between Iran and Oman through which, according to The Fertilizer Institute (TFI), <strong>nearly 50% of global urea and sulfur exports</strong> and <strong>20% of global LNG</strong> (a key ammonia and urea feedstock) normally transit. By March 2, Iranian IRGC officials declared the strait "closed," sending oil prices above $100/barrel and triggering force majeure declarations across the global fertilizer supply chain.</p>
+
+    <div class="callout warning fade-up">
+      <div class="callout-title">⚠ Scale of Disruption</div>
+      <p>According to Scotiabank analysts, global urea exports are set to fall to approximately <strong>1.5 million metric tonnes in March 2026</strong>, compared to 4.5–5 million metric tonnes in a normal month. That is a reduction of <strong>67–70%</strong> of normal monthly trade volume — an unprecedented contraction in the history of global fertilizer markets.</p>
+    </div>
+
+    <p>The mechanism of disruption is threefold. First, <strong>direct infrastructure strikes</strong> damaged gas processing facilities in Iran and forced Qatar's Ras Laffan LNG complex to halt operations. Second, the <strong>Hormuz closure</strong> physically prevented loaded tankers from exiting the Gulf. Third, <strong>insurance market collapse</strong> — war-risk premiums for vessels attempting Hormuz transit became commercially prohibitive, effectively freezing shipping even for vessels whose governments permitted passage.</p>
+
+    <h3>3.1 Global Producer Disruption Status</h3>
+
+    <div class="data-table-wrap fade-up">
+      <div class="data-table-title">// Table 1 — Major Urea Producers: Disruption Assessment (March 2026)</div>
+      <table>
+        <thead>
+          <tr>
+            <th>Producer / Plant</th>
+            <th>Capacity (MMT/yr)</th>
+            <th>Global Share</th>
+            <th>Disruption Status</th>
+            <th>Primary Cause</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr><td><strong>Qatar (QAFCO)</strong></td><td>5.6</td><td class="td-red">~14%</td><td class="td-red">Halted</td><td>Ras Laffan gas supply severed; Hormuz blocked</td></tr>
+          <tr><td><strong>Iran</strong></td><td>6.5</td><td class="td-red">~7%</td><td class="td-red">Fully Offline</td><td>Direct military strikes on infrastructure</td></tr>
+          <tr><td><strong>Saudi Arabia</strong></td><td>4.2</td><td class="td-orange">~5%</td><td class="td-orange">Export blocked</td><td>Hormuz closure prevents outbound shipments</td></tr>
+          <tr><td><strong>Egypt (Abu Qir)</strong></td><td>2.8</td><td class="td-orange">~3%</td><td class="td-orange">50% derate</td><td>Israeli gas export force majeure</td></tr>
+          <tr><td><strong>UAE (Fertil)</strong></td><td>2.0</td><td class="td-orange">~2%</td><td class="td-orange">Export blocked</td><td>Hormuz closure</td></tr>
+          <tr><td><strong>Libya (LIFECO)</strong></td><td>0.7</td><td class="td-green">~1%</td><td class="td-green">Stable</td><td>Export logistics limited</td></tr>
+          <tr><td><strong>Russia</strong></td><td>~15</td><td class="td-orange">~17%</td><td class="td-orange">Partial disruption</td><td>Ukraine drone strikes on fertilizer plants</td></tr>
+          <tr><td><strong>China</strong></td><td>~55</td><td class="td-orange">~30%</td><td class="td-orange">Export restricted</td><td>Self-imposed export ban until August 2026</td></tr>
+        </tbody>
+      </table>
+    </div>
+
+    <p>The compounding effect is critical: <strong>China's export ban</strong> (imposed before the conflict to ensure domestic food security) and <strong>Russia's partial disruption</strong> from the Ukraine conflict had already removed significant volumes from the global market before February 28. The Iran conflict has now eliminated another major tranche. According to CRU analyst Chris Lawson, <em>"no producer can quickly make up for the lost supply"</em> — as new urea plants typically take 4–6 years to commission.</p>
+
+    <!-- SECTION 4 -->
+    <h2 id="s4">4. Price Dynamics: Market Response Analysis</h2>
+
+    <p>Urea benchmark prices before February 27 were below $500 per metric tonne at the Gulf (FOB basis). Within two weeks of the strikes, prices had crossed $700/metric tonne — a jump of over 40% — driven by a combination of physical supply withdrawal and speculative futures pricing. Argus, a specialist commodities pricing agency, confirmed Middle East urea export prices above $700/tonne as of mid-March 2026.</p>
+
+    <div class="data-table-wrap fade-up">
+      <div class="data-table-title">// Table 2 — Fertilizer & Energy Price Movements (Feb–Mar 2026)</div>
+      <table>
+        <thead>
+          <tr><th>Commodity</th><th>Pre-War Price</th><th>Mid-March 2026</th><th>% Change</th><th>Source</th></tr>
+        </thead>
+        <tbody>
+          <tr><td><strong>Urea (Gulf FOB)</strong></td><td>~$465/tonne</td><td class="td-red">&gt;$700/tonne</td><td class="td-red">+40–50%</td><td>Argus / Bloomberg</td></tr>
+          <tr><td><strong>Urea (US NOLA)</strong></td><td>&lt;$500/tonne</td><td class="td-red">&gt;$650/tonne</td><td class="td-red">+30%</td><td>farmdoc/UIUC</td></tr>
+          <tr><td><strong>Anhydrous Ammonia (US)</strong></td><td>~$850/tonne</td><td class="td-red">&gt;$900/tonne</td><td class="td-red">+6–10%</td><td>USDA AMS</td></tr>
+          <tr><td><strong>European TTF Gas</strong></td><td>EUR 32/MWh</td><td class="td-red">EUR 45–52/MWh</td><td class="td-red">+41–63%</td><td>Euronews / Wright Research</td></tr>
+          <tr><td><strong>Oil (Brent Crude)</strong></td><td>~$82/bbl</td><td class="td-red">&gt;$100/bbl</td><td class="td-red">+22%</td><td>Al Jazeera</td></tr>
+          <tr><td><strong>Global Urea Exports</strong></td><td>4.5–5 MMT/month</td><td class="td-red">~1.5 MMT/month</td><td class="td-red">−67–70%</td><td>Scotiabank/Kpler</td></tr>
+        </tbody>
+      </table>
+    </div>
+
+    <p>Rabobank's <strong>Urea Affordability Index</strong> — which measures how affordable fertilizers are relative to crop prices — has fallen to its <strong>second-lowest level since 2010</strong>, surpassing even the 2022 Russia-Ukraine shock in terms of affordability deterioration. Morningstar analyst Seth Goldstein has projected that if the Hormuz closure persists, nitrogen fertilizer prices could <strong>roughly double</strong> from current levels and phosphate prices could climb a further 50%.</p>
+
+    <!-- SECTION 5 -->
+    <h2 id="s5">5. India's Urea Sector: Feedstock Vulnerabilities</h2>
+
+    <p>India is uniquely exposed to this crisis. The country is the world's <strong>second-largest consumer of urea</strong>, producing approximately 25 MMT domestically per year (running at ~60% of nameplate capacity) across 30 plants, collectively consuming <strong>75 MMSCMD of natural gas</strong>. Domestic gas from the KG Basin covers only ~25% of this requirement; the shortfall is covered by LNG imports, predominantly from Qatar through Hormuz.</p>
+
+    <p>On <strong>March 3, 2026</strong>, Petronet LNG — India's largest gas importer — invoked <strong>force majeure</strong>, declaring that its LNG vessels could no longer safely transit Hormuz to reach Qatar's Ras Laffan terminal. Notices were served to GAIL, IOCL, and BPCL. GNFC disclosed that its gas allocation was cut to 60% of contracted quantity starting March 6, 2026.</p>
+
+    <div class="callout info fade-up">
+      <div class="callout-title">📊 India LNG Import Infrastructure</div>
+      <p>India's LNG regasification terminals — <strong>Dahej (17.5 MMTPA)</strong>, <strong>Hazira (5 MMTPA)</strong>, and <strong>Ennore (5 MMTPA)</strong> — are the primary entry points for imported gas feeding urea plants. With Qatar (historically 40% of India's LNG) halted, India pivoted to spot market auctions on March 18, 2026, securing an additional 7–10 MMSCMD and recovering plant utilisation to ~80% of capacity. Emergency imports from Russia (1.4 MMT) and China (2.1 MMT) have been arranged for the 2025–26 fiscal year.</p>
+    </div>
+
+    <div class="data-table-wrap fade-up">
+      <div class="data-table-title">// Table 3 — Key Indian Urea Plants: Operational Status</div>
+      <table>
+        <thead>
+          <tr><th>Plant</th><th>Location</th><th>Gas Source</th><th>Capacity (tpd)</th><th>Current Load</th></tr>
+        </thead>
+        <tbody>
+          <tr><td><strong>IFFCO Aonla</strong></td><td>Uttar Pradesh</td><td>Dahej LNG / GAIL grid</td><td>2,600 × 2 trains</td><td class="td-orange">~80%</td></tr>
+          <tr><td><strong>NFL Panipat</strong></td><td>Haryana</td><td>Hazira LNG</td><td>2,200</td><td class="td-orange">~75%</td></tr>
+          <tr><td><strong>SPIC Tuticorin</strong></td><td>Tamil Nadu</td><td>Ennore LNG (100% gas)</td><td>1,000</td><td class="td-green">~85%</td></tr>
+          <tr><td><strong>GNFC Bharuch</strong></td><td>Gujarat</td><td>Dahej LNG + domestic</td><td>1,700</td><td class="td-red">~60%</td></tr>
+          <tr><td><strong>KRIBHCO Surat</strong></td><td>Gujarat</td><td>Dahej LNG</td><td>2,000</td><td class="td-orange">~72%</td></tr>
+        </tbody>
+      </table>
+    </div>
+
+    <!-- SECTION 6 -->
+    <h2 id="s6">6. Global Cascading Effects: From Farm to Food Price</h2>
+
+    <p>The crisis is not confined to the Middle East. Its cascading effects are being felt across every major agricultural economy in the world.</p>
+
+    <p><strong>United States:</strong> USDA AMS reported anhydrous ammonia above $900/tonne and farmers approximately 25% short of fertilizer supplies for the spring planting season. Many corn farmers are switching some acreage to soybeans (a nitrogen-fixing legume), potentially reducing 2026 corn production.</p>
+
+    <p><strong>Brazil:</strong> Almost entirely reliant on urea imports, with nearly half of these normally transiting Hormuz. With imports disrupted, Brazilian farmers face the worst pre-planting fertilizer shortage since the 2022 Ukraine crisis.</p>
+
+    <p><strong>Europe:</strong> The European TTF gas benchmark surged 41–63% within weeks, directly increasing the cost of European ammonia and urea manufacturing. Several European producers withdrew price offers within hours of the gas price spike, unable to quote forward contracts. EU was already operating at only ~75% urea production capacity before the conflict, owing to the loss of cheap Russian gas post-2022.</p>
+
+    <p><strong>Bangladesh:</strong> Among the hardest hit, with four out of five fertilizer factories shut down due to Qatari LNG disruption. Bangladesh's urea import dependence makes it extremely vulnerable to any prolonged disruption.</p>
+
+    <div class="data-table-wrap fade-up">
+      <div class="data-table-title">// Table 4 — Farmer-Level Cost Impact Analysis (India, Kharif Season)</div>
+      <table>
+        <thead>
+          <tr><th>Input</th><th>Pre-War Cost (₹/ha)</th><th>Current (₹/ha)</th><th>% Rise</th><th>Agronomic Impact</th></tr>
+        </thead>
+        <tbody>
+          <tr><td><strong>Urea (120 kg N/ha)</strong></td><td>₹5,500</td><td class="td-red">₹7,500</td><td class="td-red">+37%</td><td>Nitrogen under-dosing risk</td></tr>
+          <tr><td><strong>DAP (18-46-0)</strong></td><td>₹8,000</td><td class="td-red">₹11,000</td><td class="td-red">+38%</td><td>NPK ratio imbalance</td></tr>
+          <tr><td><strong>Pesticides</strong></td><td>₹2,000</td><td class="td-orange">₹2,500</td><td class="td-orange">+25%</td><td>Pest resistance risk</td></tr>
+          <tr><td><strong>Total Input Cost</strong></td><td>₹15,500</td><td class="td-red">₹21,000</td><td class="td-red">+35%</td><td>Margin collapse for small farmers</td></tr>
+        </tbody>
+      </table>
+    </div>
+
+    <p>India's retail urea price is fixed by government subsidy at <strong>₹242 per 45-kg bag</strong>, but the global price surge is inflating the government's fertilizer subsidy bill by an estimated <strong>₹45,000 crore additionally</strong>. Quality dilution (reducing urea nitrogen content from 46% to 42%) has been reported, and agronomists warn that a 10–15% shortfall in nitrogen application could trigger a <strong>5–7 MMT loss in paddy output</strong>, worth approximately ₹50,000 crore in crop value. The UN Food and Agriculture Organisation (FAO) projects broader food price inflation of <strong>2–3%</strong> globally.</p>
+
+    <!-- SECTION 7 -->
+    <h2 id="s7">7. Engineering Mitigation Strategies</h2>
+
+    <h3>7.1 Short-Term Operational Responses</h3>
+    <p><strong>Feedstock diversification:</strong> Plants with dual-feed capability (LNG + naphtha or LNG + coal) are switching to alternative feedstocks, though at 15–25% higher operating costs. India's <strong>FCIL Talcher</strong> coal gasification plant (once revived) offers an alternative route — Coal → syngas → NH₃ → Urea — bypassing natural gas entirely.</p>
+
+    <p><strong>Nano-urea deployment:</strong> IFFCO's Nano Urea liquid (500 ml bottle equivalent to one 45-kg bag) can be applied via foliar spray, reducing surface soil N-requirement by 25–50%. This technology, scaled up rapidly, could partially bridge the supply gap for kharif crops.</p>
+
+    <p><strong>Strategic stockpile release:</strong> India holds approximately 1.7 MMT of buffer urea stocks. Governments in the US, Brazil, and Europe are similarly releasing strategic reserves to stabilise near-term availability.</p>
+
+    <h3>7.2 Long-Term Structural Reforms</h3>
+
+    <p><strong>Green Ammonia via electrolysis:</strong> The Haber-Bosch process can theoretically be powered by renewable electricity instead of natural gas — replacing SMR with <strong>Proton Exchange Membrane (PEM) electrolysis</strong> to produce green hydrogen. India's National Green Hydrogen Mission targets <strong>5 MMT/year of green hydrogen by 2030</strong> with ~12 GW of electrolyser capacity. At current efficiency (50–55 kWh/kg H₂ for PEM electrolysers), scaling to replace conventional NH₃ production would require enormous renewable capacity — but this crisis has dramatically accelerated policy commitment.</p>
+
+    <div class="equation-block fade-up">
+      <div class="eq-label">// Green Hydrogen Route — PEM Electrolysis</div>
+      <div class="eq-formula">2H₂O → 2H₂ + O₂ &nbsp;&nbsp;then&nbsp;&nbsp; N₂ + 3H₂ → 2NH₃</div>
+      <div class="eq-conditions">Energy input: 50–55 kWh/kg H₂ &nbsp;|&nbsp; No CO₂ emissions &nbsp;|&nbsp; Green urea = Green NH₃ + CO₂ (from biomass/DAC)
+        <span class="eq-enthalpy exo">&nbsp;Net: Carbon-neutral urea if powered by renewables</span>
+      </div>
+    </div>
+
+    <p><strong>Regional production decentralisation:</strong> The Lorenzo Rosa (Carnegie Institution) concept of <em>"Haber-Bosch 2.0"</em> — smaller, modular ammonia plants powered by local renewable energy — would eliminate the geographical mismatch between production (Middle East) and consumption (South Asia, Latin America). Such decentralisation would fundamentally reduce geopolitical supply risk.</p>
+
+    <p><strong>Contract diversification:</strong> The crisis has exposed the danger of single-source LNG dependency. Engineers and procurement teams must design <strong>multi-corridor supply strategies</strong>: diversifying across US, Australian, and East African LNG sources, with long-term take-or-pay contracts structured to allow flexible destination clauses during geopolitical disruptions.</p>
+
+    <div class="callout success fade-up">
+      <div class="callout-title">✅ The ChE Engineer's Role in Resilience</div>
+      <p>Chemical engineers must drive the transition to <strong>gas-efficient plant designs</strong> (targeting &lt;21 GJ/tonne urea, versus today's 22–28 GJ/tonne average), <strong>feedstock-flexible reactor systems</strong>, and <strong>green hydrogen integration</strong>. This crisis is not just a geopolitical event — it is a call to redesign the entire nitrogen supply chain architecture with resilience as a primary engineering objective alongside efficiency and cost.</p>
+    </div>
+
+    <!-- SECTION 8 -->
+    <h2 id="s8">8. Conclusion</h2>
+
+    <p>The Iran-Israel conflict of 2026 has exposed the <strong>extraordinary fragility</strong> of the global urea supply chain. The Haber-Bosch process — invented over a century ago, now feeding nearly half of humanity — remains almost entirely dependent on fossil fuel gas, largely produced in a geopolitically volatile region, and shipped through a single 33 km-wide strait. The current crisis is not an anomaly; it is the <strong>predictable consequence</strong> of a global food system that has prioritised cost optimisation over supply chain resilience for decades.</p>
+
+    <p>For chemical engineers, this moment represents both a responsibility and an opportunity. The transition to green ammonia, modular production, and feedstock diversification is no longer merely an environmental aspiration — it is an <strong>urgent engineering imperative</strong> for global food security. The equations of the Haber-Bosch process have not changed since Fritz Haber first demonstrated them in 1909. What must change, urgently, is the energy source powering them.</p>
+
+    <p>As students and future engineers, understanding these supply chain vulnerabilities — thermodynamically, kinetically, and geopolitically — is not an academic exercise. It is the foundational work of building a <strong>more resilient world</strong>.</p>
+
+    <hr class="s-divider">
+
+    <!-- REFERENCES -->
+    <div class="references-section">
+      <div class="ref-title">// References & Sources</div>
+      <ol class="ref-list">
+        <li data-num="1">Al Jazeera Economics. <em>Not just energy: How the Iran war could trigger a global food crisis.</em> March 18, 2026. <a href="https://www.aljazeera.com/economy/2026/3/18/not-just-energy-how-the-iran-war-could-trigger-a-global-food-crisis" target="_blank">aljazeera.com</a></li>
+        <li data-num="2">Reuters via KFGO. <em>How does the Iran war affect fertiliser supplies, prices and food security?</em> March 16, 2026. <a href="https://kfgo.com/2026/03/17/explainer-how-does-the-iran-war-affect-fertiliser-supplies-prices-and-food-security/" target="_blank">kfgo.com</a></li>
+        <li data-num="3">Wright Research. <em>India's Fertilizer Crisis: How the Iran-Israel-US War Is Disrupting Global Supply Chains.</em> March 2026. <a href="https://www.wrightresearch.in/blog/what-the-iran-israel-us-war-means-for-indias-worlds-fertilizer-industry/" target="_blank">wrightresearch.in</a></li>
+        <li data-num="4">farmdoc daily, University of Illinois. <em>The Iran Conflict: Potential Impacts on 2026 Corn and Soybean Returns.</em> March 17, 2026. <a href="https://farmdocdaily.illinois.edu/2026/03/the-iran-conflict-potential-impacts-on-2026-corn-and-soybean-returns.html" target="_blank">farmdocdaily.illinois.edu</a></li>
+        <li data-num="5">World Economic Forum. <em>The Middle East conflict demonstrates the fragility of global food supply.</em> March 2026. <a href="https://www.weforum.org/stories/2026/03/fertilizer-urea-middle-east-war-food-security/" target="_blank">weforum.org</a></li>
+        <li data-num="6">Council on Foreign Relations. <em>The Iran War's Hidden Front: Food, Water, and Fertilizer.</em> March 13, 2026. <a href="https://www.cfr.org/articles/the-iran-wars-hidden-front-food-water-and-fertilizer" target="_blank">cfr.org</a></li>
+        <li data-num="7">Euronews. <em>Europe's fertiliser crisis: prices surge due to Iran war and dependence on Russia.</em> March 21, 2026. <a href="https://www.euronews.com/2026/03/20/europes-fertiliser-crisis-prices-surge-due-to-iran-war-and-dependence-on-russia" target="_blank">euronews.com</a></li>
+        <li data-num="8">FCC (Farm Credit Canada). <em>Concerns about fertilizer availability amid turmoil in the Middle East.</em> March 2026. <a href="https://www.fcc-fac.ca/en/knowledge/economics/fertilizer-availability-amid-turmoil-middle-east" target="_blank">fcc-fac.ca</a></li>
+        <li data-num="9">Christian Science Monitor. <em>As Iran pinches the Strait of Hormuz, American farmers are getting squeezed.</em> March 12, 2026. <a href="https://www.csmonitor.com/USA/2026/0312/iran-war-farmers-fertilizer-strait-hormuz" target="_blank">csmonitor.com</a></li>
+        <li data-num="10">Wikipedia. <em>2026 Iran War — Economic and Food Security Impacts.</em> Continuously updated. <a href="https://en.wikipedia.org/wiki/2026_Iran_war" target="_blank">wikipedia.org</a></li>
+        <li data-num="11">Business Standard. <em>Urea plants get additional natural gas in spot auction; to operate at 80% capacity.</em> March 19, 2026. <a href="https://www.business-standard.com/industry/agriculture/urea-plants-gets-additional-natural-gas-in-spot-auction-to-operate-at-80-pc-capacity-now-126031901049_1.html" target="_blank">business-standard.com</a></li>
+        <li data-num="12">CRU Group. <em>Middle East Conflict: Urea supply disruptions could be catastrophic.</em> 2026. <a href="https://www.crugroup.com/en/communities/thought-leadership/2026/Middle-East-Conflict-Urea-supply-disruptions-could-be-catastrophic/" target="_blank">crugroup.com</a></li>
+        <li data-num="13">Argus Media. <em>Egypt urea sold higher after US, Israel attack on Iran.</em> March 2026. <a href="https://www.argusmedia.com/en/news-and-insights/latest-market-news/2794509-egypt-urea-sold-higher-after-us-israel-attack-on-iran" target="_blank">argusmedia.com</a></li>
+        <li data-num="14">Madras Fertilizers Limited. <em>Urea Manufacturing Process — The Process in Brief.</em> <a href="https://madrasfert.co.in/the-plant/process-in-brief/" target="_blank">madrasfert.co.in</a></li>
+        <li data-num="15">India Today / DIU. <em>Fertile grounds: How US-Iran war can affect Indian farmers.</em> March 16, 2026. <a href="https://www.indiatoday.in/diu/story/fertile-grounds-how-us-iran-war-can-affect-indian-farmers-2882828-2026-03-16" target="_blank">indiatoday.in</a></li>
+      </ol>
+    </div>
+
+  </main>
+
+  <!-- ── SIDEBAR ── -->
+  <aside class="article-sidebar">
+
+    <!-- AUTHOR -->
+    <div class="sidebar-card fade-up">
+      <div class="sidebar-title">// Author</div>
+      <div class="author-card">
+        <div class="author-avatar">⚗️</div>
+        <div>
+          <div class="author-name">B.M.Dharaneesh</div>
+          <div class="author-sub">B.E. Chemical Engineering<br>Annamalai University</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- TABLE OF CONTENTS -->
+    <div class="sidebar-card fade-up">
+      <div class="sidebar-title">// Contents</div>
+      <ul class="toc-list">
+        <li><a href="#s1">1. Urea's Industrial Significance</a></li>
+        <li><a href="#s2">2. Synthesis Pathway (Deep Dive)</a></li>
+        <li><a href="#s3">3. Conflict & Disruption Mechanism</a></li>
+        <li><a href="#s4">4. Price Dynamics Analysis</a></li>
+        <li><a href="#s5">5. India's Urea Sector</a></li>
+        <li><a href="#s6">6. Global Cascading Effects</a></li>
+        <li><a href="#s7">7. Engineering Mitigation</a></li>
+        <li><a href="#s8">8. Conclusion</a></li>
+      </ul>
+    </div>
+
+    <!-- LIVE PRICE TICKER -->
+    <div class="sidebar-card fade-up">
+      <div class="sidebar-title">// Market Snapshot (Mar 2026)</div>
+      <div class="price-ticker">
+        <div class="ticker-row">
+          <span class="ticker-name">Urea (Gulf FOB)</span>
+          <span class="ticker-val">&gt;$700/t <span class="ticker-chg chg-up">+40%</span></span>
+        </div>
+        <div class="ticker-row">
+          <span class="ticker-name">Urea (US NOLA)</span>
+          <span class="ticker-val">&gt;$650/t <span class="ticker-chg chg-up">+30%</span></span>
+        </div>
+        <div class="ticker-row">
+          <span class="ticker-name">Ammonia (US)</span>
+          <span class="ticker-val">&gt;$900/t <span class="ticker-chg chg-up">+10%</span></span>
+        </div>
+        <div class="ticker-row">
+          <span class="ticker-name">EU TTF Gas</span>
+          <span class="ticker-val">€45–52/MWh <span class="ticker-chg chg-up">+45%</span></span>
+        </div>
+        <div class="ticker-row">
+          <span class="ticker-name">Brent Crude</span>
+          <span class="ticker-val">&gt;$100/bbl <span class="ticker-chg chg-up">+22%</span></span>
+        </div>
+        <div class="ticker-row">
+          <span class="ticker-name">Global Urea Exports</span>
+          <span class="ticker-val">1.5 MMT/mo <span class="ticker-chg chg-up">−67%</span></span>
+        </div>
+      </div>
+    </div>
+
+    <!-- KEY FORMULA -->
+    <div class="sidebar-card fade-up">
+      <div class="sidebar-title">// Key Reaction</div>
+      <div style="font-family:'IBM Plex Mono',monospace;font-size:0.72rem;color:var(--text2);line-height:1.9;">
+        <div style="color:var(--accent);margin-bottom:0.4rem;">Haber–Bosch</div>
+        N₂ + 3H₂ ⇌ 2NH₃<br>
+        <span style="color:var(--muted);font-size:0.65rem;">400–500°C | 150–250 bar</span><br><br>
+        <div style="color:var(--accent);margin-bottom:0.4rem;">Urea Formation</div>
+        2NH₃ + CO₂ → CO(NH₂)₂ + H₂O<br>
+        <span style="color:var(--muted);font-size:0.65rem;">180–210°C | 140–200 bar</span>
+      </div>
+    </div>
+
+  </aside>
+</div>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-logo">B.M.<span>Dharaneesh</span></div>
+  <p>© 2026 — B.E. Chemical Engineering, Annamalai University</p>
+  <p>Built for the ChE Community 🔬</p>
+</footer>
+
+<script>
+  const io = new IntersectionObserver(entries => {
+    entries.forEach(e => { if (e.isIntersecting) e.target.classList.add('visible'); });
+  }, { threshold: 0.08 });
+  document.querySelectorAll('.fade-up').forEach((el, i) => {
+    el.style.transitionDelay = (i % 4) * 60 + 'ms';
+    io.observe(el);
+  });
+</script>
+</body>
+</html>
