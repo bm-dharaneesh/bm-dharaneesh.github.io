@@ -1,0 +1,663 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Helium Shortage Due to War: A Chemical Engineering Analysis | B.M.Dharaneesh</title>
+
+  <!-- ═══ SEO META TAGS ═══ -->
+  <meta name="description" content="How the Iran-Israel war has taken one-third of global helium supply offline — a chemical engineering deep dive into cryogenic distillation, helium's irreplaceable industrial roles, and the cascading impacts on semiconductors, MRI machines, and AI chip manufacturing."/>
+  <meta name="keywords" content="helium shortage 2026, Iran war helium, Qatar helium supply, cryogenic distillation, semiconductor helium, chemical engineering, Ras Laffan, helium shortage semiconductors, helium MRI, helium AI chips, helium price spike 2026, helium supply chain"/>
+  <meta name="author" content="B.M.Dharaneesh"/>
+  <meta name="robots" content="index, follow"/>
+
+  <!-- ═══ OPEN GRAPH ═══ -->
+  <meta property="og:title" content="Helium Shortage Due to War: A Chemical Engineering Analysis | B.M.Dharaneesh"/>
+  <meta property="og:description" content="The Iran-Israel war has taken one-third of global helium offline. A deep technical analysis of helium's extraction chemistry, irreplaceable industrial roles, and what happens when the world's most critical noble gas runs out."/>
+  <meta property="og:type" content="article"/>
+  <meta property="og:url" content="https://bmdharaneesh.github.io/article-helium-shortage.html"/>
+  <meta property="og:site_name" content="B.M.Dharaneesh | Chemical Engineering"/>
+
+  <!-- ═══ TWITTER CARD ═══ -->
+  <meta name="twitter:card" content="summary_large_image"/>
+  <meta name="twitter:title" content="Helium Shortage Due to War: A Chemical Engineering Analysis"/>
+  <meta name="twitter:description" content="One-third of global helium is offline. From cryogenic distillation to semiconductor etching — here's the full chemical engineering breakdown of the 2026 helium crisis."/>
+
+  <!-- ═══ ARTICLE TAGS ═══ -->
+  <meta name="article:published_time" content="2026-03-24"/>
+  <meta name="article:author" content="B.M.Dharaneesh"/>
+  <meta name="article:section" content="Chemical Engineering"/>
+  <meta name="article:tag" content="Helium, Cryogenic Distillation, Semiconductor, Iran War, Supply Chain, Chemical Engineering"/>
+
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;0,700;1,400;1,600&family=IBM+Plex+Sans:wght@300;400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet"/>
+  <style>
+    :root {
+      --bg:#ffffff; --bg2:#f2f7fd; --bg3:#e6f0fc;
+      --accent:#0a7be0; --accent-d:#0558a8; --accent-l:#e6f0fc;
+      --text:#1c1c2e; --text2:#3d3d52; --muted:#7a7a96;
+      --border:#c8d8ee; --border-s:rgba(10,123,224,0.22);
+      --shadow:0 4px 24px rgba(10,123,224,0.10);
+      --shadow-l:0 12px 40px rgba(10,123,224,0.16);
+      --danger:#e00a3d; --safe:#0ab84e; --warn:#e07b0a;
+    }
+    *,*::before,*::after{box-sizing:border-box;margin:0;padding:0;}
+    html{scroll-behavior:smooth;}
+    body{font-family:'IBM Plex Sans',sans-serif;background:var(--bg);color:var(--text);overflow-x:hidden;}
+    ::-webkit-scrollbar{width:5px;}
+    ::-webkit-scrollbar-track{background:var(--bg2);}
+    ::-webkit-scrollbar-thumb{background:var(--accent);border-radius:3px;}
+
+    /* NAV */
+    nav{position:fixed;top:0;left:0;right:0;z-index:200;display:flex;align-items:center;justify-content:space-between;padding:0 4rem;height:64px;background:rgba(255,255,255,0.93);backdrop-filter:blur(16px);border-bottom:1.5px solid var(--border);}
+    .nav-logo{display:flex;align-items:center;gap:0.6rem;font-family:'IBM Plex Mono',monospace;font-size:0.88rem;font-weight:500;color:var(--text);text-decoration:none;}
+    .nav-dot{width:9px;height:9px;border-radius:50%;background:var(--accent);}
+    .nav-back{font-family:'IBM Plex Mono',monospace;font-size:0.78rem;color:var(--muted);text-decoration:none;display:flex;align-items:center;gap:0.4rem;transition:color 0.2s;}
+    .nav-back:hover{color:var(--accent);}
+
+    /* HERO */
+    .article-hero{margin-top:64px;background:var(--bg2);border-bottom:1.5px solid var(--border);padding:4rem 2rem 3rem;position:relative;overflow:hidden;}
+    .article-hero::before{content:'He(2) — 1s² — Noble Gas — 4.0026 g/mol — BP: −268.93°C';position:absolute;bottom:1rem;right:2rem;font-family:'IBM Plex Mono',monospace;font-size:0.7rem;color:var(--accent);opacity:0.18;white-space:nowrap;}
+    .article-hero-inner{max-width:860px;margin:0 auto;}
+    .article-cat{display:inline-flex;align-items:center;gap:0.5rem;font-family:'IBM Plex Mono',monospace;font-size:0.68rem;color:var(--danger);letter-spacing:0.15em;text-transform:uppercase;border:1px solid rgba(224,10,61,0.25);background:rgba(224,10,61,0.05);padding:0.28rem 0.8rem;border-radius:2px;margin-bottom:1.5rem;}
+    .article-cat::before{content:'●';font-size:0.5rem;animation:blink 1.5s infinite;}
+    @keyframes blink{0%,100%{opacity:1}50%{opacity:0.2}}
+    .article-title{font-family:'Cormorant Garamond',serif;font-size:clamp(2rem,4.5vw,3.4rem);font-weight:700;line-height:1.12;color:var(--text);margin-bottom:1.2rem;}
+    .article-title span{color:var(--accent);font-style:italic;}
+    .article-subtitle{font-size:1.05rem;color:var(--text2);line-height:1.8;font-weight:300;margin-bottom:2rem;max-width:720px;}
+    .article-meta{display:flex;flex-wrap:wrap;gap:1.5rem;align-items:center;padding-top:1.5rem;border-top:1.5px solid var(--border);}
+    .meta-item{display:flex;align-items:center;gap:0.45rem;font-family:'IBM Plex Mono',monospace;font-size:0.72rem;color:var(--muted);}
+    .meta-item strong{color:var(--accent);}
+    .meta-badge{padding:0.25rem 0.7rem;border-radius:100px;font-size:0.66rem;font-family:'IBM Plex Mono',monospace;font-weight:500;}
+    .badge-red{background:rgba(224,10,61,0.08);color:var(--danger);border:1px solid rgba(224,10,61,0.2);}
+    .badge-blue{background:rgba(10,123,224,0.08);color:var(--accent);border:1px solid var(--border-s);}
+    .badge-green{background:rgba(10,184,78,0.08);color:var(--safe);border:1px solid rgba(10,184,78,0.2);}
+
+    /* LAYOUT */
+    .article-layout{max-width:1100px;margin:0 auto;padding:3.5rem 2rem;display:grid;grid-template-columns:1fr 280px;gap:4rem;align-items:start;}
+
+    /* BODY */
+    .article-body h2{font-family:'Cormorant Garamond',serif;font-size:1.85rem;font-weight:700;color:var(--text);margin:3rem 0 1rem;padding-bottom:0.6rem;border-bottom:2px solid var(--accent-l);position:relative;}
+    .article-body h2::after{content:'';position:absolute;bottom:-2px;left:0;width:50px;height:2px;background:var(--accent);}
+    .article-body h3{font-family:'Cormorant Garamond',serif;font-size:1.3rem;font-weight:700;color:var(--text);margin:2rem 0 0.7rem;}
+    .article-body h4{font-family:'IBM Plex Mono',monospace;font-size:0.8rem;font-weight:500;color:var(--accent);letter-spacing:0.1em;text-transform:uppercase;margin:1.5rem 0 0.5rem;}
+    .article-body p{font-size:0.97rem;color:var(--text2);line-height:1.95;margin-bottom:1.2rem;font-weight:300;}
+    .article-body p strong{font-weight:600;color:var(--text);}
+    .article-body p em{color:var(--accent);font-style:italic;}
+
+    /* ELEMENT CARD */
+    .element-card{display:inline-flex;flex-direction:column;align-items:center;justify-content:center;width:110px;height:110px;border:2px solid var(--accent);background:var(--accent-l);font-family:'IBM Plex Mono',monospace;margin:1rem 0;float:right;margin-left:2rem;}
+    .el-num{font-size:0.7rem;color:var(--accent);line-height:1;align-self:flex-start;padding:0.3rem 0.5rem;}
+    .el-sym{font-size:3rem;font-weight:700;color:var(--accent);line-height:1;}
+    .el-name{font-size:0.6rem;color:var(--muted);letter-spacing:0.08em;text-transform:uppercase;}
+    .el-mass{font-size:0.6rem;color:var(--muted);}
+
+    /* EQUATION BLOCK */
+    .equation-block{background:var(--bg2);border:1.5px solid var(--border);border-left:4px solid var(--accent);border-radius:0 4px 4px 0;padding:1.2rem 1.5rem;margin:1.5rem 0;font-family:'IBM Plex Mono',monospace;}
+    .eq-label{font-size:0.65rem;color:var(--accent);letter-spacing:0.12em;text-transform:uppercase;margin-bottom:0.5rem;}
+    .eq-formula{font-size:1rem;color:var(--text);line-height:1.8;}
+    .eq-conditions{font-size:0.78rem;color:var(--muted);margin-top:0.4rem;}
+    .eq-note{color:var(--warn);font-weight:500;}
+    .eq-note.blue{color:var(--accent);}
+
+    /* CALLOUT */
+    .callout{padding:1.3rem 1.5rem;border-radius:4px;margin:1.8rem 0;border:1.5px solid;}
+    .callout-title{font-family:'IBM Plex Mono',monospace;font-size:0.7rem;font-weight:500;letter-spacing:0.12em;text-transform:uppercase;margin-bottom:0.5rem;}
+    .callout p{margin:0;font-size:0.88rem;line-height:1.75;}
+    .callout.warning{background:rgba(224,10,61,0.04);border-color:rgba(224,10,61,0.2);}
+    .callout.warning .callout-title{color:var(--danger);}
+    .callout.info{background:rgba(10,123,224,0.04);border-color:rgba(10,123,224,0.2);}
+    .callout.info .callout-title{color:var(--accent);}
+    .callout.success{background:rgba(10,184,78,0.04);border-color:rgba(10,184,78,0.2);}
+    .callout.success .callout-title{color:var(--safe);}
+    .callout.accent{background:var(--accent-l);border-color:var(--border-s);}
+    .callout.accent .callout-title{color:var(--accent-d);}
+    .callout.warn{background:rgba(224,123,10,0.05);border-color:rgba(224,123,10,0.25);}
+    .callout.warn .callout-title{color:var(--warn);}
+
+    /* KEY NUMBERS */
+    .key-numbers{display:grid;grid-template-columns:repeat(4,1fr);gap:1rem;margin:2rem 0;}
+    .key-num-card{background:var(--bg2);border:1.5px solid var(--border);border-radius:4px;padding:1.2rem;text-align:center;}
+    .key-num-card:nth-child(1){border-top:3px solid var(--danger);}
+    .key-num-card:nth-child(2){border-top:3px solid var(--accent);}
+    .key-num-card:nth-child(3){border-top:3px solid var(--warn);}
+    .key-num-card:nth-child(4){border-top:3px solid var(--safe);}
+    .kn-val{font-family:'Cormorant Garamond',serif;font-size:2rem;font-weight:700;color:var(--text);line-height:1;}
+    .kn-label{font-family:'IBM Plex Mono',monospace;font-size:0.63rem;color:var(--muted);letter-spacing:0.09em;text-transform:uppercase;margin-top:0.3rem;}
+    .kn-sub{font-size:0.72rem;color:var(--muted);margin-top:0.2rem;}
+
+    /* PROCESS FLOW */
+    .process-flow{margin:2rem 0;display:flex;align-items:stretch;flex-wrap:wrap;gap:0;}
+    .pf-step{flex:1;min-width:100px;background:var(--bg2);border:1.5px solid var(--border);padding:0.9rem 0.7rem;text-align:center;position:relative;}
+    .pf-step::after{content:'→';position:absolute;right:-14px;top:50%;transform:translateY(-50%);color:var(--accent);font-size:1rem;z-index:1;background:var(--bg);padding:0 2px;}
+    .pf-step:last-child::after{display:none;}
+    .pf-step-num{font-family:'IBM Plex Mono',monospace;font-size:0.58rem;color:var(--accent);letter-spacing:0.1em;text-transform:uppercase;}
+    .pf-step-name{font-family:'Cormorant Garamond',serif;font-size:0.92rem;font-weight:700;color:var(--text);margin:0.2rem 0;}
+    .pf-step-cond{font-family:'IBM Plex Mono',monospace;font-size:0.58rem;color:var(--muted);}
+
+    /* DATA TABLES */
+    .data-table-wrap{overflow-x:auto;margin:1.8rem 0;}
+    .data-table-title{font-family:'IBM Plex Mono',monospace;font-size:0.7rem;color:var(--muted);letter-spacing:0.12em;text-transform:uppercase;margin-bottom:0.7rem;}
+    table{width:100%;border-collapse:collapse;font-size:0.83rem;}
+    thead tr{background:var(--text);color:#fff;}
+    thead th{padding:0.75rem 1rem;text-align:left;font-family:'IBM Plex Mono',monospace;font-size:0.68rem;font-weight:500;letter-spacing:0.08em;text-transform:uppercase;}
+    tbody tr{border-bottom:1px solid var(--border);}
+    tbody tr:nth-child(even){background:var(--bg2);}
+    tbody td{padding:0.7rem 1rem;color:var(--text2);line-height:1.5;}
+    tbody td strong{color:var(--text);font-weight:600;}
+    .td-red{color:var(--danger);font-weight:500;}
+    .td-green{color:var(--safe);font-weight:500;}
+    .td-orange{color:var(--warn);font-weight:500;}
+    .td-blue{color:var(--accent);font-weight:500;}
+
+    /* DIVIDER */
+    .s-divider{border:none;border-top:1.5px solid var(--border);margin:2.5rem 0;}
+
+    /* REFERENCES */
+    .references-section{margin-top:3rem;padding-top:2rem;border-top:1.5px solid var(--border);}
+    .ref-title{font-family:'IBM Plex Mono',monospace;font-size:0.7rem;color:var(--muted);letter-spacing:0.14em;text-transform:uppercase;margin-bottom:1rem;}
+    .ref-list{list-style:none;display:flex;flex-direction:column;gap:0.5rem;}
+    .ref-list li{font-size:0.78rem;color:var(--muted);line-height:1.6;display:flex;gap:0.7rem;}
+    .ref-list li::before{content:attr(data-num);color:var(--accent);font-family:'IBM Plex Mono',monospace;font-size:0.7rem;min-width:20px;flex-shrink:0;margin-top:2px;}
+    .ref-list a{color:var(--accent-d);text-decoration:none;}
+    .ref-list a:hover{text-decoration:underline;}
+
+    /* SIDEBAR */
+    .article-sidebar{position:sticky;top:84px;}
+    .sidebar-card{background:var(--bg2);border:1.5px solid var(--border);border-radius:4px;padding:1.3rem;margin-bottom:1.2rem;}
+    .sidebar-title{font-family:'IBM Plex Mono',monospace;font-size:0.68rem;color:var(--accent);letter-spacing:0.12em;text-transform:uppercase;margin-bottom:1rem;padding-bottom:0.6rem;border-bottom:1px solid var(--border);}
+    .toc-list{list-style:none;display:flex;flex-direction:column;gap:0.35rem;}
+    .toc-list a{font-size:0.8rem;color:var(--muted);text-decoration:none;display:flex;gap:0.5rem;align-items:flex-start;line-height:1.5;transition:color 0.2s;}
+    .toc-list a::before{content:'§';color:var(--accent);font-size:0.7rem;flex-shrink:0;margin-top:2px;}
+    .toc-list a:hover{color:var(--accent);}
+    .price-ticker{display:flex;flex-direction:column;gap:0.6rem;}
+    .ticker-row{display:flex;justify-content:space-between;align-items:center;font-family:'IBM Plex Mono',monospace;font-size:0.72rem;}
+    .ticker-name{color:var(--muted);}
+    .ticker-val{color:var(--text);font-weight:500;}
+    .ticker-chg{font-size:0.65rem;padding:0.15rem 0.4rem;border-radius:100px;}
+    .chg-up{background:rgba(224,10,61,0.1);color:var(--danger);}
+    .chg-dn{background:rgba(10,184,78,0.1);color:var(--safe);}
+    .author-card{display:flex;gap:0.9rem;align-items:center;}
+    .author-avatar{width:44px;height:44px;border-radius:50%;background:var(--accent);display:flex;align-items:center;justify-content:center;font-size:1.1rem;flex-shrink:0;}
+    .author-name{font-family:'Cormorant Garamond',serif;font-size:1rem;font-weight:700;color:var(--text);}
+    .author-sub{font-size:0.72rem;color:var(--muted);}
+
+    /* FOOTER */
+    footer{background:var(--text);padding:2.3rem 4rem;display:flex;align-items:center;justify-content:space-between;}
+    .footer-logo{font-family:'Cormorant Garamond',serif;font-size:1.18rem;font-weight:700;color:#fff;}
+    .footer-logo span{color:var(--accent);}
+    footer p{font-family:'IBM Plex Mono',monospace;font-size:0.68rem;color:rgba(255,255,255,0.38);}
+
+    /* ANIMATIONS */
+    .fade-up{opacity:0;transform:translateY(22px);transition:opacity 0.6s ease,transform 0.6s ease;}
+    .fade-up.visible{opacity:1;transform:none;}
+
+    @media(max-width:960px){
+      nav{padding:0 1.5rem;}
+      .article-layout{grid-template-columns:1fr;gap:2.5rem;}
+      .article-sidebar{position:static;}
+      footer{flex-direction:column;gap:0.7rem;padding:1.5rem;text-align:center;}
+      .article-hero{padding:3rem 1.5rem 2.5rem;}
+      .key-numbers{grid-template-columns:1fr 1fr;}
+      .process-flow{flex-direction:column;}
+      .pf-step::after{content:'↓';right:auto;top:auto;bottom:-14px;left:50%;}
+      .element-card{float:none;margin:1rem auto;}
+    }
+    @media(max-width:560px){
+      .key-numbers{grid-template-columns:1fr;}
+    }
+  </style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav>
+  <a href="index.html" class="nav-logo"><span class="nav-dot"></span>B.M.Dharaneesh</a>
+  <a href="index.html#articles" class="nav-back">← Back to Articles</a>
+</nav>
+
+<!-- HERO -->
+<div class="article-hero">
+  <div class="article-hero-inner fade-up">
+    <div class="article-cat">📡 Industry News &nbsp;|&nbsp; Geopolitical Analysis</div>
+    <h1 class="article-title">
+      The <span>Helium Shortage</span> Crisis:<br>
+      When War Freezes the World's Most Critical Noble Gas
+    </h1>
+    <p class="article-subtitle">
+      The Iran-Israel war has taken one-third of global helium supply offline. From cryogenic distillation
+      columns to semiconductor etching chambers and MRI superconducting magnets —
+      a complete chemical engineering analysis of why helium is irreplaceable, how it is produced,
+      and what happens when the world runs out.
+    </p>
+    <div class="article-meta">
+      <div class="meta-item">📅 <strong>March 24, 2026</strong></div>
+      <div class="meta-item">✍️ <strong>B.M.Dharaneesh</strong></div>
+      <div class="meta-item">⏱ <strong>~16 min read</strong></div>
+      <span class="meta-badge badge-red">Breaking Situation</span>
+      <span class="meta-badge badge-blue">Separation Engineering</span>
+      <span class="meta-badge badge-green">Cryogenics</span>
+    </div>
+  </div>
+</div>
+
+<!-- ARTICLE LAYOUT -->
+<div class="article-layout">
+
+  <!-- MAIN BODY -->
+  <main class="article-body">
+
+    <!-- EXECUTIVE SUMMARY -->
+    <div class="callout accent fade-up">
+      <div class="callout-title">⚗ Executive Summary</div>
+      <p>On <strong>March 2, 2026</strong>, QatarEnergy declared force majeure at Ras Laffan Industrial City — the world's largest helium production facility — following Iranian drone and missile strikes. Qatar supplies approximately <strong>one-third of the world's helium</strong>, and with the Strait of Hormuz simultaneously blockaded, both production and export have been frozen. Spot helium prices have <strong>doubled</strong> since the conflict began. Industries from semiconductor fabrication to MRI medical imaging and aerospace face an impending supply crunch. Unlike oil or gas, helium has <strong>no substitute</strong> in most of its critical applications — making this crisis uniquely dangerous for the global technology and healthcare supply chain.</p>
+    </div>
+
+    <!-- SECTION 1 -->
+    <h2 id="s1">1. Helium: The Element the World Cannot Afford to Lose</h2>
+
+    <div class="element-card">
+      <span class="el-num">2</span>
+      <span class="el-sym">He</span>
+      <span class="el-name">Helium</span>
+      <span class="el-mass">4.0026 g/mol</span>
+    </div>
+
+    <p>Helium (He) is the second lightest element in the universe and the only substance that remains liquid at temperatures approaching <strong>absolute zero (−273.15°C)</strong> under normal pressure. It boils at <strong>−268.93°C</strong> — just 4.22 Kelvin above absolute zero. This extraordinary property makes liquid helium the <em>only practical coolant</em> for superconducting magnets, quantum computers, and cryogenic research equipment.</p>
+
+    <p>Most people know helium as the gas that makes balloons float. But in industry, helium is one of the most strategically critical materials on Earth. <strong>Semiconductors, MRI machines, space rockets, fibre optic manufacturing, nuclear reactors, and deep-sea diving</strong> all depend on helium in ways that cannot be substituted by any other element. Helium is chemically inert — it forms no compounds, corrodes nothing, and is completely non-flammable. Its thermal conductivity is exceptional. These unique properties make it irreplaceable in dozens of high-technology processes.</p>
+
+    <div class="key-numbers fade-up">
+      <div class="key-num-card">
+        <div class="kn-val">~⅓</div>
+        <div class="kn-label">Global supply offline</div>
+        <div class="kn-sub">Qatar's Ras Laffan halted</div>
+      </div>
+      <div class="key-num-card">
+        <div class="kn-val">2×</div>
+        <div class="kn-label">Spot price increase</div>
+        <div class="kn-sub">Since Feb 28, 2026</div>
+      </div>
+      <div class="key-num-card">
+        <div class="kn-val">45 days</div>
+        <div class="kn-label">Liquid He inventory life</div>
+        <div class="kn-sub">Before it boils off</div>
+      </div>
+      <div class="key-num-card">
+        <div class="kn-val">−268.9°C</div>
+        <div class="kn-label">Helium boiling point</div>
+        <div class="kn-sub">4.22 K — near absolute zero</div>
+      </div>
+    </div>
+
+    <!-- SECTION 2 -->
+    <h2 id="s2">2. How Helium is Produced: The Chemistry of Cryogenic Separation</h2>
+
+    <p>Unlike most industrial gases, helium cannot be manufactured — it can only be <strong>extracted</strong>. Helium accumulates in natural underground reservoirs over billions of years through the radioactive decay of uranium and thorium within Earth's crust. Alpha particles emitted during this decay are helium nuclei (He²⁺) that capture electrons and accumulate as helium gas in the same geological formations as natural gas and oil.</p>
+
+    <div class="callout info fade-up">
+      <div class="callout-title">🔬 Key Chemistry — Origin of Helium</div>
+      <p>Helium on Earth is almost entirely <strong>radiogenic</strong> — formed by alpha decay of heavy radioactive elements. For example, uranium-238 decays through a series of steps, each releasing an alpha particle (He nucleus). Over geological timescales, these accumulate in underground traps. This is why helium is found in natural gas wells and why its supply is finite and non-renewable.</p>
+    </div>
+
+    <div class="equation-block fade-up">
+      <div class="eq-label">// Alpha Decay — Origin of Geological Helium</div>
+      <div class="eq-formula">²³⁸U → ²³⁴Th + ⁴He (α particle) &nbsp;&nbsp;[repeated decay chain]</div>
+      <div class="eq-conditions">Half-life of U-238: 4.47 billion years &nbsp;|&nbsp; Helium accumulates in gas traps over geological time
+        <span class="eq-note blue">&nbsp;→ Helium is non-renewable on human timescales</span>
+      </div>
+    </div>
+
+    <h3>2.1 Extraction from Natural Gas — The Helium Separation Process</h3>
+
+    <p>Natural gas typically contains <strong>0.1–3% helium by volume</strong> in helium-rich fields (such as Qatar's North Field and US fields in Kansas/Wyoming). The separation process involves multiple stages of gas processing and purification:</p>
+
+    <h4>// Full Helium Extraction Pathway</h4>
+    <div class="process-flow fade-up">
+      <div class="pf-step">
+        <div class="pf-step-num">Step 01</div>
+        <div class="pf-step-name">Raw Gas Extraction</div>
+        <div class="pf-step-cond">Well head<br>He: 0.1–3%</div>
+      </div>
+      <div class="pf-step">
+        <div class="pf-step-num">Step 02</div>
+        <div class="pf-step-name">Acid Gas Removal</div>
+        <div class="pf-step-cond">Amine scrubbing<br>Remove CO₂, H₂S</div>
+      </div>
+      <div class="pf-step">
+        <div class="pf-step-num">Step 03</div>
+        <div class="pf-step-name">Drying</div>
+        <div class="pf-step-cond">Mol-sieve<br>Remove H₂O</div>
+      </div>
+      <div class="pf-step">
+        <div class="pf-step-num">Step 04</div>
+        <div class="pf-step-name">Cryogenic Separation</div>
+        <div class="pf-step-cond">−160 to −190°C<br>LNG extracted</div>
+      </div>
+      <div class="pf-step">
+        <div class="pf-step-num">Step 05</div>
+        <div class="pf-step-name">Crude He Purification</div>
+        <div class="pf-step-cond">PSA / catalytic<br>He: ~99%</div>
+      </div>
+      <div class="pf-step">
+        <div class="pf-step-num">Step 06</div>
+        <div class="pf-step-name">Liquefaction</div>
+        <div class="pf-step-cond">−268.9°C<br>ISO containers</div>
+      </div>
+    </div>
+
+    <h3>2.2 Cryogenic Distillation — The Core Separation Technology</h3>
+
+    <p>The key to separating helium from natural gas is <strong>cryogenic distillation</strong> — a separation process based on the large difference in boiling points between helium and other gas components. At Ras Laffan, the raw natural gas stream is progressively cooled using multi-stage refrigeration cycles until heavier components (methane, ethane, propane, nitrogen) condense into liquids and can be drawn off, leaving a helium-rich gas phase behind.</p>
+
+    <div class="data-table-wrap fade-up">
+      <div class="data-table-title">// Table 1 — Boiling Points of Natural Gas Components at 1 atm</div>
+      <table>
+        <thead>
+          <tr><th>Component</th><th>Formula</th><th>Boiling Point</th><th>Behaviour in Separation</th></tr>
+        </thead>
+        <tbody>
+          <tr><td><strong>Methane</strong></td><td>CH₄</td><td>−161.5°C</td><td>Liquefies first → removed as LNG</td></tr>
+          <tr><td><strong>Ethane</strong></td><td>C₂H₆</td><td>−88.6°C</td><td>Liquefies → NGL fraction</td></tr>
+          <tr><td><strong>Nitrogen</strong></td><td>N₂</td><td>−195.8°C</td><td>Removed by PSA / distillation</td></tr>
+          <tr><td><strong>Neon</strong></td><td>Ne</td><td>−246.1°C</td><td>Trace amounts, co-purified</td></tr>
+          <tr><td><strong class="td-blue">Helium</strong></td><td class="td-blue">He</td><td class="td-blue">−268.9°C</td><td class="td-blue">Remains gaseous — enriched in overhead</td></tr>
+        </tbody>
+      </table>
+    </div>
+
+    <p>After cryogenic enrichment to ~99% purity, the crude helium is further purified using <strong>Pressure Swing Adsorption (PSA)</strong> or catalytic combustion to remove trace nitrogen and hydrogen, achieving Grade-A purity (≥99.999% He) for semiconductor applications. The final product is then <strong>liquefied at −268.9°C</strong> and stored in highly insulated ISO containers for transport — each container holding approximately 40,000 litres of liquid helium.</p>
+
+    <div class="callout warn fade-up">
+      <div class="callout-title">⚠ Engineering Challenge — Helium Cannot be Easily Stockpiled</div>
+      <p>Unlike natural gas or oil, liquid helium evaporates continuously due to heat ingress even in the best-insulated containers. The global supply chain operates on roughly <strong>45 days of buffer inventory</strong> before stored liquid helium boils off and is lost. This means that once Qatar's shipments stopped, a shortage was mathematically inevitable within 6–8 weeks — regardless of any other factor.</p>
+    </div>
+
+    <!-- SECTION 3 -->
+    <h2 id="s3">3. The Conflict: How Qatar's Helium Was Taken Offline</h2>
+
+    <p><strong>Qatar's Ras Laffan Industrial City</strong> is the single most important helium production site on Earth. It processes the world's largest natural gas reservoir — the North Field — and extracts helium as a byproduct of its LNG operations at a rate of up to <strong>17 metric tonnes per day</strong>. Qatar accounts for approximately <strong>30–33% of global helium supply</strong>, equivalent to 63 million cubic metres annually in 2025.</p>
+
+    <p>On <strong>March 2, 2026</strong>, following Iranian drone and missile strikes as part of Operation Epic Fury, QatarEnergy was forced to halt all production at Ras Laffan. Because helium is extracted as a <strong>byproduct of LNG processing</strong>, the halt in LNG production automatically froze helium production too — the two processes are inseparable in Qatar's plant design. Subsequent Iranian strikes on March 18–19 caused <strong>"extensive damage"</strong> to the Pearl GTL facility, with QatarEnergy stating that helium exports would be crimped by at least <strong>14% even after eventual restart</strong>, suggesting infrastructure repairs could take <strong>a year or more</strong>.</p>
+
+    <div class="callout warning fade-up">
+      <div class="callout-title">🚨 The Double Lock — Production AND Shipping Frozen Simultaneously</div>
+      <p>What makes this crisis uniquely severe is that the Strait of Hormuz blockade has created a <strong>dual disruption</strong>: even if Ras Laffan were able to produce helium, there is no viable sea route to export it. Approximately <strong>one-third of the world's cryogenic helium ISO containers</strong> are currently stranded in or around Qatar — and repositioning this specialised equipment alone will require a minimum of three months after the conflict ends.</p>
+    </div>
+
+    <div class="data-table-wrap fade-up">
+      <div class="data-table-title">// Table 2 — Global Helium Producers: 2025 Data & 2026 Status</div>
+      <table>
+        <thead>
+          <tr><th>Country</th><th>2025 Production (Mm³)</th><th>Global Share</th><th>2026 Status</th><th>Notes</th></tr>
+        </thead>
+        <tbody>
+          <tr><td><strong>United States</strong></td><td>81</td><td class="td-green">~45%</td><td class="td-green">Operational</td><td>Limited surge capacity available</td></tr>
+          <tr><td><strong>Qatar</strong></td><td>~63</td><td class="td-red">~33%</td><td class="td-red">Fully Offline</td><td>Ras Laffan halted; exports blocked</td></tr>
+          <tr><td><strong>Algeria</strong></td><td>~14</td><td class="td-orange">~8%</td><td class="td-orange">Partial</td><td>Cannot compensate for Qatar losses</td></tr>
+          <tr><td><strong>Russia</strong></td><td>~24</td><td class="td-red">~13%</td><td class="td-red">Sanctioned</td><td>Banned under US/EU sanctions</td></tr>
+          <tr><td><strong>Australia</strong></td><td>~5</td><td class="td-green">~3%</td><td class="td-green">Operational</td><td>Limited capacity</td></tr>
+          <tr><td><strong>Poland</strong></td><td>~3</td><td class="td-green">~2%</td><td class="td-green">Operational</td><td>Minor capacity</td></tr>
+        </tbody>
+      </table>
+    </div>
+
+    <p>With Russia under sanctions and Qatar offline, the world has effectively lost access to <strong>~46% of its normal helium supply</strong>. The United States — the world's largest producer at 81 million cubic metres — has limited surge capacity. According to the USGS, the US holds <strong>8.5 billion cubic metres</strong> of recoverable helium in geological reservoirs, but ramping production takes years, not weeks.</p>
+
+    <!-- SECTION 4 -->
+    <h2 id="s4">4. Industrial Applications: Why Helium Cannot Be Substituted</h2>
+
+    <p>The severity of this crisis stems from a fundamental chemical engineering reality: <strong>helium's properties are physically unique</strong>. No other substance remains liquid at temperatures below −252°C under normal pressure. No other gas offers the same combination of inertness, thermal conductivity, and low molecular weight. For most of its critical applications, there is simply no substitute.</p>
+
+    <h3>4.1 Semiconductor Manufacturing — The Most Critical Use</h3>
+
+    <p>Semiconductor fabrication is the highest-priority helium application. Modern chip fabs use helium in multiple critical steps of the lithography and etching process:</p>
+
+    <div class="data-table-wrap fade-up">
+      <div class="data-table-title">// Table 3 — Helium Applications in Semiconductor Fabrication</div>
+      <table>
+        <thead>
+          <tr><th>Process Step</th><th>Role of Helium</th><th>Why Irreplaceable</th></tr>
+        </thead>
+        <tbody>
+          <tr><td><strong>EUV Lithography</strong></td><td>Purges optical path of EUV machine</td><td>Only gas transparent to EUV wavelength (13.5 nm)</td></tr>
+          <tr><td><strong>Ion Implantation</strong></td><td>Wafer backside cooling gas</td><td>Highest thermal conductivity of all gases at low T</td></tr>
+          <tr><td><strong>CVD / Etch chambers</strong></td><td>Carrier and purge gas</td><td>Chemically inert — won't react with process gases</td></tr>
+          <tr><td><strong>Leak Detection</strong></td><td>Tracer gas for vacuum integrity</td><td>Smallest atom — penetrates finest leaks</td></tr>
+          <tr><td><strong>Fibre Optic Drawing</strong></td><td>Cooling atmosphere in draw tower</td><td>Inert + high thermal conductivity = clean cooling</td></tr>
+        </tbody>
+      </table>
+    </div>
+
+    <p>South Korea — home to <strong>Samsung Electronics and SK Hynix</strong>, the world's largest memory chip makers — imports approximately <strong>65% of its helium from Qatar</strong>. Fitch Ratings has flagged Korea as <em>particularly vulnerable</em>, noting that while current stockpiles provide several months of buffer, <strong>accelerated supply diversification is urgently needed</strong>. The Seoul government has listed helium among <strong>14 semiconductor supply chain materials</strong> under emergency monitoring due to the war.</p>
+
+    <p><strong>TSMC</strong> (Taiwan Semiconductor Manufacturing Company), which fabricates chips for Apple, NVIDIA, and AMD, has stated it does not anticipate significant immediate impact — but acknowledged continuous monitoring. NVIDIA's AI accelerator chips (H100, H200, B200), which power the global AI boom, are fabricated in TSMC's fabs using helium-dependent EUV lithography.</p>
+
+    <div class="callout info fade-up">
+      <div class="callout-title">💡 The AI Connection — Helium Powers the AI Boom</div>
+      <p>Every AI chip — from NVIDIA's H100 GPU to Google's TPU — is manufactured using extreme ultraviolet (EUV) lithography machines made by ASML. These machines require <strong>ultra-pure helium</strong> to purge their optical paths, as any other gas absorbs EUV radiation and destroys pattern fidelity. A prolonged helium shortage would directly throttle AI chip production capacity at the exact moment when demand for AI compute is at an all-time high.</p>
+    </div>
+
+    <h3>4.2 Medical Imaging — MRI Superconducting Magnets</h3>
+
+    <p>Every MRI (Magnetic Resonance Imaging) machine in the world relies on a <strong>superconducting magnet</strong> cooled by liquid helium. MRI magnets operate at 1.5–7 Tesla field strengths, which require the superconducting wire (typically niobium-titanium alloy) to be maintained at <strong>approximately 4 Kelvin (−269°C)</strong> — achievable only with liquid helium cooling. If helium supply is interrupted, existing MRI machines will eventually <strong>quench</strong> (catastrophically warm up), and new installations will be impossible.</p>
+
+    <div class="equation-block fade-up">
+      <div class="eq-label">// Superconductivity Condition — MRI Magnet</div>
+      <div class="eq-formula">T &lt; Tc &nbsp;→&nbsp; ρ = 0 &nbsp;(zero electrical resistance)</div>
+      <div class="eq-conditions">NbTi alloy: Tc ≈ 9.2 K &nbsp;|&nbsp; Operating T ≈ 4.2 K (liquid He bath) &nbsp;|&nbsp; Field: 1.5–7 Tesla
+        <span class="eq-note">&nbsp;→ Impossible to achieve with any other coolant at atmospheric pressure</span>
+      </div>
+    </div>
+
+    <h3>4.3 Other Critical Applications</h3>
+
+    <div class="data-table-wrap fade-up">
+      <div class="data-table-title">// Table 4 — Helium Demand Breakdown by Application (US, USGS 2026)</div>
+      <table>
+        <thead>
+          <tr><th>Application</th><th>Share of Demand</th><th>Priority in Shortage</th><th>Can Substitute?</th></tr>
+        </thead>
+        <tbody>
+          <tr><td><strong>Semiconductors / Electronics</strong></td><td class="td-blue">~30%</td><td class="td-green">🥇 Highest</td><td class="td-red">No</td></tr>
+          <tr><td><strong>Medical (MRI)</strong></td><td class="td-blue">~25%</td><td class="td-green">🥇 Highest</td><td class="td-red">No</td></tr>
+          <tr><td><strong>Aerospace / Space</strong></td><td class="td-blue">~15%</td><td class="td-green">🥈 High</td><td class="td-red">No</td></tr>
+          <tr><td><strong>Scientific Research</strong></td><td class="td-blue">~10%</td><td class="td-orange">🥉 Medium</td><td class="td-orange">Partial</td></tr>
+          <tr><td><strong>Industrial (welding, leak detection)</strong></td><td class="td-blue">~12%</td><td class="td-orange">Low</td><td class="td-orange">Partial</td></tr>
+          <tr><td><strong>Lifting Gas (balloons)</strong></td><td class="td-blue">~8%</td><td class="td-red">❌ Lowest</td><td class="td-green">Yes (H₂)</td></tr>
+        </tbody>
+      </table>
+    </div>
+
+    <!-- SECTION 5 -->
+    <h2 id="s5">5. Price Impact and Market Analysis</h2>
+
+    <p>Helium is predominantly a <strong>long-term contract commodity</strong> — spot trading accounts for only about 2% of total market volume in normal times. This structure means that price discovery in a disruption is delayed, but when it comes, it is violent. Since the war began, spot helium prices have <strong>doubled</strong>. Contract prices, which historically lag spot markets, are expected to rise sharply as existing contracts come up for renewal.</p>
+
+    <p>Industry consultant Phil Kornbluth, who led the Gasworld webinar panel of March 4, 2026, warned that <em>"the world cannot compensate for the loss of a third of its helium supply"</em> — and that if Qatar's Ras Laffan facility sustains direct infrastructure damage, recovery could take <strong>a year or more</strong>. At least one major industrial gas supplier has already begun levying <strong>helium surcharges</strong> on customers. According to Data Centre Magazine, if disruptions extend to 60–90 days, prices could surge by a further 50%, potentially exceeding <strong>$2,000 per thousand cubic feet</strong>.</p>
+
+    <div class="data-table-wrap fade-up">
+      <div class="data-table-title">// Table 5 — Helium Price Escalation Scenarios (2026)</div>
+      <table>
+        <thead>
+          <tr><th>Disruption Duration</th><th>Expected Price Change</th><th>Industry Impact</th></tr>
+        </thead>
+        <tbody>
+          <tr><td><strong>1–2 weeks</strong></td><td class="td-orange">+50–100% spot</td><td>Manageable — stockpiles buffer impact</td></tr>
+          <tr><td><strong>2–6 weeks</strong></td><td class="td-red">+100–150% spot</td><td>Allocation begins; lifting gas / balloons cut off</td></tr>
+          <tr><td><strong>6–12 weeks</strong></td><td class="td-red">+150–200%+</td><td>Industrial users rationed; chip fab pressure begins</td></tr>
+          <tr><td><strong>&gt;3 months</strong></td><td class="td-red">&gt;$2,000/MCF</td><td>Semiconductor production slowdown; MRI new installs halt</td></tr>
+          <tr><td><strong>Infrastructure damage</strong></td><td class="td-red">1+ year disruption</td><td>Systemic technology supply chain crisis</td></tr>
+        </tbody>
+      </table>
+    </div>
+
+    <p>The major industrial gas companies — <strong>Linde, Air Products, and Air Liquide</strong> — distribute the vast majority of global helium. Paradoxically, a helium shortage is a financial positive for these companies: they hold existing inventory and pricing power. JPMorgan upgraded Linde to Overweight, calling the tightening helium market the <strong>primary investment catalyst</strong>. Wells Fargo upgraded Air Products to Overweight with a price target of $325. Linde shares are up 15% in 2026, against a 3% decline in the S&P 500.</p>
+
+    <!-- SECTION 6 -->
+    <h2 id="s6">6. Engineering Mitigation and Long-Term Solutions</h2>
+
+    <h3>6.1 Short-Term — Supply Triage and Allocation</h3>
+
+    <p>In a shortage, the helium industry operates a <strong>tiered allocation system</strong> based on application criticality. Semiconductors and medical imaging are at the top of the priority queue — and because helium represents a very small fraction of chip manufacturing costs, fabs will pay almost any price to maintain supply. Lifting gas (balloons, blimps) and lower-priority industrial uses will be cut first.</p>
+
+    <p><strong>Alternative supply routes</strong> are being pursued urgently. US producers in Wyoming, Kansas, and the Texas Panhandle are maximising output. Algeria is increasing production. Australia is accelerating development of its Tassie Shoal and Woodside helium-bearing fields. However, these sources <strong>cannot replace Qatar's 33% in the short term</strong> — new helium production infrastructure takes 3–5 years to build.</p>
+
+    <h3>6.2 Medium-Term — Helium Recovery and Recycling</h3>
+
+    <p>Many industrial users currently vent helium to the atmosphere after use — a practice that is chemically and economically wasteful. <strong>Helium recovery systems</strong> at semiconductor fabs and MRI facilities can capture and re-liquify spent helium, recycling up to 90% of the gas. Expanding these systems rapidly is the most viable near-term engineering response. The capital cost of a helium recovery plant for a chip fab is approximately $2–5 million — trivial compared to the cost of production slowdowns.</p>
+
+    <h3>6.3 Long-Term — New Geological Sources</h3>
+
+    <p>Recent geological surveys have identified large new helium reserves in <strong>Tanzania, South Africa</strong> (Renergen's Virginia Project), and <strong>Montana, USA</strong>. Unlike conventional helium sourced as a byproduct of natural gas, these are <strong>primary helium reservoirs</strong> — nitrogen-helium gas fields where helium concentrations reach 8–10%, far above the 0.1–3% typical of natural gas co-production. Renergen's Virginia Project in South Africa has helium concentrations of approximately <strong>12%</strong> — the highest known concentration on Earth. However, bringing these fields to commercial production requires significant capital and engineering development time.</p>
+
+    <div class="callout success fade-up">
+      <div class="callout-title">✅ The Chemical Engineer's Role in the Helium Crisis</div>
+      <p>Chemical engineers are central to resolving this crisis — from designing more efficient <strong>cryogenic separation columns</strong> and <strong>PSA purification systems</strong>, to engineering closed-loop <strong>helium recovery circuits</strong> at fabs and hospitals, to developing new <strong>liquefaction technologies</strong> that reduce energy consumption and enable smaller-scale production closer to end users. The helium crisis is ultimately a <strong>separation engineering problem</strong> — and separation engineering is at the heart of chemical engineering.</p>
+    </div>
+
+    <!-- SECTION 7 -->
+    <h2 id="s7">7. The Broader Picture: A New Era of Critical Material Risk</h2>
+
+    <p>The 2026 helium crisis — coming on top of the urea crisis triggered by the same conflict — reveals a structural vulnerability in the global economy: <strong>hyper-concentration of irreplaceable critical materials</strong> in geopolitically unstable regions. Qatar alone supplies one-third of global helium and was a major urea exporter. Russia — under sanctions since 2022 — accounts for another 13% of helium and major fertilizer volumes.</p>
+
+    <p>Goldman Sachs has suggested the disruption will not cause a <em>broad systemic crisis akin to 2021</em> — but analysts at Bank of America, JPMorgan, Deutsche Bank, and Wells Fargo all agree the helium market faces a <strong>sustained tightening</strong> that will reshape supply contracts, pricing structures, and investment in new production capacity for years. The Semiconductor Industry Association warned as early as 2023 that a helium supply shock would cause <em>"likely shocks to global semiconductor manufacturing."</em> That prediction has now come true.</p>
+
+    <p>For chemical engineers, the lesson is clear: <strong>supply chain resilience must be an engineering design parameter</strong> — not an afterthought. Building redundancy, recovery systems, and alternative feedstock pathways into industrial gas supply chains is not optional in a world where geopolitical shocks can freeze one-third of a critical material overnight.</p>
+
+    <!-- SECTION 8 -->
+    <h2 id="s8">8. Conclusion</h2>
+
+    <p>Helium is not a luxury commodity. It is a <strong>foundational industrial material</strong> that underpins the global technology and healthcare economy — from the AI chips in data centres to the MRI machines in hospitals to the rocket engines in space launch vehicles. Its unique cryogenic and chemical properties make it physically irreplaceable in dozens of critical processes. And unlike oil or gas, it cannot be manufactured — only extracted, purified, and carefully conserved.</p>
+
+    <p>The Iran-Israel war has removed one-third of the world's helium supply in a single blow. With spot prices doubled, ISO containers stranded, and the Strait of Hormuz closed, the shortage that helium experts have long warned about is now unfolding in real time. The next 60–90 days will determine whether this remains a manageable supply disruption or escalates into a technology production crisis with consequences extending from semiconductor fabs in Seoul to MRI suites in Mumbai.</p>
+
+    <p>As chemical engineering students and future engineers, understanding the <strong>cryogenic separation processes</strong>, the <strong>geological origins</strong>, and the <strong>irreplaceable industrial chemistry</strong> of helium is not merely academic. It is the foundation for designing the more resilient, recovery-oriented industrial gas systems that the world urgently needs.</p>
+
+    <hr class="s-divider">
+
+    <!-- REFERENCES -->
+    <div class="references-section">
+      <div class="ref-title">// References & Sources</div>
+      <ol class="ref-list">
+        <li data-num="1">CNBC. <em>The Iran war is threatening supply of helium — what it means for markets.</em> March 19, 2026. <a href="https://www.cnbc.com/2026/03/19/the-iran-war-is-threatening-supply-helium-what-it-means-for-markets.html" target="_blank">cnbc.com</a></li>
+        <li data-num="2">Fortune. <em>Iran war cuts off helium from Qatar, threatening chip supply chains that fuel the AI boom.</em> March 21, 2026. <a href="https://fortune.com/2026/03/21/iran-war-helium-shortage-qatar-chip-supply-chains-ai-boom/" target="_blank">fortune.com</a></li>
+        <li data-num="3">Chemical & Engineering News (ACS). <em>Iran war threatens global helium supply.</em> March 2026. <a href="https://cen.acs.org/business/specialty-chemicals/Iran-war-threatens-global-helium/104/web/2026/03" target="_blank">cen.acs.org</a></li>
+        <li data-num="4">Exiger. <em>Iran War Disrupts One-Third of Global Helium Supply.</em> March 2026. <a href="https://www.exiger.com/perspectives/iran-war-disrupts-one-third-of-global-helium-supply/" target="_blank">exiger.com</a></li>
+        <li data-num="5">Data Centre Magazine. <em>US-Iran War Analysis: Will Helium Crisis Hit Data Centres?</em> March 19, 2026. <a href="https://datacentremagazine.com/news/us-iran-war-analysis-will-helium-crisis-hit-data-centres" target="_blank">datacentremagazine.com</a></li>
+        <li data-num="6">Washington Times. <em>Iran war halts Qatar helium output, threatening global tech supply chains.</em> March 21, 2026. <a href="https://www.washingtontimes.com/news/2026/mar/21/iran-war-halts-qatar-helium-output-threatening-global-tech-supply/" target="_blank">washingtontimes.com</a></li>
+        <li data-num="7">Washington Times. <em>Why helium shortages could slow down AI chip manufacturing worldwide.</em> March 21, 2026. <a href="https://www.washingtontimes.com/news/2026/mar/21/helium-shortages-could-slow-ai-chip-manufacturing-worldwide/" target="_blank">washingtontimes.com</a></li>
+        <li data-num="8">TradingKey. <em>Helium's 2026 Shock: Which Stocks are Most Affected.</em> March 20, 2026. <a href="https://www.tradingkey.com/analysis/stocks/us-stocks/261702277-helium-2026-shock-stocks-affected-tradingkey" target="_blank">tradingkey.com</a></li>
+        <li data-num="9">Carra Globe. <em>Semiconductor Supply Chain Disruption 2026: How the Helium Crisis Is Hitting Chip Fabs.</em> March 2026. <a href="https://carraglobe.com/semiconductor-supply-chain-disruption-2026/" target="_blank">carraglobe.com</a></li>
+        <li data-num="10">UBS Global Wealth Management. <em>Qatar disruption — helium, fertilizer, and energy impacts.</em> March 2026.</li>
+        <li data-num="11">USGS. <em>2026 Mineral Commodity Summaries — Helium.</em> U.S. Geological Survey. <a href="https://www.usgs.gov/centers/national-minerals-information-center/helium-statistics-and-information" target="_blank">usgs.gov</a></li>
+        <li data-num="12">Semiconductor Industry Association. <em>Helium supply chain risk assessment.</em> 2023. <a href="https://www.semiconductors.org" target="_blank">semiconductors.org</a></li>
+      </ol>
+    </div>
+
+  </main>
+
+  <!-- SIDEBAR -->
+  <aside class="article-sidebar">
+
+    <!-- AUTHOR -->
+    <div class="sidebar-card fade-up">
+      <div class="sidebar-title">// Author</div>
+      <div class="author-card">
+        <div class="author-avatar">⚗️</div>
+        <div>
+          <div class="author-name">B.M.Dharaneesh</div>
+          <div class="author-sub">B.E. Chemical Engineering<br>Annamalai University</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- TOC -->
+    <div class="sidebar-card fade-up">
+      <div class="sidebar-title">// Contents</div>
+      <ul class="toc-list">
+        <li><a href="#s1">1. Helium — The Critical Element</a></li>
+        <li><a href="#s2">2. Production: Cryogenic Separation</a></li>
+        <li><a href="#s3">3. The Conflict & Supply Halt</a></li>
+        <li><a href="#s4">4. Industrial Applications</a></li>
+        <li><a href="#s5">5. Price Impact & Market Data</a></li>
+        <li><a href="#s6">6. Engineering Mitigation</a></li>
+        <li><a href="#s7">7. Broader Critical Material Risk</a></li>
+        <li><a href="#s8">8. Conclusion</a></li>
+      </ul>
+    </div>
+
+    <!-- MARKET SNAPSHOT -->
+    <div class="sidebar-card fade-up">
+      <div class="sidebar-title">// Market Snapshot (Mar 2026)</div>
+      <div class="price-ticker">
+        <div class="ticker-row">
+          <span class="ticker-name">Helium (spot)</span>
+          <span class="ticker-val">2× pre-war <span class="ticker-chg chg-up">+100%</span></span>
+        </div>
+        <div class="ticker-row">
+          <span class="ticker-name">Qatar supply</span>
+          <span class="ticker-val">Offline <span class="ticker-chg chg-up">−33%</span></span>
+        </div>
+        <div class="ticker-row">
+          <span class="ticker-name">Linde (stock)</span>
+          <span class="ticker-val">+15% YTD <span class="ticker-chg chg-dn">↑</span></span>
+        </div>
+        <div class="ticker-row">
+          <span class="ticker-name">Air Products</span>
+          <span class="ticker-val">Upgraded <span class="ticker-chg chg-dn">↑</span></span>
+        </div>
+        <div class="ticker-row">
+          <span class="ticker-name">Inventory buffer</span>
+          <span class="ticker-val">~45 days <span class="ticker-chg chg-up">Critical</span></span>
+        </div>
+      </div>
+    </div>
+
+    <!-- HELIUM FACTS -->
+    <div class="sidebar-card fade-up">
+      <div class="sidebar-title">// Key Facts</div>
+      <div style="font-family:'IBM Plex Mono',monospace;font-size:0.7rem;color:var(--text2);line-height:2;">
+        <div style="color:var(--accent);margin-bottom:0.3rem;">Element</div>
+        Atomic No.: 2<br>
+        BP: −268.93°C (4.22K)<br>
+        MP: −272.2°C at 26 atm<br><br>
+        <div style="color:var(--accent);margin-bottom:0.3rem;">Qatar Production</div>
+        17 MT/day at Ras Laffan<br>
+        ~63 Mm³/yr (2025)<br>
+        ~33% of world supply<br><br>
+        <div style="color:var(--accent);margin-bottom:0.3rem;">Storage Limit</div>
+        <span style="color:var(--danger);">~45 days liquid life</span><br>
+        Can escape any container<br>
+        Lost to space once vented
+      </div>
+    </div>
+
+    <!-- RELATED ARTICLE -->
+    <div class="sidebar-card fade-up" style="cursor:pointer;" onclick="window.location='article-urea-crisis.html'">
+      <div class="sidebar-title">// Related Article</div>
+      <div style="font-family:'Cormorant Garamond',serif;font-size:1rem;font-weight:700;color:var(--text);margin-bottom:0.4rem;">Iran–Israel War & the Urea Crisis</div>
+      <div style="font-size:0.78rem;color:var(--muted);line-height:1.6;">How the same conflict is dismantling global urea supply chains and threatening food security.</div>
+      <div style="font-family:'IBM Plex Mono',monospace;font-size:0.68rem;color:var(--accent);margin-top:0.6rem;">Read Article →</div>
+    </div>
+
+  </aside>
+</div>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-logo">B.M.<span>Dharaneesh</span></div>
+  <p>© 2026 — B.M.Dharaneesh</p>
+  <p>Built for the ChE Community 🔬</p>
+</footer>
+
+<script>
+  const io = new IntersectionObserver(entries => {
+    entries.forEach(e => { if (e.isIntersecting) e.target.classList.add('visible'); });
+  }, { threshold: 0.08 });
+  document.querySelectorAll('.fade-up').forEach((el, i) => {
+    el.style.transitionDelay = (i % 4) * 60 + 'ms';
+    io.observe(el);
+  });
+</script>
+</body>
+</html>
