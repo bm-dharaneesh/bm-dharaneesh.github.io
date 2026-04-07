@@ -1,0 +1,719 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>India's Nuclear Power Phase 2: PFBR Achieves Criticality | B.M.Dharaneesh</title>
+
+  <!-- ═══ SEO META TAGS ═══ -->
+  <meta name="description" content="India's PFBR at Kalpakkam achieved first criticality on April 6, 2026 — a chemical engineering deep dive into fast breeder reactor technology, the PUREX reprocessing process, sodium cooling, and India's path to thorium-based energy independence."/>
+  <meta name="keywords" content="India nuclear power Phase 2, PFBR Kalpakkam criticality 2026, fast breeder reactor India, PUREX process chemical engineering, thorium reactor India, MOX fuel, sodium cooled reactor, Homi Bhabha nuclear programme, IGCAR BHAVINI, nuclear energy India 100GW 2047"/>
+  <meta name="author" content="B.M.Dharaneesh"/>
+  <meta name="robots" content="index, follow"/>
+
+  <!-- ═══ OPEN GRAPH ═══ -->
+  <meta property="og:title" content="India's Nuclear Power Phase 2: PFBR Achieves First Criticality | Chemical Engineering Analysis"/>
+  <meta property="og:description" content="India's PFBR at Kalpakkam achieved first criticality on April 6, 2026. A complete chemical engineering breakdown of fast breeder reactors, PUREX reprocessing, sodium cooling, and India's three-stage nuclear roadmap."/>
+  <meta property="og:type" content="article"/>
+  <meta property="og:url" content="https://bmdharaneesh.github.io/article-india-nuclear-phase2.html"/>
+  <meta property="og:site_name" content="B.M.Dharaneesh | Chemical Engineering"/>
+
+  <!-- ═══ TWITTER CARD ═══ -->
+  <meta name="twitter:card" content="summary_large_image"/>
+  <meta name="twitter:title" content="India's PFBR Achieves First Criticality — A Chemical Engineering Deep Dive"/>
+  <meta name="twitter:description" content="India just entered Stage 2 of its nuclear programme. Here's the full ChE breakdown — fast neutron breeding, PUREX solvent extraction, sodium cooling, and the road to thorium."/>
+
+  <!-- ═══ ARTICLE TAGS ═══ -->
+  <meta name="article:published_time" content="2026-04-07"/>
+  <meta name="article:author" content="B.M.Dharaneesh"/>
+  <meta name="article:section" content="Chemical Engineering"/>
+  <meta name="article:tag" content="Nuclear Energy, PFBR, Fast Breeder Reactor, PUREX, India, Thorium, Chemical Engineering"/>
+
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;0,700;1,400;1,600&family=IBM+Plex+Sans:wght@300;400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet"/>
+  <style>
+    :root {
+      --bg:#ffffff; --bg2:#f3f7f2; --bg3:#e6f0e6;
+      --accent:#1a7a3c; --accent-d:#0f5228; --accent-l:#e6f4eb;
+      --text:#1c1c2e; --text2:#3d3d52; --muted:#7a7a96;
+      --border:#b8d8c2; --border-s:rgba(26,122,60,0.22);
+      --shadow:0 4px 24px rgba(26,122,60,0.10);
+      --shadow-l:0 12px 40px rgba(26,122,60,0.16);
+      --danger:#e00a3d; --blue:#0a7be0; --warn:#e07b0a;
+    }
+    *,*::before,*::after{box-sizing:border-box;margin:0;padding:0;}
+    html{scroll-behavior:smooth;}
+    body{font-family:'IBM Plex Sans',sans-serif;background:var(--bg);color:var(--text);overflow-x:hidden;}
+    ::-webkit-scrollbar{width:5px;}
+    ::-webkit-scrollbar-track{background:var(--bg2);}
+    ::-webkit-scrollbar-thumb{background:var(--accent);border-radius:3px;}
+
+    /* NAV */
+    nav{position:fixed;top:0;left:0;right:0;z-index:200;display:flex;align-items:center;justify-content:space-between;padding:0 4rem;height:64px;background:rgba(255,255,255,0.93);backdrop-filter:blur(16px);border-bottom:1.5px solid var(--border);}
+    .nav-logo{display:flex;align-items:center;gap:0.6rem;font-family:'IBM Plex Mono',monospace;font-size:0.88rem;font-weight:500;color:var(--text);text-decoration:none;}
+    .nav-dot{width:9px;height:9px;border-radius:50%;background:var(--accent);}
+    .nav-back{font-family:'IBM Plex Mono',monospace;font-size:0.78rem;color:var(--muted);text-decoration:none;display:flex;align-items:center;gap:0.4rem;transition:color 0.2s;}
+    .nav-back:hover{color:var(--accent);}
+
+    /* HERO */
+    .article-hero{margin-top:64px;background:var(--bg2);border-bottom:1.5px solid var(--border);padding:4rem 2rem 3rem;position:relative;overflow:hidden;}
+    .article-hero::before{content:'²³⁸U + n → ²³⁹U → ²³⁹Np → ²³⁹Pu (Breeding Reaction)';position:absolute;bottom:1rem;right:2rem;font-family:'IBM Plex Mono',monospace;font-size:0.7rem;color:var(--accent);opacity:0.18;white-space:nowrap;}
+    .article-hero-inner{max-width:860px;margin:0 auto;}
+    .breaking-badge{display:inline-flex;align-items:center;gap:0.5rem;font-family:'IBM Plex Mono',monospace;font-size:0.68rem;color:#fff;letter-spacing:0.15em;text-transform:uppercase;background:var(--danger);padding:0.28rem 0.8rem;border-radius:2px;margin-bottom:1rem;}
+    .breaking-badge::before{content:'●';font-size:0.5rem;animation:blink 1s infinite;}
+    @keyframes blink{0%,100%{opacity:1}50%{opacity:0}}
+    .article-cat{display:inline-flex;align-items:center;gap:0.5rem;font-family:'IBM Plex Mono',monospace;font-size:0.68rem;color:var(--accent);letter-spacing:0.15em;text-transform:uppercase;border:1px solid var(--border-s);background:var(--accent-l);padding:0.28rem 0.8rem;border-radius:2px;margin-bottom:1.5rem;}
+    .article-title{font-family:'Cormorant Garamond',serif;font-size:clamp(2rem,4.5vw,3.4rem);font-weight:700;line-height:1.12;color:var(--text);margin-bottom:1.2rem;}
+    .article-title span{color:var(--accent);font-style:italic;}
+    .article-subtitle{font-size:1.05rem;color:var(--text2);line-height:1.8;font-weight:300;margin-bottom:2rem;max-width:720px;}
+    .article-meta{display:flex;flex-wrap:wrap;gap:1.5rem;align-items:center;padding-top:1.5rem;border-top:1.5px solid var(--border);}
+    .meta-item{display:flex;align-items:center;gap:0.45rem;font-family:'IBM Plex Mono',monospace;font-size:0.72rem;color:var(--muted);}
+    .meta-item strong{color:var(--accent);}
+    .meta-badge{padding:0.25rem 0.7rem;border-radius:100px;font-size:0.66rem;font-family:'IBM Plex Mono',monospace;font-weight:500;}
+    .badge-green{background:rgba(26,122,60,0.08);color:var(--accent);border:1px solid var(--border-s);}
+    .badge-blue{background:rgba(10,123,224,0.08);color:var(--blue);border:1px solid rgba(10,123,224,0.2);}
+    .badge-warn{background:rgba(224,123,10,0.08);color:var(--warn);border:1px solid rgba(224,123,10,0.2);}
+
+    /* LAYOUT */
+    .article-layout{max-width:1100px;margin:0 auto;padding:3.5rem 2rem;display:grid;grid-template-columns:1fr 280px;gap:4rem;align-items:start;}
+
+    /* BODY */
+    .article-body h2{font-family:'Cormorant Garamond',serif;font-size:1.85rem;font-weight:700;color:var(--text);margin:3rem 0 1rem;padding-bottom:0.6rem;border-bottom:2px solid var(--accent-l);position:relative;}
+    .article-body h2::after{content:'';position:absolute;bottom:-2px;left:0;width:50px;height:2px;background:var(--accent);}
+    .article-body h3{font-family:'Cormorant Garamond',serif;font-size:1.3rem;font-weight:700;color:var(--text);margin:2rem 0 0.7rem;}
+    .article-body h4{font-family:'IBM Plex Mono',monospace;font-size:0.8rem;font-weight:500;color:var(--accent);letter-spacing:0.1em;text-transform:uppercase;margin:1.5rem 0 0.5rem;}
+    .article-body p{font-size:0.97rem;color:var(--text2);line-height:1.95;margin-bottom:1.2rem;font-weight:300;}
+    .article-body p strong{font-weight:600;color:var(--text);}
+    .article-body p em{color:var(--accent);font-style:italic;}
+
+    /* EQUATION BLOCK */
+    .equation-block{background:var(--bg2);border:1.5px solid var(--border);border-left:4px solid var(--accent);border-radius:0 4px 4px 0;padding:1.2rem 1.5rem;margin:1.5rem 0;font-family:'IBM Plex Mono',monospace;}
+    .eq-label{font-size:0.65rem;color:var(--accent);letter-spacing:0.12em;text-transform:uppercase;margin-bottom:0.5rem;}
+    .eq-formula{font-size:1rem;color:var(--text);line-height:1.8;}
+    .eq-conditions{font-size:0.78rem;color:var(--muted);margin-top:0.4rem;}
+    .eq-note{color:var(--warn);font-weight:500;}
+    .eq-note.green{color:var(--accent);}
+    .eq-note.blue{color:var(--blue);}
+
+    /* CALLOUT */
+    .callout{padding:1.3rem 1.5rem;border-radius:4px;margin:1.8rem 0;border:1.5px solid;}
+    .callout-title{font-family:'IBM Plex Mono',monospace;font-size:0.7rem;font-weight:500;letter-spacing:0.12em;text-transform:uppercase;margin-bottom:0.5rem;}
+    .callout p{margin:0;font-size:0.88rem;line-height:1.75;}
+    .callout.warning{background:rgba(224,10,61,0.04);border-color:rgba(224,10,61,0.2);}
+    .callout.warning .callout-title{color:var(--danger);}
+    .callout.info{background:rgba(10,123,224,0.04);border-color:rgba(10,123,224,0.2);}
+    .callout.info .callout-title{color:var(--blue);}
+    .callout.success{background:var(--accent-l);border-color:var(--border-s);}
+    .callout.success .callout-title{color:var(--accent);}
+    .callout.warn{background:rgba(224,123,10,0.05);border-color:rgba(224,123,10,0.25);}
+    .callout.warn .callout-title{color:var(--warn);}
+    .callout.breaking{background:rgba(224,10,61,0.06);border-color:rgba(224,10,61,0.3);border-left:4px solid var(--danger);}
+    .callout.breaking .callout-title{color:var(--danger);}
+
+    /* KEY NUMBERS */
+    .key-numbers{display:grid;grid-template-columns:repeat(4,1fr);gap:1rem;margin:2rem 0;}
+    .key-num-card{background:var(--bg2);border:1.5px solid var(--border);border-radius:4px;padding:1.2rem;text-align:center;}
+    .key-num-card:nth-child(1){border-top:3px solid var(--accent);}
+    .key-num-card:nth-child(2){border-top:3px solid var(--blue);}
+    .key-num-card:nth-child(3){border-top:3px solid var(--warn);}
+    .key-num-card:nth-child(4){border-top:3px solid var(--danger);}
+    .kn-val{font-family:'Cormorant Garamond',serif;font-size:2rem;font-weight:700;color:var(--text);line-height:1;}
+    .kn-label{font-family:'IBM Plex Mono',monospace;font-size:0.63rem;color:var(--muted);letter-spacing:0.09em;text-transform:uppercase;margin-top:0.3rem;}
+    .kn-sub{font-size:0.72rem;color:var(--muted);margin-top:0.2rem;}
+
+    /* THREE STAGE ROADMAP */
+    .three-stage{display:grid;grid-template-columns:1fr 1fr 1fr;gap:0;margin:2rem 0;}
+    .stage-card{padding:1.5rem;border:1.5px solid var(--border);position:relative;}
+    .stage-card:not(:last-child)::after{content:'→';position:absolute;right:-18px;top:50%;transform:translateY(-50%);font-size:1.2rem;color:var(--accent);z-index:1;background:var(--bg);padding:0 3px;}
+    .stage-num{font-family:'IBM Plex Mono',monospace;font-size:0.65rem;color:var(--muted);letter-spacing:0.12em;text-transform:uppercase;}
+    .stage-title{font-family:'Cormorant Garamond',serif;font-size:1.1rem;font-weight:700;color:var(--text);margin:0.3rem 0;}
+    .stage-fuel{font-family:'IBM Plex Mono',monospace;font-size:0.72rem;color:var(--accent);margin-bottom:0.5rem;}
+    .stage-desc{font-size:0.78rem;color:var(--muted);line-height:1.6;}
+    .stage-card.active{background:var(--accent-l);border-color:var(--accent);border-width:2px;}
+    .stage-card.active .stage-title{color:var(--accent);}
+    .stage-badge{font-family:'IBM Plex Mono',monospace;font-size:0.6rem;background:var(--accent);color:#fff;padding:0.15rem 0.5rem;border-radius:100px;margin-top:0.5rem;display:inline-block;}
+
+    /* PROCESS FLOW */
+    .process-flow{margin:2rem 0;display:flex;align-items:stretch;flex-wrap:wrap;gap:0;}
+    .pf-step{flex:1;min-width:90px;background:var(--bg2);border:1.5px solid var(--border);padding:0.9rem 0.6rem;text-align:center;position:relative;}
+    .pf-step::after{content:'→';position:absolute;right:-14px;top:50%;transform:translateY(-50%);color:var(--accent);font-size:0.9rem;z-index:1;background:var(--bg);padding:0 2px;}
+    .pf-step:last-child::after{display:none;}
+    .pf-step-num{font-family:'IBM Plex Mono',monospace;font-size:0.55rem;color:var(--accent);letter-spacing:0.1em;text-transform:uppercase;}
+    .pf-step-name{font-family:'Cormorant Garamond',serif;font-size:0.88rem;font-weight:700;color:var(--text);margin:0.2rem 0;}
+    .pf-step-cond{font-family:'IBM Plex Mono',monospace;font-size:0.55rem;color:var(--muted);}
+
+    /* DATA TABLES */
+    .data-table-wrap{overflow-x:auto;margin:1.8rem 0;}
+    .data-table-title{font-family:'IBM Plex Mono',monospace;font-size:0.7rem;color:var(--muted);letter-spacing:0.12em;text-transform:uppercase;margin-bottom:0.7rem;}
+    table{width:100%;border-collapse:collapse;font-size:0.83rem;}
+    thead tr{background:var(--text);color:#fff;}
+    thead th{padding:0.75rem 1rem;text-align:left;font-family:'IBM Plex Mono',monospace;font-size:0.68rem;font-weight:500;letter-spacing:0.08em;text-transform:uppercase;}
+    tbody tr{border-bottom:1px solid var(--border);}
+    tbody tr:nth-child(even){background:var(--bg2);}
+    tbody td{padding:0.7rem 1rem;color:var(--text2);line-height:1.5;}
+    tbody td strong{color:var(--text);font-weight:600;}
+    .td-green{color:var(--accent);font-weight:500;}
+    .td-red{color:var(--danger);font-weight:500;}
+    .td-blue{color:var(--blue);font-weight:500;}
+    .td-warn{color:var(--warn);font-weight:500;}
+
+    /* DIVIDER */
+    .s-divider{border:none;border-top:1.5px solid var(--border);margin:2.5rem 0;}
+
+    /* REFERENCES */
+    .references-section{margin-top:3rem;padding-top:2rem;border-top:1.5px solid var(--border);}
+    .ref-title{font-family:'IBM Plex Mono',monospace;font-size:0.7rem;color:var(--muted);letter-spacing:0.14em;text-transform:uppercase;margin-bottom:1rem;}
+    .ref-list{list-style:none;display:flex;flex-direction:column;gap:0.5rem;}
+    .ref-list li{font-size:0.78rem;color:var(--muted);line-height:1.6;display:flex;gap:0.7rem;}
+    .ref-list li::before{content:attr(data-num);color:var(--accent);font-family:'IBM Plex Mono',monospace;font-size:0.7rem;min-width:20px;flex-shrink:0;margin-top:2px;}
+    .ref-list a{color:var(--accent-d);text-decoration:none;}
+    .ref-list a:hover{text-decoration:underline;}
+
+    /* SIDEBAR */
+    .article-sidebar{position:sticky;top:84px;}
+    .sidebar-card{background:var(--bg2);border:1.5px solid var(--border);border-radius:4px;padding:1.3rem;margin-bottom:1.2rem;}
+    .sidebar-title{font-family:'IBM Plex Mono',monospace;font-size:0.68rem;color:var(--accent);letter-spacing:0.12em;text-transform:uppercase;margin-bottom:1rem;padding-bottom:0.6rem;border-bottom:1px solid var(--border);}
+    .toc-list{list-style:none;display:flex;flex-direction:column;gap:0.35rem;}
+    .toc-list a{font-size:0.8rem;color:var(--muted);text-decoration:none;display:flex;gap:0.5rem;align-items:flex-start;line-height:1.5;transition:color 0.2s;}
+    .toc-list a::before{content:'§';color:var(--accent);font-size:0.7rem;flex-shrink:0;margin-top:2px;}
+    .toc-list a:hover{color:var(--accent);}
+    .author-card{display:flex;gap:0.9rem;align-items:center;}
+    .author-avatar{width:44px;height:44px;border-radius:50%;background:var(--accent);display:flex;align-items:center;justify-content:center;font-size:1.1rem;flex-shrink:0;}
+    .author-name{font-family:'Cormorant Garamond',serif;font-size:1rem;font-weight:700;color:var(--text);}
+    .author-sub{font-size:0.72rem;color:var(--muted);}
+    .fact-item{display:flex;flex-direction:column;gap:0.15rem;padding:0.5rem 0;border-bottom:1px solid var(--border);}
+    .fact-item:last-child{border-bottom:none;}
+    .fact-label{font-family:'IBM Plex Mono',monospace;font-size:0.62rem;color:var(--muted);text-transform:uppercase;letter-spacing:0.08em;}
+    .fact-val{font-family:'IBM Plex Mono',monospace;font-size:0.75rem;color:var(--text);font-weight:500;}
+
+    /* FOOTER */
+    footer{background:var(--text);padding:2.3rem 4rem;display:flex;align-items:center;justify-content:space-between;}
+    .footer-logo{font-family:'Cormorant Garamond',serif;font-size:1.18rem;font-weight:700;color:#fff;}
+    .footer-logo span{color:var(--accent);}
+    footer p{font-family:'IBM Plex Mono',monospace;font-size:0.68rem;color:rgba(255,255,255,0.38);}
+
+    /* ANIMATIONS */
+    .fade-up{opacity:0;transform:translateY(22px);transition:opacity 0.6s ease,transform 0.6s ease;}
+    .fade-up.visible{opacity:1;transform:none;}
+
+    @media(max-width:960px){
+      nav{padding:0 1.5rem;}
+      .article-layout{grid-template-columns:1fr;gap:2.5rem;}
+      .article-sidebar{position:static;}
+      footer{flex-direction:column;gap:0.7rem;padding:1.5rem;text-align:center;}
+      .article-hero{padding:3rem 1.5rem 2.5rem;}
+      .key-numbers{grid-template-columns:1fr 1fr;}
+      .three-stage{grid-template-columns:1fr;}
+      .stage-card:not(:last-child)::after{content:'↓';right:auto;left:50%;top:auto;bottom:-18px;}
+      .process-flow{flex-direction:column;}
+      .pf-step::after{content:'↓';right:auto;top:auto;bottom:-14px;left:50%;}
+    }
+    @media(max-width:560px){
+      .key-numbers{grid-template-columns:1fr;}
+    }
+  </style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav>
+  <a href="index.html" class="nav-logo"><span class="nav-dot"></span>B.M.Dharaneesh</a>
+  <a href="index.html#articles" class="nav-back">← Back to Articles</a>
+</nav>
+
+<!-- HERO -->
+<div class="article-hero">
+  <div class="article-hero-inner fade-up">
+    <div class="breaking-badge">🔴 Breaking — April 6, 2026</div>
+    <div class="article-cat">⚛ Nuclear Engineering &nbsp;|&nbsp; Energy Policy &nbsp;|&nbsp; Industry News</div>
+    <h1 class="article-title">
+      India's Nuclear Power <span>Phase 2:</span><br>
+      The Fast Breeder Revolution Has Begun
+    </h1>
+    <p class="article-subtitle">
+      On April 6, 2026, at 8:25 PM IST, India's Prototype Fast Breeder Reactor at Kalpakkam, Tamil Nadu
+      achieved first criticality — formally advancing India into Stage 2 of its three-stage nuclear programme.
+      A complete chemical engineering analysis of fast breeder reactor technology, the PUREX closed fuel cycle,
+      sodium cooling chemistry, and India's strategic path to thorium-based energy independence.
+    </p>
+    <div class="article-meta">
+      <div class="meta-item">📅 <strong>April 7, 2026</strong></div>
+      <div class="meta-item">✍️ <strong>B.M.Dharaneesh</strong></div>
+      <div class="meta-item">⏱ <strong>~20 min read</strong></div>
+      <span class="meta-badge badge-green">Breaking News</span>
+      <span class="meta-badge badge-blue">Reaction Engineering</span>
+      <span class="meta-badge badge-warn">Energy Security</span>
+    </div>
+  </div>
+</div>
+
+<!-- ARTICLE LAYOUT -->
+<div class="article-layout">
+  <main class="article-body">
+
+    <!-- BREAKING NEWS CALLOUT -->
+    <div class="callout breaking fade-up">
+      <div class="callout-title">🚨 Breaking — April 6, 2026</div>
+      <p>India's <strong>500 MWe Prototype Fast Breeder Reactor (PFBR)</strong> at Kalpakkam, Tamil Nadu has successfully attained <strong>first criticality</strong> at 20:25 IST on April 6, 2026 — marking the initiation of a controlled, self-sustaining nuclear fission chain reaction. Prime Minister Narendra Modi hailed the achievement as <em>"a defining step in India's civil nuclear journey."</em> Commercial electricity generation is expected to begin by <strong>September 2026</strong>, making India only the <strong>second country after Russia</strong> to operate a commercial-scale fast breeder reactor.</p>
+    </div>
+
+    <!-- SECTION 1 -->
+    <h2 id="s1">1. India's Nuclear Paradox: Rich in Thorium, Poor in Uranium</h2>
+
+    <p>India's nuclear energy story begins with a fundamental geological reality. India imports <strong>over 70% of its uranium requirements</strong> — it has limited domestic uranium reserves, estimated at approximately 70,000 tonnes. Yet India holds one of the world's largest deposits of thorium — approximately <strong>25% of global thorium reserves</strong>, concentrated primarily in the monazite sands of Kerala, Tamil Nadu, Odisha, and Andhra Pradesh.</p>
+
+    <p>Thorium is an energy resource of extraordinary potential. India's thorium reserves, if fully harnessed through nuclear transmutation, could theoretically power the country for <strong>60,000 years</strong>. But here lies the paradox: thorium (Th-232) is <strong>fertile, not fissile</strong>. It cannot directly sustain a fission chain reaction. It must first be converted into uranium-233 (a fissile material) through neutron absorption — a process that requires a fissile "starter" fuel like plutonium.</p>
+
+    <p>This strategic reality drove Dr. <strong>Homi J. Bhabha</strong> — the visionary physicist and founder of India's nuclear programme — to design the world's most strategically sophisticated three-stage nuclear roadmap in the 1950s. Phase 2, now entering its operational reality with the PFBR's first criticality, is the linchpin of this entire vision.</p>
+
+    <div class="key-numbers fade-up">
+      <div class="key-num-card">
+        <div class="kn-val">25%</div>
+        <div class="kn-label">World's thorium reserves</div>
+        <div class="kn-sub">India holds 3rd largest globally</div>
+      </div>
+      <div class="key-num-card">
+        <div class="kn-val">70%+</div>
+        <div class="kn-label">Uranium import dependence</div>
+        <div class="kn-sub">Phase 2 aims to end this</div>
+      </div>
+      <div class="key-num-card">
+        <div class="kn-val">100 GW</div>
+        <div class="kn-label">Nuclear target by 2047</div>
+        <div class="kn-sub">From current ~7 GW</div>
+      </div>
+      <div class="key-num-card">
+        <div class="kn-val">60,000</div>
+        <div class="kn-label">Years of thorium energy</div>
+        <div class="kn-sub">If fully harnessed</div>
+      </div>
+    </div>
+
+    <!-- SECTION 2 -->
+    <h2 id="s2">2. The Three-Stage Nuclear Programme: India's Grand Design</h2>
+
+    <p>Bhabha's three-stage programme is one of the most elegant examples of long-term strategic engineering planning in history. Each stage feeds the next, creating a self-sustaining nuclear fuel cycle that gradually reduces dependence on imported uranium and ultimately transitions India to its abundant thorium reserves.</p>
+
+    <div class="three-stage fade-up">
+      <div class="stage-card">
+        <div class="stage-num">// Stage 01</div>
+        <div class="stage-title">Pressurized Heavy Water Reactors</div>
+        <div class="stage-fuel">Fuel: Natural Uranium (UO₂)</div>
+        <div class="stage-desc">PHWRs use natural uranium (0.7% U-235) moderated by heavy water (D₂O). Produces electricity AND spent fuel containing plutonium-239 — the feedstock for Stage 2. India has 22 operating PHWRs under this stage.</div>
+        <span class="stage-badge">✅ Operational since 1969</span>
+      </div>
+      <div class="stage-card active">
+        <div class="stage-num">// Stage 02 — NOW ACTIVE</div>
+        <div class="stage-title">Fast Breeder Reactors</div>
+        <div class="stage-fuel">Fuel: MOX (Pu + U-238)</div>
+        <div class="stage-desc">FBRs use plutonium from Stage 1 spent fuel. Fast neutrons breed MORE plutonium from U-238 blanket AND convert Th-232 to U-233. Produces more fuel than consumed — multiplying India's nuclear resource base.</div>
+        <span class="stage-badge">🔴 First Criticality: April 6, 2026</span>
+      </div>
+      <div class="stage-card">
+        <div class="stage-num">// Stage 03</div>
+        <div class="stage-title">Thorium-Based Reactors</div>
+        <div class="stage-fuel">Fuel: U-233 from Th-232</div>
+        <div class="stage-desc">Advanced Heavy Water Reactors (AHWRs) use U-233 bred from thorium in Stage 2. Enables India to tap its vast thorium reserves for centuries of clean energy — the ultimate goal of Bhabha's vision.</div>
+        <span class="stage-badge">⏳ Future Stage</span>
+      </div>
+    </div>
+
+    <p>The critical insight is that <strong>Stage 2 is the bridge</strong>. Without the plutonium produced by FBRs, India cannot generate the U-233 starter fuel needed for Stage 3's thorium reactors. The PFBR's first criticality on April 6, 2026 therefore represents not just the start of Stage 2 — it is the beginning of the end of India's fossil fuel and imported uranium dependency.</p>
+
+    <!-- SECTION 3 -->
+    <h2 id="s3">3. Fast Breeder Reactor Physics: The Engineering of Fuel Multiplication</h2>
+
+    <p>To understand why FBRs are revolutionary, we must first understand what makes them different from conventional nuclear reactors — and why that difference matters so profoundly.</p>
+
+    <h3>3.1 Conventional Thermal Reactors vs. Fast Breeder Reactors</h3>
+
+    <p>In a <strong>conventional thermal reactor</strong> (like India's PHWRs), a moderator — heavy water (D₂O) or graphite — slows down neutrons to thermal energies (~0.025 eV). These slow, thermal neutrons are highly efficient at splitting U-235 atoms. However, U-235 constitutes only <strong>0.7% of natural uranium</strong> — the other 99.3% is U-238, which is fertile (not fissile) and cannot be directly split by thermal neutrons.</p>
+
+    <p>In an <strong>FBR</strong>, there is no moderator. Neutrons travel at fast energies (~1 MeV — about 40 million times more energetic than thermal neutrons). These fast neutrons do two things simultaneously: they sustain fission in the plutonium fuel core, AND they are absorbed by U-238 in the surrounding blanket, converting it into plutonium-239 through the following nuclear transmutation sequence:</p>
+
+    <div class="equation-block fade-up">
+      <div class="eq-label">// The Breeding Reaction — Core of FBR Technology</div>
+      <div class="eq-formula">²³⁸U + n → ²³⁹U → ²³⁹Np + β⁻ → ²³⁹Pu + β⁻</div>
+      <div class="eq-conditions">Half-life: ²³⁹U → 23.5 min → ²³⁹Np → 2.36 days → ²³⁹Pu (stable fissile material)
+        <span class="eq-note green">&nbsp;→ Fertile U-238 transmuted into fissile Pu-239 — new fuel generated!</span>
+      </div>
+    </div>
+
+    <div class="equation-block fade-up">
+      <div class="eq-label">// Thorium Breeding — Gateway to Stage 3</div>
+      <div class="eq-formula">²³²Th + n → ²³³Th → ²³³Pa + β⁻ → ²³³U + β⁻</div>
+      <div class="eq-conditions">Half-life: ²³³Th → 22.3 min → ²³³Pa → 26.97 days → ²³³U (fissile — Stage 3 fuel)
+        <span class="eq-note green">&nbsp;→ Th-232 blanket produces U-233, which will fuel Stage 3 thorium reactors</span>
+      </div>
+    </div>
+
+    <h3>3.2 Breeding Ratio — The Key Performance Parameter</h3>
+
+    <p>The <strong>Breeding Ratio (BR)</strong> is the central metric of an FBR's performance — it measures how much new fissile material is produced relative to what is consumed:</p>
+
+    <div class="equation-block fade-up">
+      <div class="eq-label">// Breeding Ratio Definition</div>
+      <div class="eq-formula">BR = Fissile material produced / Fissile material consumed</div>
+      <div class="eq-conditions">BR &gt; 1.0 → Net fuel production (breeder) &nbsp;|&nbsp; PFBR target BR: ~1.05–1.15
+        <span class="eq-note blue">&nbsp;→ For every 100 atoms of Pu consumed, 105–115 atoms of Pu are produced</span>
+      </div>
+    </div>
+
+    <p>A related metric is the <strong>Doubling Time</strong> — the time required for an FBR to produce enough excess fissile material to fuel a second reactor of identical capacity. For the PFBR, the estimated doubling time is approximately <strong>15–20 years</strong>. This means each PFBR can eventually spawn a new reactor — enabling exponential growth of India's fissile inventory without mining additional uranium.</p>
+
+    <!-- SECTION 4 -->
+    <h2 id="s4">4. PFBR Technical Specifications: A Chemical Engineering Deep Dive</h2>
+
+    <p>The PFBR at Kalpakkam is a <strong>sodium-cooled, pool-type, liquid metal fast breeder reactor (LMFBR)</strong>. It was designed entirely by the Indira Gandhi Centre for Atomic Research (IGCAR) and built by Bharatiya Nabhikiya Vidyut Nigam Limited (BHAVINI) — making it India's most significant indigenous nuclear engineering achievement.</p>
+
+    <div class="data-table-wrap fade-up">
+      <div class="data-table-title">// Table 1 — PFBR Technical Specifications</div>
+      <table>
+        <thead>
+          <tr><th>Parameter</th><th>Specification</th><th>Significance</th></tr>
+        </thead>
+        <tbody>
+          <tr><td><strong>Electrical Capacity</strong></td><td class="td-green">500 MWe (gross)</td><td>Powers ~500,000 Indian homes</td></tr>
+          <tr><td><strong>Thermal Capacity</strong></td><td>1,250 MWt</td><td>Thermal efficiency ~40%</td></tr>
+          <tr><td><strong>Core Fuel</strong></td><td class="td-blue">MOX: Pu + U-238 (~21% Pu)</td><td>Plutonium from Stage 1 PHWRs</td></tr>
+          <tr><td><strong>Blanket Material</strong></td><td>U-238 + Th-232</td><td>Breeds new Pu-239 and U-233</td></tr>
+          <tr><td><strong>Primary Coolant</strong></td><td class="td-warn">Liquid Sodium (1,750 tonnes)</td><td>Fast neutron spectrum maintained</td></tr>
+          <tr><td><strong>Coolant Inlet Temp.</strong></td><td>397°C</td><td>Well above Na melting point (98°C)</td></tr>
+          <tr><td><strong>Coolant Outlet Temp.</strong></td><td>547°C</td><td>High ΔT = good thermal efficiency</td></tr>
+          <tr><td><strong>Operating Pressure</strong></td><td>~1 atm (near atmospheric)</td><td>Structurally safer than PWRs</td></tr>
+          <tr><td><strong>Reactor Type</strong></td><td>Pool-type LMFBR</td><td>All primary components submerged in Na</td></tr>
+          <tr><td><strong>Designer</strong></td><td>IGCAR, Kalpakkam</td><td>100% indigenous design</td></tr>
+          <tr><td><strong>Builder</strong></td><td>BHAVINI (DAE PSU)</td><td>Fully Indian-built</td></tr>
+          <tr><td><strong>First Criticality</strong></td><td class="td-green">April 6, 2026 — 20:25 IST</td><td>Historic milestone</td></tr>
+          <tr><td><strong>Commercial Operation</strong></td><td>September 2026 (expected)</td><td>Grid connection pending AERB approval</td></tr>
+        </tbody>
+      </table>
+    </div>
+
+    <h3>4.1 Why Liquid Sodium? The Chemistry and Engineering of Na Cooling</h3>
+
+    <p>The choice of liquid sodium as coolant is one of the most consequential — and challenging — engineering decisions in FBR design. Understanding why sodium was chosen, and what makes it so difficult to handle, is essential to appreciating the PFBR's engineering complexity.</p>
+
+    <p><strong>Why sodium works:</strong> Sodium has a boiling point of <strong>882°C</strong> at atmospheric pressure — far above the reactor's operating temperature of 547°C. This means sodium operates as a liquid at near-atmospheric pressure, unlike water-cooled reactors which require pressurization to ~155 bar (in PWRs) to keep water liquid at operating temperatures. This dramatically reduces structural loads on the reactor vessel. Sodium's <strong>thermal conductivity</strong> (84 W/m·K) is approximately 100 times higher than water (0.6 W/m·K), enabling extraordinarily efficient heat removal from the dense reactor core. Crucially, sodium does <strong>not moderate (slow down) neutrons</strong> — its heavy atoms scatter neutrons elastically without significant energy loss, preserving the fast neutron spectrum essential for breeding.</p>
+
+    <div class="callout warning fade-up">
+      <div class="callout-title">⚠ The Sodium Safety Challenge</div>
+      <p>Sodium's extraordinary properties come with extraordinary risks. Sodium reacts <strong>violently with water</strong> (2Na + 2H₂O → 2NaOH + H₂ + heat) and <strong>burns spontaneously in air</strong> (4Na + O₂ → 2Na₂O). This requires a completely leak-tight, inert-atmosphere primary circuit with triple-barrier containment. The PFBR uses a <strong>secondary sodium loop</strong> (non-radioactive) as an intermediate between the radioactive primary sodium and the steam generators — ensuring that any sodium-water reaction in the steam generator cannot contaminate the primary circuit or cause criticality incidents. This is the same safety architecture that prevented the 1995 Monju reactor sodium leak in Japan from escalating into a major accident.</p>
+    </div>
+
+    <div class="equation-block fade-up">
+      <div class="eq-label">// Sodium-Water Reaction — Primary Safety Concern</div>
+      <div class="eq-formula">2Na + 2H₂O → 2NaOH + H₂ &nbsp;&nbsp;ΔH = −368 kJ/mol</div>
+      <div class="eq-conditions">Highly exothermic — produces flammable H₂ gas &nbsp;|&nbsp; Na + O₂ → Na₂O (fire in air)
+        <span class="eq-note">&nbsp;→ Requires absolute isolation from water and air throughout the primary circuit</span>
+      </div>
+    </div>
+
+    <p>The PFBR's three-loop design — primary sodium → secondary sodium → steam/water — ensures multiple barriers between the radioactive primary coolant and the steam turbine system. All sodium handling is performed under <strong>argon cover gas</strong> to prevent oxidation. This engineering challenge — designing a reactor that operates at 547°C with a chemically aggressive coolant that must never contact air or water — represents one of the greatest achievements of Indian nuclear engineering.</p>
+
+    <!-- SECTION 5 -->
+    <h2 id="s5">5. MOX Fuel: The Chemical Engineering of Mixed Oxide Fabrication</h2>
+
+    <p>The PFBR's fuel — <strong>Mixed Oxide (MOX) fuel</strong> — is a pelletized ceramic material consisting of plutonium dioxide (PuO₂) and uranium dioxide (UO₂) mixed in a specific ratio. For the PFBR, the initial core fuel contains approximately <strong>21% PuO₂</strong> in a UO₂ matrix, sintered into dense ceramic pellets and encased in 316L stainless steel cladding tubes.</p>
+
+    <p>MOX fuel fabrication is performed at the <strong>Advanced Fuel Fabrication Facility (AFFF)</strong> at Tarapur, Maharashtra — one of the few facilities in the world capable of handling weapons-grade plutonium under IAEA safeguards in a civilian fuel cycle context. The process involves:</p>
+
+    <h4>// MOX Fuel Fabrication Process</h4>
+    <div class="process-flow fade-up">
+      <div class="pf-step">
+        <div class="pf-step-num">Step 01</div>
+        <div class="pf-step-name">Pu & U Oxides</div>
+        <div class="pf-step-cond">PuO₂ + UO₂<br>Glove box handling</div>
+      </div>
+      <div class="pf-step">
+        <div class="pf-step-num">Step 02</div>
+        <div class="pf-step-name">Ball Milling</div>
+        <div class="pf-step-cond">Homogeneous<br>powder mixing</div>
+      </div>
+      <div class="pf-step">
+        <div class="pf-step-num">Step 03</div>
+        <div class="pf-step-name">Pelletizing</div>
+        <div class="pf-step-cond">Cold pressing<br>~400 MPa</div>
+      </div>
+      <div class="pf-step">
+        <div class="pf-step-num">Step 04</div>
+        <div class="pf-step-name">Sintering</div>
+        <div class="pf-step-cond">1700°C in H₂<br>Densification</div>
+      </div>
+      <div class="pf-step">
+        <div class="pf-step-num">Step 05</div>
+        <div class="pf-step-name">Grinding</div>
+        <div class="pf-step-cond">Precise diameter<br>tolerance ±5 μm</div>
+      </div>
+      <div class="pf-step">
+        <div class="pf-step-num">Step 06</div>
+        <div class="pf-step-name">Cladding</div>
+        <div class="pf-step-cond">SS-316L tubes<br>Helium pressurized</div>
+      </div>
+      <div class="pf-step">
+        <div class="pf-step-num">Step 07</div>
+        <div class="pf-step-name">Sub-Assembly</div>
+        <div class="pf-step-cond">217 pins/bundle<br>Hexagonal wrap</div>
+      </div>
+    </div>
+
+    <!-- SECTION 6 -->
+    <h2 id="s6">6. The PUREX Process: Chemical Engineering of Spent Fuel Reprocessing</h2>
+
+    <p>The closed fuel cycle — the defining feature of Phase 2 — is only possible because of <strong>spent fuel reprocessing</strong>. After irradiation in the reactor, the spent MOX fuel contains a complex mixture of uranium, plutonium, and highly radioactive fission products. The goal of reprocessing is to <strong>chemically separate plutonium and uranium</strong> from the fission product waste, recovering them for re-use as fuel.</p>
+
+    <p>India uses the <strong>PUREX process</strong> (Plutonium Uranium Redox Extraction) — the world's most established nuclear fuel reprocessing technology, based on liquid-liquid solvent extraction. India has over <strong>60 years of PUREX operational experience</strong>, beginning with the Trombay plant at BARC, Mumbai in 1964, and currently operating three thermal reactor reprocessing plants. A dedicated <strong>Fast Reactor Fuel Cycle Facility (FRFCF)</strong> is under construction at Kalpakkam specifically for PFBR spent fuel reprocessing.</p>
+
+    <h3>6.1 PUREX Process Chemistry — Step by Step</h3>
+
+    <div class="equation-block fade-up">
+      <div class="eq-label">// Step 1 — Dissolution in Nitric Acid (Head-End)</div>
+      <div class="eq-formula">UO₂ (spent fuel) + 4HNO₃ → UO₂(NO₃)₂ + 2NO₂ + 2H₂O</div>
+      <div class="eq-conditions">Concentrated HNO₃ (7–10 M) &nbsp;|&nbsp; T: 100–110°C &nbsp;|&nbsp; Produces uranyl nitrate solution with dissolved Pu and fission products
+        <span class="eq-note">&nbsp;→ All fuel components enter aqueous nitric acid solution</span>
+      </div>
+    </div>
+
+    <div class="equation-block fade-up">
+      <div class="eq-label">// Step 2 — Solvent Extraction (Co-Decontamination Cycle)</div>
+      <div class="eq-formula">UO₂²⁺ + 2NO₃⁻ + 2TBP → UO₂(NO₃)₂·2TBP &nbsp;(organic phase)</div>
+      <div class="eq-conditions">Solvent: 30% TBP (Tributyl Phosphate) in n-dodecane &nbsp;|&nbsp; Countercurrent extraction columns
+        <span class="eq-note blue">&nbsp;→ U and Pu extracted into organic phase; fission products remain in aqueous raffinate</span>
+      </div>
+    </div>
+
+    <div class="equation-block fade-up">
+      <div class="eq-label">// Step 3 — Pu/U Partition (Selective Reduction)</div>
+      <div class="eq-formula">Pu⁴⁺ + reductant → Pu³⁺ &nbsp;(back-extracted to aqueous phase)</div>
+      <div class="eq-conditions">Reductant: Ferrous sulphamate or hydroxylamine in HNO₃ &nbsp;|&nbsp; Pu³⁺ does not complex with TBP
+        <span class="eq-note green">&nbsp;→ Pu selectively stripped back to aqueous; U remains in organic — separation achieved</span>
+      </div>
+    </div>
+
+    <div class="data-table-wrap fade-up">
+      <div class="data-table-title">// Table 2 — PUREX Process Outputs and ChE Significance</div>
+      <table>
+        <thead>
+          <tr><th>Output Stream</th><th>Composition</th><th>Next Step</th><th>ChE Relevance</th></tr>
+        </thead>
+        <tbody>
+          <tr><td><strong>Plutonium Nitrate</strong></td><td>Pure Pu(NO₃)₄ aq.</td><td class="td-green">MOX fuel fabrication</td><td>Ion exchange purification</td></tr>
+          <tr><td><strong>Uranium Nitrate</strong></td><td>&gt;99.9% pure UO₂(NO₃)₂</td><td class="td-green">Re-enrichment / MOX</td><td>Evaporation + calcination</td></tr>
+          <tr><td><strong>High Level Liquid Waste</strong></td><td>Fission products in HNO₃</td><td class="td-red">Vitrification (glass)</td><td>Waste volume minimisation</td></tr>
+          <tr><td><strong>Recovered yield</strong></td><td>&gt;99.5% U and Pu</td><td>—</td><td>Best-in-class extraction</td></tr>
+        </tbody>
+      </table>
+    </div>
+
+    <div class="callout info fade-up">
+      <div class="callout-title">🔬 ChE Connection — Separation Engineering at its Most Extreme</div>
+      <p>The PUREX process is one of the most demanding applications of chemical engineering separation principles in existence. It involves <strong>liquid-liquid extraction</strong> (mass transfer), <strong>countercurrent column design</strong> (heat and mass transfer), <strong>solvent selection</strong> (thermodynamics of TBP-nitric acid systems), and <strong>criticality control</strong> (ensuring plutonium concentrations never reach critical mass). All operations are conducted inside heavily shielded cells using remote handling equipment, as radiation levels can exceed <strong>10,000 Sv/hr</strong> — lethal within seconds of direct exposure. This is chemical engineering at the absolute frontier of human capability.</p>
+    </div>
+
+    <!-- SECTION 7 -->
+    <h2 id="s7">7. What "First Criticality" Means — and What Comes Next</h2>
+
+    <p>The term "first criticality" has a precise nuclear engineering definition. A reactor is <strong>critical</strong> when the neutron multiplication factor k<sub>eff</sub> = 1.000 exactly — meaning each fission event produces exactly one neutron that causes another fission, sustaining a steady chain reaction without acceleration or die-out.</p>
+
+    <div class="equation-block fade-up">
+      <div class="eq-label">// Criticality Condition</div>
+      <div class="eq-formula">k<sub>eff</sub> = (Neutrons produced per generation) / (Neutrons absorbed + leaked per generation)</div>
+      <div class="eq-conditions">k<sub>eff</sub> = 1.000: Critical (steady chain reaction) &nbsp;|&nbsp; k<sub>eff</sub> &lt; 1: Subcritical &nbsp;|&nbsp; k<sub>eff</sub> &gt; 1: Supercritical (power rising)
+        <span class="eq-note green">&nbsp;→ At first criticality, PFBR achieved k<sub>eff</sub> = 1.000 for the first time on April 6, 2026</span>
+      </div>
+    </div>
+
+    <p>Achieving first criticality does not mean the reactor is immediately generating electricity. It marks the beginning of a <strong>carefully staged power escalation process</strong>:</p>
+
+    <div class="data-table-wrap fade-up">
+      <div class="data-table-title">// Table 3 — PFBR Commissioning Roadmap Post-Criticality</div>
+      <table>
+        <thead>
+          <tr><th>Phase</th><th>Timeline</th><th>Activity</th><th>Purpose</th></tr>
+        </thead>
+        <tbody>
+          <tr><td><strong>First Criticality</strong></td><td class="td-green">✅ April 6, 2026</td><td>k<sub>eff</sub> = 1.000 at low power</td><td>Confirm nuclear design parameters</td></tr>
+          <tr><td><strong>Low Power Physics Tests</strong></td><td>April–May 2026</td><td>Reactor physics experiments at &lt;1% power</td><td>Validate neutron flux distribution</td></tr>
+          <tr><td><strong>Power Escalation</strong></td><td>May–August 2026</td><td>Gradual rise to full 500 MWe</td><td>Thermal-hydraulic validation</td></tr>
+          <tr><td><strong>Grid Synchronisation</strong></td><td>August–September 2026</td><td>Connect to national grid, AERB clearance</td><td>Commercial electricity generation</td></tr>
+          <tr><td><strong>Full Commercial Operation</strong></td><td>September 2026 (target)</td><td>500 MWe steady-state generation</td><td>First Stage 2 commercial power</td></tr>
+          <tr><td><strong>FBR-1 and FBR-2 Sanction</strong></td><td>2026–2027</td><td>Govt approves twin 600 MWe FBRs</td><td>Scale-up of Stage 2 programme</td></tr>
+        </tbody>
+      </table>
+    </div>
+
+    <!-- SECTION 8 -->
+    <h2 id="s8">8. India's Nuclear Ambitions: The Road to 100 GW by 2047</h2>
+
+    <p>The PFBR's first criticality arrives at a moment of extraordinary ambition for India's nuclear sector. The Union Budget 2025-26 outlined a <strong>Nuclear Energy Mission</strong> with a target of <strong>100 GW of nuclear capacity by 2047</strong> — India's centenary of independence. India's current nuclear capacity stands at approximately <strong>7.5 GW</strong>, meaning nuclear power must grow by a factor of 13× in just 21 years.</p>
+
+    <p>The plan for achieving this is directly linked to the PFBR's success. In a March 2026 parliamentary reply, the government confirmed that <strong>once the PFBR achieved first criticality, it would immediately approach financial sanction for the twin FBR-1 and FBR-2 projects</strong> at Kalpakkam — each with a capacity of 600 MWe, and 17% more powerful than the PFBR prototype. Four additional FBRs (also 600 MWe each) are planned at a separate site to be identified beyond 2030.</p>
+
+    <div class="data-table-wrap fade-up">
+      <div class="data-table-title">// Table 4 — India's Nuclear Expansion Roadmap</div>
+      <table>
+        <thead>
+          <tr><th>Reactor / Programme</th><th>Capacity</th><th>Technology</th><th>Timeline</th></tr>
+        </thead>
+        <tbody>
+          <tr><td><strong>PFBR (Stage 2 prototype)</strong></td><td>500 MWe</td><td>Sodium-cooled FBR</td><td class="td-green">Critical Apr 2026; Commercial Sep 2026</td></tr>
+          <tr><td><strong>FBR-1 & FBR-2 (Kalpakkam)</strong></td><td>600 MWe × 2</td><td>FBR (improved)</td><td class="td-warn">Sanction 2026–27; Operation ~2034</td></tr>
+          <tr><td><strong>4 Additional FBRs</strong></td><td>600 MWe × 4</td><td>FBR</td><td>Post-2030</td></tr>
+          <tr><td><strong>Pressurized Water Reactors (PWRs)</strong></td><td>~10,000 MWe</td><td>PWR (Russian/French)</td><td>Multiple sites, 2030s</td></tr>
+          <tr><td><strong>Small Modular Reactors (SMRs)</strong></td><td>TBD</td><td>BARC indigenous design</td><td>Post-2030</td></tr>
+          <tr><td><strong>AHWR (Stage 3 prototype)</strong></td><td>300 MWe</td><td>Thorium-U233 cycle</td><td>Post-2035</td></tr>
+          <tr><td><strong>Total 2047 target</strong></td><td class="td-green">100,000 MWe</td><td>Mix of Stage 2 & 3</td><td>2047</td></tr>
+        </tbody>
+      </table>
+    </div>
+
+    <!-- SECTION 9 -->
+    <h2 id="s9">9. Challenges and the Path Forward</h2>
+
+    <h3>9.1 Sodium Handling at Scale</h3>
+    <p>The PFBR's 1,750 tonnes of primary sodium represents the largest sodium inventory ever managed by Indian engineers. Maintaining this at 400–550°C in leak-tight circuits under argon cover gas, with continuous monitoring for sodium-water reactions in the steam generators, is an ongoing operational challenge that will only intensify as India scales to 6+ FBRs. Development of improved <strong>electromagnetic sodium pumps</strong> (no moving parts — driven by electromagnetic force on liquid metal) and advanced sodium leak detection systems are active research areas at IGCAR.</p>
+
+    <h3>9.2 Reprocessing Capacity Scale-Up</h3>
+    <p>India currently has the capacity to reprocess approximately <strong>550 tonnes of spent nuclear fuel per year</strong>. Scaling to support 6 FBRs of 600 MWe each will require reprocessing capacity of <strong>850+ tonnes per year</strong>, necessitating construction of new PUREX and advanced reprocessing facilities. The FRFCF at Kalpakkam is a critical step, but further expansion is needed over the next decade.</p>
+
+    <h3>9.3 Cost Economics</h3>
+    <p>FBRs are more capital-intensive than conventional reactors — the PFBR's construction cost exceeded ₹5,000 crore (approximately $600 million USD), against an original budget of ₹3,492 crore. However, the long-term economics improve dramatically once the closed fuel cycle is established, as the "fuel" (U-238 from depleted uranium stockpiles) is effectively free — India has accumulated massive quantities of depleted uranium from PHWR operations that serve as FBR blanket material.</p>
+
+    <div class="callout success fade-up">
+      <div class="callout-title">✅ The Chemical Engineering Opportunity</div>
+      <p>India's Phase 2 nuclear programme represents one of the most significant opportunities for chemical engineers in the country's history. From <strong>sodium systems engineering</strong> to <strong>MOX fuel fabrication</strong>, <strong>PUREX reprocessing optimisation</strong>, <strong>waste vitrification</strong>, <strong>advanced separations research</strong>, and <strong>thorium chemistry</strong> — the technical challenges ahead are precisely the domain of chemical engineering. For ChE students at institutions like Annamalai University, the Nuclear Fuel Complex, IGCAR, BARC, and BHAVINI all offer pathways into this field of work.</p>
+    </div>
+
+    <!-- CONCLUSION -->
+    <h2 id="s10">10. Conclusion</h2>
+
+    <p>The first criticality of India's Prototype Fast Breeder Reactor at Kalpakkam on April 6, 2026 is not merely a technical milestone — it is the realisation of a <strong>70-year scientific vision</strong>. Homi J. Bhabha designed India's three-stage nuclear programme in the 1950s knowing that India's energy future lay not in its scarce uranium reserves but in its vast thorium deposits. He designed Stage 2 as the essential bridge — the mechanism by which India would multiply its nuclear fuel resources and generate the fissile material needed to unlock thorium at scale.</p>
+
+    <p>That bridge has now been crossed. India has joined an exclusive group — <strong>only Russia has previously achieved commercial-scale FBR operation</strong>. The PFBR proves that a developing nation with indigenous scientific capability can master the most sophisticated nuclear technology on Earth. When full commercial operation begins in September 2026, and when FBR-1 and FBR-2 follow in the 2030s, the exponential growth of India's fissile inventory will begin — steadily building towards the thorium economy that Bhabha envisioned.</p>
+
+    <p>For chemical engineers, nuclear engineers, and all those who believe in India's technological future — today is a day to remember.</p>
+
+    <hr class="s-divider">
+
+    <!-- REFERENCES -->
+    <div class="references-section">
+      <div class="ref-title">// References & Sources</div>
+      <ol class="ref-list">
+        <li data-num="1">Department of Atomic Energy, Government of India. <em>Prototype Fast Breeder Reactor at Kalpakkam, Tamil Nadu Attains First Criticality.</em> April 6, 2026. <a href="https://dae.gov.in/prototype-fast-breeder-reactor-at-kalpakkam-tamil-nadu-attains-first-criticality/" target="_blank">dae.gov.in</a></li>
+        <li data-num="2">Prime Minister's Office. <em>PM congratulates scientists and engineers as PFBR at Kalpakkam attains criticality.</em> April 6, 2026. <a href="https://www.pmindia.gov.in/en/news_updates/pm-congratulates-scientists-and-engineers-as-prototype-fast-breeder-reactor-at-kalpakkam-attains-criticality/" target="_blank">pmindia.gov.in</a></li>
+        <li data-num="3">Interesting Engineering. <em>India's first 500 MWe fast breeder reactor achieves criticality.</em> April 7, 2026. <a href="https://interestingengineering.com/energy/india-fast-breeder-reactor-criticality" target="_blank">interestingengineering.com</a></li>
+        <li data-num="4">The Defense News. <em>India's 500 MWe Fast Breeder Reactor Achieves First Criticality, Advancing Nuclear Programme to Stage II.</em> April 7, 2026. <a href="https://www.thedefensenews.com/news-details/Indias-500-MWe-Fast-Breeder-Reactor-Achieves-First-Criticality-Advancing-Nuclear-Programme-to-Stage-II/" target="_blank">thedefensenews.com</a></li>
+        <li data-num="5">Free Press Journal. <em>India's Prototype Fast Breeder Reactor In Tamil Nadu Achieves Criticality.</em> April 7, 2026. <a href="https://www.freepressjournal.in/tech/indias-prototype-fast-breeder-reactor-in-tamil-nadu-achieves-criticality-in-historic-nuclear-milestone-why-this-is-important" target="_blank">freepressjournal.in</a></li>
+        <li data-num="6">Wikipedia. <em>Prototype Fast Breeder Reactor.</em> Updated April 7, 2026. <a href="https://en.wikipedia.org/wiki/Prototype_Fast_Breeder_Reactor" target="_blank">wikipedia.org</a></li>
+        <li data-num="7">Down to Earth. <em>Kalpakkam PFBR Achieves Criticality: India's Indigenous Fast Breeder Reactor Marks Major Nuclear Milestone.</em> April 7, 2026. <a href="https://www.downtoearth.org.in/energy/kalpakkam-indias-indigenously-developed-atomic-reactor-attains-criticality" target="_blank">downtoearth.org.in</a></li>
+        <li data-num="8">ScienceDirect. <em>Reprocessing of spent nuclear fuel in India: Present challenges and future programme.</em> 2017. <a href="https://www.sciencedirect.com/science/article/abs/pii/S0149197017300458" target="_blank">sciencedirect.com</a></li>
+        <li data-num="9">World Nuclear Association. <em>Processing of Used Nuclear Fuel — PUREX Process.</em> <a href="https://world-nuclear.org/information-library/nuclear-fuel-cycle/fuel-recycling/processing-of-used-nuclear-fuel" target="_blank">world-nuclear.org</a></li>
+        <li data-num="10">BARC / Fissilematerials.org. <em>Spent Fuel Reprocessing: An Overview.</em> P.K. Dey et al. <a href="https://fissilematerials.org/library/barc03.pdf" target="_blank">fissilematerials.org</a></li>
+        <li data-num="11">The Federal. <em>India's fast breeder reactor at Kalpakkam achieves criticality.</em> April 7, 2026. <a href="https://thefederal.com/category/news/india-pfbr-kalpakkam-criticality-nuclear-programme-237923" target="_blank">thefederal.com</a></li>
+      </ol>
+    </div>
+
+  </main>
+
+  <!-- SIDEBAR -->
+  <aside class="article-sidebar">
+
+    <!-- AUTHOR -->
+    <div class="sidebar-card fade-up">
+      <div class="sidebar-title">// Author</div>
+      <div class="author-card">
+        <div class="author-avatar">⚗️</div>
+        <div>
+          <div class="author-name">B.M.Dharaneesh</div>
+          <div class="author-sub">B.E. Chemical Engineering<br>Annamalai University</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- TOC -->
+    <div class="sidebar-card fade-up">
+      <div class="sidebar-title">// Contents</div>
+      <ul class="toc-list">
+        <li><a href="#s1">1. India's Nuclear Paradox</a></li>
+        <li><a href="#s2">2. The Three-Stage Programme</a></li>
+        <li><a href="#s3">3. FBR Physics & Breeding</a></li>
+        <li><a href="#s4">4. PFBR Specifications</a></li>
+        <li><a href="#s5">5. MOX Fuel Fabrication</a></li>
+        <li><a href="#s6">6. PUREX Reprocessing</a></li>
+        <li><a href="#s7">7. What Criticality Means</a></li>
+        <li><a href="#s8">8. Road to 100 GW by 2047</a></li>
+        <li><a href="#s9">9. Challenges Ahead</a></li>
+        <li><a href="#s10">10. Conclusion</a></li>
+      </ul>
+    </div>
+
+    <!-- PFBR FACTS -->
+    <div class="sidebar-card fade-up">
+      <div class="sidebar-title">// PFBR Quick Facts</div>
+      <div class="fact-item">
+        <div class="fact-label">First Criticality</div>
+        <div class="fact-val" style="color:var(--accent);">April 6, 2026 — 20:25 IST</div>
+      </div>
+      <div class="fact-item">
+        <div class="fact-label">Location</div>
+        <div class="fact-val">Kalpakkam, Tamil Nadu</div>
+      </div>
+      <div class="fact-item">
+        <div class="fact-label">Capacity</div>
+        <div class="fact-val">500 MWe</div>
+      </div>
+      <div class="fact-item">
+        <div class="fact-label">Coolant</div>
+        <div class="fact-val">Liquid Sodium (1,750 t)</div>
+      </div>
+      <div class="fact-item">
+        <div class="fact-label">Fuel</div>
+        <div class="fact-val">MOX (21% PuO₂ + UO₂)</div>
+      </div>
+      <div class="fact-item">
+        <div class="fact-label">Designer</div>
+        <div class="fact-val">IGCAR (100% indigenous)</div>
+      </div>
+      <div class="fact-item">
+        <div class="fact-label">Builder</div>
+        <div class="fact-val">BHAVINI (DAE)</div>
+      </div>
+      <div class="fact-item">
+        <div class="fact-label">Commercial Op.</div>
+        <div class="fact-val">September 2026 (target)</div>
+      </div>
+    </div>
+
+    <!-- RELATED ARTICLES -->
+    <div class="sidebar-card fade-up" style="cursor:pointer;" onclick="window.location='article-urea-crisis.html'">
+      <div class="sidebar-title">// Related Articles</div>
+      <div style="font-family:'Cormorant Garamond',serif;font-size:0.98rem;font-weight:700;color:var(--text);margin-bottom:0.3rem;">Iran–Israel War & the Urea Crisis</div>
+      <div style="font-size:0.75rem;color:var(--muted);line-height:1.5;margin-bottom:0.5rem;">How geopolitical conflict is disrupting global fertilizer supply chains.</div>
+      <div style="font-family:'IBM Plex Mono',monospace;font-size:0.65rem;color:var(--accent);">Read →</div>
+    </div>
+    <div class="sidebar-card fade-up" style="cursor:pointer;margin-top:-0.5rem;" onclick="window.location='article-helium-shortage.html'">
+      <div style="font-family:'Cormorant Garamond',serif;font-size:0.98rem;font-weight:700;color:var(--text);margin-bottom:0.3rem;">The Helium Shortage Crisis</div>
+      <div style="font-size:0.75rem;color:var(--muted);line-height:1.5;margin-bottom:0.5rem;">One-third of global helium supply offline — cryogenic separation analysis.</div>
+      <div style="font-family:'IBM Plex Mono',monospace;font-size:0.65rem;color:var(--accent);">Read →</div>
+    </div>
+
+  </aside>
+</div>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-logo">B.M.<span>Dharaneesh</span></div>
+  <p>© 2026 — B.M.Dharaneesh</p>
+  <p>Built for the ChE Community 🔬</p>
+</footer>
+
+<script>
+  const io = new IntersectionObserver(entries => {
+    entries.forEach(e => { if (e.isIntersecting) e.target.classList.add('visible'); });
+  }, { threshold: 0.08 });
+  document.querySelectorAll('.fade-up').forEach((el, i) => {
+    el.style.transitionDelay = (i % 4) * 60 + 'ms';
+    io.observe(el);
+  });
+</script>
+</body>
+</html>
